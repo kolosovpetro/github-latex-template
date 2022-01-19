@@ -41,7 +41,19 @@ LaTeX template for Github including general CI/CD actions and Mathematica templa
 
 ## Configure CI / CD
 
-## Action trigger policy
+Set repository secrets
+
+- `GH_ACCESS_TOKEN`: Generate Github Personal access token at
+  `Settings -> Developer Settings -> Personal access tokens -> Generate mew token` and assign in to
+  secret `GH_ACCESS_TOKEN`
+- `GH_NAME`: Your Github username
+- `GH_EMAIL`: Your Github email
+
+## Actions and their trigger policy
+
+- `build-pdf.yml` builds project using `TeXLive`. Triggered on `pull_request`, `push` to `develop` branch
+- `build-and-deploy-pdf.yml` builds project using `TeXLive` and deploys to `GitHub Pages`. Triggered on `push` to `main`
+  branch
 
 ## Template example
 
