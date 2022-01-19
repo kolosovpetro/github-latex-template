@@ -1,16 +1,18 @@
-# LaTeX template for Github
+# Github LaTeX Template
 
 LaTeX template for Github including general CI/CD actions and Mathematica templates.
+
+<p align="center">
+  <img src="img/readme_logo_example.png" alt="logo_example"/>
+</p>
 
 [![Build PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build.yml/badge.svg)
 [![Build and Deploy PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy.yml/badge.svg)
 ![contributors count](https://img.shields.io/github/contributors/kolosovpetro/github-latex-template)
 
-## Template Example
+## What is all about
 
-<p align="center">
-  <img src="img/template_example.PNG" alt="template_example"/>
-</p>
+LaTeX template for Github including general CI/CD actions and Mathematica templates.
 
 ## Build and run in Intellij IDEA
 
@@ -40,3 +42,11 @@ LaTeX template for Github including general CI/CD actions and Mathematica templa
 ## Configure CI / CD
 
 ## Action trigger policy
+
+## Template example
+
+Compiled document looks like as follows
+
+<p align="center">
+  <img src="img/template_example.PNG" alt="template_example"/>
+</p>
