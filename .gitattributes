@@ -1,0 +1,10 @@
+*.cs linguist-detectable=true
+*.js linguist-detectable=false
+*.cshtml linguist-detectable=false
+*.razor linguist-detectable=false
+*.html linguist-detectable=false
+*.htm linguist-detectable=false
+*.xml linguist-detectable=false
+*.css linguist-detectable=false
+*.m linguist-detectable=false
+*.nb linguist-detectable=false
