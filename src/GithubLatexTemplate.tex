@@ -1,0 +1,86 @@
+\documentclass[12pt,letterpaper,oneside,reqno]{amsart}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{colonequals}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[left=1in,right=1in,bottom=1in,top=1in]{geometry}
+\usepackage[pdfpagelabels,hyperindex,colorlinks=true,linkcolor=blue,urlcolor=magenta,citecolor=green]{hyperref}
+\usepackage{setspace}
+\onehalfspacing
+\emergencystretch=1em
+
+\newcommand \anglePower [2]{\langle #1 \rangle \sp{#2}}
+\newcommand \bernoulli [2][B] {{#1}\sb{#2}}
+\newcommand \curvePower [2]{\{#1\}\sp{#2}}
+\newcommand \coeffA [3][A] {{\mathbf{#1}} \sb{#2,#3}}
+\newcommand \polynomialP [4][P]{{\mathbf{#1}}\sp{#2} \sb{#3}(#4)}
+
+% ordinary derivatives
+\newcommand \derivative [2] {\frac{d}{d #2} #1}                              % 1 - function; 2 - variable;
+\newcommand \pderivative [2] {\frac{\partial #1}{\partial #2}}               % 1 - function; 2 - variable;
+\newcommand \qderivative [1] {D_{q} #1}                                      % 1 - function
+\newcommand \nqderivative [1] {D_{n,q} #1}                                   % 1 - function
+\newcommand \qpowerDerivative [1] {\mathcal{D}_q #1}                         % 1 - function;
+\newcommand \finiteDifference [1] {\Delta #1}                                % 1 - function;
+\newcommand \pTsDerivative [2] {\frac{\partial #1}{\Delta #2}}               % 1 - function; 2 - variable;
+
+% high order derivatives
+\newcommand \derivativeHO [3] {\frac{d^{#3}}{d {#2}^{#3}} #1}                % 1 - function; 2 - variable; 3 - order
+\newcommand \pderivativeHO [3]{\frac{\partial^{#3}}{\partial {#2}^{#3}} #1}
+\newcommand \qderivativeHO [2] {D_{q}^{#2} #1}                               % 1 - function; 2 - order
+\newcommand \qpowerDerivativeHO [2] {\mathcal{D}_{q}^{#2} #1}                % 1 - function; 2 - order
+\newcommand \finiteDifferenceHO [2] {\Delta^{#2} #1}                         % 1 - function; 2 - order
+\newcommand \pTsDerivativeHO [3] {\frac{\partial^{#3}}{\Delta {#2}^{#3}} #1} % 1 - function; 2 - variable;
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{examp}[thm]{Example}
+
+\numberwithin{equation}{section}
+
+\title[LaTeX Template for Github]
+{LaTeX Template for Github}
+\author[Your Full Name]{Your Full Name}
+\email{your@email.com}
+\keywords{
+    Keyword1, Keyword2
+}
+\urladdr{https://yourwebsite.com}
+\subjclass[2010]{26E70, 05A30}
+\date{\today}
+\hypersetup{
+    pdftitle={LaTeX Template for Github},
+    pdfsubject={
+        Your Subject List
+    },
+    pdfauthor={Petro Kolosov},
+    pdfkeywords={
+        Your Keywords list
+    }
+}
+\begin{document}
+    \begin{abstract}
+        \input{sections/abstract.tex}
+    \end{abstract}
+
+    \maketitle
+
+    \tableofcontents
+
+
+    \section{Introduction} \label{sec:introduction}
+    \input{sections/introduction.tex}
+
+
+    \section{Conclusions}\label{sec:conclusions}
+    \input{sections/conclusions.tex}
+
+    \bibliographystyle{alpha}
+    \bibliography{GithubLatexTemplateReferences}
+
+\end{document}
