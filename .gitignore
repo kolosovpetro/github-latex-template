@@ -12,6 +12,10 @@
 *.cb2
 .*.lb
 
+## Archives
+*.rar
+*.zip
+
 ## Intermediate documents:
 *.dvi
 *.xdv
