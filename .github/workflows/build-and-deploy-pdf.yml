@@ -31,7 +31,7 @@ jobs:
         continue-on-error: true
         run: |
           git clone https://${{ secrets.GH_ACCESS_TOKEN }}@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
-          cp src/GithubLatexTemplate.pdf ~/kolosovpetro.github.io/pdf/GithubLatexTemplate.pdf.pdf
+          cp src/GithubLatexTemplate.pdf ~/kolosovpetro.github.io/pdf/GithubLatexTemplate.pdf
 
       - name: Commit document changes if any
         continue-on-error: true
