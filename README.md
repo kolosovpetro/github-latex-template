@@ -1,18 +1,9 @@
-# Github LaTeX Template
+# GitHub LaTeX Template
 
-LaTeX template for Github including general CI/CD actions and Mathematica templates.
-
-<p align="center">
-  <img src="img/readme_logo_example.png" alt="logo_example"/>
-</p>
+LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
 
 [![Build PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build.yml/badge.svg)
 [![Build and Deploy PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy.yml/badge.svg)
-![contributors count](https://img.shields.io/github/contributors/kolosovpetro/github-latex-template)
-
-## What is all about
-
-LaTeX template for Github including general CI/CD actions and Mathematica templates.
 
 ## Build and run in Intellij IDEA
 
@@ -43,10 +34,10 @@ LaTeX template for Github including general CI/CD actions and Mathematica templa
 
 Set repository secrets
 
-- `GH_ACCESS_TOKEN`: Generate Github Personal access token at
+- `GH_ACCESS_TOKEN`: Generate GitHub Personal access token at
   `Settings -> Developer Settings -> Personal access tokens -> Generate mew token` and assign in to
   secret `GH_ACCESS_TOKEN`
-- `GH_NAME`: Your Github username
+- `GH_NAME`: Your GitHub username
 - `GH_EMAIL`: Your Github email
 
 ## Actions and their trigger policy

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - master
   pull_request:
     branches:
       - develop
@@ -11,17 +12,20 @@ on:
 jobs:
   build-resume:
     runs-on: ubuntu-latest
-    name: Create document
+    name: Build PDF
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-      - name: Convert to pdf
-        id: convert-to-pdf
+        uses: actions/checkout@v3
+
+      - name: Build PDF
         uses: xu-cheng/latex-action@v2
         with:
           root_file: GithubLatexTemplate.tex
           working_directory: src
-      - uses: actions/upload-artifact@v2
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
-          name: PDF
-          path: GithubLatexTemplate.pdf
+          name: drop
+          path: src/GithubLatexTemplate.pdf
