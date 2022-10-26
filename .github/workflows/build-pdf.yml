@@ -21,11 +21,11 @@ jobs:
       - name: Build PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: GithubLatexTemplate.pdf.tex
+          root_file: GithubLatexTemplate.tex
           working_directory: src
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: drop
-          path: src/GithubLatexTemplate.pdf.pdf
+          path: src/GithubLatexTemplate.pdf
