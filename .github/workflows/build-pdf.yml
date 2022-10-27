@@ -5,9 +5,9 @@ on:
     branches:
       - develop
       - master
+      - main
   pull_request:
     branches:
-      - develop
       - main
       - master
 

@@ -1,9 +1,9 @@
 # GitHub LaTeX Template
 
-LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
-
 [![Build PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build.yml/badge.svg)
 [![Build and Deploy PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy.yml/badge.svg)
+
+LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
 
 ## Build and run in Intellij IDEA
 
@@ -35,10 +35,7 @@ LaTeX template for GitHub including general CI/CD actions and Mathematica templa
 Set repository secrets
 
 - `GH_ACCESS_TOKEN`: Generate GitHub Personal access token at
-  `Settings -> Developer Settings -> Personal access tokens -> Generate mew token` and assign in to
-  secret `GH_ACCESS_TOKEN`
-- `GH_NAME`: Your GitHub username
-- `GH_EMAIL`: Your Github email
+  `Settings -> Developer Settings -> Personal access tokens -> Generate mew token`
 
 ## Actions and their trigger policy
 
@@ -53,3 +50,7 @@ Compiled document looks like as follows
 <p align="center">
   <img src="img/template_example.PNG" alt="template_example"/>
 </p>
+
+## License
+
+This work is licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) license
