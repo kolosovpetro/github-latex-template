@@ -1,0 +1,19 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: LaTeX Template for Github
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Petro
+    family-names: Kolosov
+    email: kolosovp94@gmail.com
+    orcid: 'https://orcid.org/0000-0002-6544-8880'
+identifiers:
+  - type: url
+    value: >-
+      https://github.com/kolosovpetro/github-latex-template
+    description: LaTeX Template for Github Source files
