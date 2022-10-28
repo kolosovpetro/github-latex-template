@@ -44,10 +44,10 @@ jobs:
         continue-on-error: true
         run: |
           cd ~/kolosovpetro.github.io
-          git config --global user.name $USERNAME
-          git config --global user.email $EMAIL
+          git config --global user.name "$USERNAME"
+          git config --global user.email "$EMAIL"
           git add .
-          git commit -m $MESSAGE
+          git commit -m "$MESSAGE"
           git push
         env:
           USERNAME: "kolosovpetro"
