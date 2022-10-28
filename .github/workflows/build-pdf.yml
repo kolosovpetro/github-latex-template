@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCUMENT_NAME: "GithubLatexTemplate"
+  DOCUMENT_NAME: GithubLatexTemplate
 
 jobs:
   build-pdf:
@@ -27,11 +27,11 @@ jobs:
       - name: Build PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: "$(DOCUMENT_NAME).tex"
+          root_file: $DOCUMENT_NAME.tex
           working_directory: src
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: "drop"
-          path: "src/$(DOCUMENT_NAME).pdf"
+          name: drop
+          path: src/$DOCUMENT_NAME.pdf
