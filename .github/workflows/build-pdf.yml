@@ -13,7 +13,9 @@ on:
   workflow_dispatch:
 
 env:
-  DOCUMENT_NAME: GithubLatexTemplate
+  FILE_NAME: "GithubLatexTemplate"
+  TEX_FILE_NAME: "$FILENAME.tex"
+  PDF_FILE_PATH: "src/$FILENAME.pdf"
 
 jobs:
   build-pdf:
@@ -24,14 +26,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Print env vars to test
+        run: |
+          echo "FILE_NAME: $FILE_NAME"
+          echo "TEX_FILE_NAME: $TEX_FILE_NAME"
+          echo "PDF_FILE_PATH: $PDF_FILE_PATH"
+
       - name: Build PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: $DOCUMENT_NAME.tex
+          root_file: ${{ env.TEX_FILE_NAME }}
           working_directory: src
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: drop
-          path: src/$DOCUMENT_NAME.pdf
+          path: ${{ env.PDF_FILE_PATH }}
