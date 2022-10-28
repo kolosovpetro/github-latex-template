@@ -5,9 +5,13 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
+
+env:
+  FILE_NAME: "GithubLatexTemplate"
 
 jobs:
-  build-resume:
+  build-pdf:
     runs-on: ubuntu-latest
     name: Build and Deploy PDF
 
@@ -18,27 +22,33 @@ jobs:
       - name: Build PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: GithubLatexTemplate.tex
+          root_file: "${{ env.FILE_NAME }}.tex"
           working_directory: src
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: drop
-          path: src/GithubLatexTemplate.pdf
+          name: "drop"
+          path: "src/${{ env.FILE_NAME }}.pdf"
 
       - name: Clone repository and add document
         continue-on-error: true
         run: |
-          git clone https://${{ secrets.GH_ACCESS_TOKEN }}@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
-          cp src/GithubLatexTemplate.pdf ~/kolosovpetro.github.io/pdf/GithubLatexTemplate.pdf
+          git clone "https://$TOKEN@github.com/kolosovpetro/kolosovpetro.github.io.git" "~/kolosovpetro.github.io"
+          cp "src/${{ env.FILE_NAME }}.pdf" "~/kolosovpetro.github.io/pdf/${{ env.FILE_NAME }}.pdf"
+        env:
+          TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
       - name: Commit document changes if any
         continue-on-error: true
         run: |
           cd ~/kolosovpetro.github.io
-          git config --global user.name "kolosovpetro"
-          git config --global user.email "kolosovp94@gmail.com"
+          git config --global user.name $USERNAME
+          git config --global user.email $EMAIL
           git add .
-          git commit -am "CICD deploy of PDF document"
+          git commit -m $MESSAGE
           git push
+        env:
+          USERNAME: "kolosovpetro"
+          EMAIL: "kolosovp94@gmail.com"
+          MESSAGE: "CICD deploy of PDF document"
