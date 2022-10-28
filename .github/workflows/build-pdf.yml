@@ -10,9 +10,13 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
+
+env:
+  DOCUMENT_NAME: "GithubLatexTemplate"
 
 jobs:
-  build-resume:
+  build-pdf:
     runs-on: ubuntu-latest
     name: Build PDF
 
@@ -23,11 +27,11 @@ jobs:
       - name: Build PDF
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: GithubLatexTemplate.tex
+          root_file: "$DOCUMENT_NAME.tex"
           working_directory: src
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: drop
-          path: src/GithubLatexTemplate.pdf
+          name: "drop"
+          path: "src/$DOCUMENT_NAME.pdf"

@@ -5,9 +5,10 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
 
 jobs:
-  build-resume:
+  build-pdf:
     runs-on: ubuntu-latest
     name: Build and Deploy PDF
 
