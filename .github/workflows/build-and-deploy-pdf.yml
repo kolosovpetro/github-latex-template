@@ -34,8 +34,8 @@ jobs:
       - name: Clone repository and add document
         continue-on-error: true
         run: |
-          git clone "https://$TOKEN@github.com/kolosovpetro/kolosovpetro.github.io.git" "~/kolosovpetro.github.io"
-          cp "src/${{ env.FILE_NAME }}.pdf" "~/kolosovpetro.github.io/pdf/${{ env.FILE_NAME }}.pdf"
+          git clone https://$TOKEN@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
+          cp src/${{ env.FILE_NAME }}.pdf ~/kolosovpetro.github.io/pdf/${{ env.FILE_NAME }}.pdf
         env:
           TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
@@ -43,10 +43,10 @@ jobs:
         continue-on-error: true
         run: |
           cd ~/kolosovpetro.github.io
-          git config --global user.name $USERNAME
-          git config --global user.email $EMAIL
+          git config --global user.name "$USERNAME"
+          git config --global user.email "$EMAIL"
           git add .
-          git commit -m $MESSAGE
+          git commit -m "$MESSAGE"
           git push
         env:
           USERNAME: "kolosovpetro"
