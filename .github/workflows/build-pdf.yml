@@ -14,8 +14,8 @@ on:
 
 env:
   FILE_NAME: "GithubLatexTemplate"
-  TEX_FILE_NAME: "$FILENAME.tex"
-  PDF_FILE_PATH: "src/$FILENAME.pdf"
+  TEX_FILE_NAME: "${{ env.FILENAME }}.tex"
+  PDF_FILE_PATH: "src/${{ env.FILENAME }}.pdf"
 
 jobs:
   build-pdf:
