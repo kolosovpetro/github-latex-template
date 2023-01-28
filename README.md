@@ -49,6 +49,7 @@ Compiled document looks like as follows
 
 <p align="center">
   <img src="img/template_example.PNG" alt="template_example"/>
+  <img src="img/template_example2.PNG" alt="template_example"/>
 </p>
 
 ## License
