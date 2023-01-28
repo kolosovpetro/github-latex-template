@@ -2,9 +2,8 @@ name: Build and Deploy PDF
 
 on:
   push:
-    branches:
-      - main
-      - master
+    tags:
+      - v*
   workflow_dispatch:
 
 env:
