@@ -12,6 +12,10 @@
 \usepackage{graphicx}
 \linespread{1.7}
 \emergencystretch=1em
+\usepackage{array}
+\usepackage{etoolbox}
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+\raggedbottom
 
 \newcommand \anglePower [2]{\langle #1 \rangle \sp{#2}}
 \newcommand \bernoulli [2][B] {{#1}\sb{#2}}
@@ -40,6 +44,8 @@
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{examp}[thm]{Example}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{defn}[thm]{Definition}
 
 \numberwithin{equation}{section}
 
@@ -82,5 +88,6 @@
 
     \bibliographystyle{unsrt}
     \bibliography{GithubLatexTemplateReferences}
+    \noindent \textbf{Version:} \input{sections/version}
 
 \end{document}
