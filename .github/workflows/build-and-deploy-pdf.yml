@@ -70,7 +70,6 @@ jobs:
             src/${{ env.FILE_NAME }}.pdf
 
       - name: Clone repository and add document
-        continue-on-error: true
         run: |
           git clone https://$TOKEN@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
           cp src/${{ env.FILE_NAME }}.pdf ~/kolosovpetro.github.io/pdf/${{ env.FILE_NAME }}.pdf
@@ -78,7 +77,6 @@ jobs:
           TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
       - name: Commit document changes if any
-        continue-on-error: true
         run: |
           cd ~/kolosovpetro.github.io
           git config --global user.name "$USERNAME"
