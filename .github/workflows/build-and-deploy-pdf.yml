@@ -33,11 +33,13 @@ jobs:
           echo ${{ env.GITVERSION_SEMVER }}
           echo ${{ env.GitVersion_InformationalVersion }}
           echo ${{ env.GitVersion_EscapedBranchName }}
+          newVersion="${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
+          echo "Next version: $newVersion"
 
       - name: Update version.tex
         shell: bash
         run: |
-          newVersion=${{ env.GitVersion_InformationalVersion }}
+          newVersion="${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
           sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
 
       - name: Build PDF
