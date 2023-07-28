@@ -62,7 +62,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: "${{ env.FILE_NAME }}-${{ env.GitVersion_InformationalVersion }}"
+          name: "${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
           path: |
             src/${{ env.FILE_NAME }}.tex
             src/${{ env.FILE_NAME }}.bbl
@@ -72,6 +72,6 @@ jobs:
       - name: Upload artifacts PDF
         uses: actions/upload-artifact@v3
         with:
-          name: "${{ env.FILE_NAME }}-PDF-${{ env.GitVersion_InformationalVersion }}"
+          name: "${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
           path: |
             src/${{ env.FILE_NAME }}.pdf

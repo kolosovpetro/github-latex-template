@@ -39,6 +39,16 @@
 \newcommand \qpowerDerivativeHO [2] {\mathcal{D}_{q}^{#2} #1}                % 1 - function; 2 - order
 \newcommand \finiteDifferenceHO [2] {\Delta^{#2} #1}                         % 1 - function; 2 - order
 \newcommand \pTsDerivativeHO [3] {\frac{\partial^{#3}}{\Delta {#2}^{#3}} #1} % 1 - function; 2 - variable;
+\newcommand \centralFactorial [2] {#1^{[#2]}}
+\newcommand \fallingFactorial [2] {\left(#1 \right)^{\underline{#2}}}
+\newcommand{\stirlingii}{\genfrac{\{}{\}}{0pt}{}}
+\newcommand{\eulerianNumber}{\genfrac{\langle}{\rangle}{0pt}{}}
+
+% for llceil coeffcient
+\newcommand{\nobarfrac}{\genfrac{}{}{0pt}{}}
+\def\llceil{\left\lceil\kern-3.5pt\left\lceil}
+\def\rrfloor{\right\rfloor\kern-3.5pt\right\rfloor}
+
 
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
@@ -52,11 +62,12 @@
 \title[LaTeX Template for Github]
 {LaTeX Template for Github}
 \author[Petro Kolosov]{Petro Kolosov}
+\address{Software Developer, DevOps Engineer}
 \email{kolosovp94@gmail.com}
+\urladdr{https://kolosovpetro.github.io}
 \keywords{
     Keyword1, Keyword2
 }
-\urladdr{https://kolosovpetro.github.io}
 \subjclass[2010]{26E70, 05A30}
 \date{\today}
 \hypersetup{
@@ -71,7 +82,7 @@
 }
 \begin{document}
     \begin{abstract}
-        \input{sections/abstract}
+        \input{sections/01_abstract}
     \end{abstract}
 
     \maketitle
@@ -80,11 +91,11 @@
 
 
     \section{Introduction} \label{sec:introduction}
-    \input{sections/introduction}
+    \input{sections/02_introduction}
 
 
     \section{Conclusions}\label{sec:conclusions}
-    \input{sections/conclusions}
+    \input{sections/03_conclusions}
 
     \bibliographystyle{unsrt}
     \bibliography{GithubLatexTemplate}
