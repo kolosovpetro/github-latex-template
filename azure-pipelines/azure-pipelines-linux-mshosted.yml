@@ -58,6 +58,12 @@ stages:
               sudo chmod -R 775 $(OutputDirectory)
             workingDirectory: '$(System.DefaultWorkingDirectory)'
             displayName: 'Create Output Directory'
+            
+          - bash: |
+              newVersion="$(GitVersion.SemVer)+$(GitVersion.BranchName).$(GitVersion.ShortSha)"
+              sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
+            displayName: 'Update version.tex'
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
 
           - bash: |
               echo "Compiling LaTeX document first time ..."
