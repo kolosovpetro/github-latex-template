@@ -5,6 +5,8 @@
 
 LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
 
+- https://dev.azure.com/PetroKolosovProjects/github-latex-template
+
 ## Build and run in Intellij IDEA
 
 - Install `MikTeX`: https://miktex.org/download

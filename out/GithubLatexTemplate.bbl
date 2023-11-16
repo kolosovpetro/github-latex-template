@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{bayour2017truly}
+Benaoumeur Bayour, Ahmed Hammoudi, and Delfim~FM Torres.
+\newblock A truly conformable calculus on time scales.
+\newblock {\em arXiv preprint arXiv:1705.08928}, 2017.
+\newblock \url {https://arxiv.org/abs/1705.08928}.
+
+\bibitem{benkhettou2016conformable}
+Nadia Benkhettou, Salima Hassani, and Delfim~FM Torres.
+\newblock A conformable fractional calculus on arbitrary time scales.
+\newblock {\em Journal of King Saud University-Science}, 28(1):93--98, 2016.
+
+\bibitem{caputo2009time}
+M~Cristina Caputo.
+\newblock Time scales: from nabla calculus to delta calculus and vice versa via
+  duality.
+\newblock {\em arXiv preprint arXiv:0910.0085}, 2009.
+
+\bibitem{martins2009calculus}
+Nat {\'a}~lia Martins and Delfim~FM Torres.
+\newblock Calculus of variations on time scales with nabla derivatives.
+\newblock {\em Nonlinear Analysis: Theory, Methods \& Applications},
+  71(12):e763--e773, 2009.
+
+\bibitem{GithubSource_2022}
+Petro Kolosov.
+\newblock {"Github Template" Source files}.
+\newblock Available electronically at \url
+  {https://github.com/kolosovpetro/github-latex-template}, 2022.
+
+\bibitem{Sloane_theencyclopedia}
+N.~J.~A. Sloane.
+\newblock The on-line encyclopedia of integer sequences.
+\newblock published electronically at \url {https://oeis.org}, 1964.
+
+\end{thebibliography}
