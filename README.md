@@ -53,7 +53,3 @@ Compiled document looks like as follows
   <img src="img/template_example.PNG" alt="template_example"/>
   <img src="img/template_example2.PNG" alt="template_example"/>
 </p>
-
-## License
-
-This work is licensed under [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) license
