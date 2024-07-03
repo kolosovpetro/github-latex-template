@@ -15,7 +15,7 @@ on:
 
 env:
   FILE_NAME: "GithubLatexTemplate"
-  ACTIONS_RUNNER_DEBUG: true
+  ACTIONS_RUNNER_DEBUG: false
 
 jobs:
   build-pdf:
