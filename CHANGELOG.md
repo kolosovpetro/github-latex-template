@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - README updated
 - Theorem environments update
 - Footnote added
+- Bump GitHub Actions version
 
 ## [1.1.7] - 2024-01-31
 ### Changed
