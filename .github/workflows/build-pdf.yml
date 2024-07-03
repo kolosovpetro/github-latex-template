@@ -37,16 +37,16 @@ jobs:
 
       - name: Print SemVer
         run: |
-          echo ${{ env.GITVERSION_SEMVER }}
-          echo ${{ env.GitVersion_InformationalVersion }}
-          echo ${{ env.GitVersion_EscapedBranchName }}
-          newVersion="${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
+          echo "SemVer: ${{ env.SemVer }}"
+          echo "BranchName: ${{ env.BranchName }}"
+          echo "ShortSha: ${{ env.ShortSha }}"
+          newVersion="${{ env.SemVer }}+${{ env.BranchName }}.${{ env.ShortSha }}"
           echo "Next version: $newVersion"
 
       - name: Update version.tex
         shell: bash
         run: |
-          newVersion="${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
+          newVersion="${{ env.SemVer }}+${{ env.BranchName }}.${{ env.ShortSha }}"
           sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
 
       - name: Build PDF
@@ -62,7 +62,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: "${{ env.FILE_NAME }}-${{ env.GitVersion_InformationalVersion }}"
+          name: "${{ env.FILE_NAME }}-${{ env.InformationalVersion }}"
           path: |
             src/${{ env.FILE_NAME }}.tex
             src/${{ env.FILE_NAME }}.bbl
@@ -72,6 +72,6 @@ jobs:
       - name: Upload artifacts PDF
         uses: actions/upload-artifact@v4
         with:
-          name: "${{ env.FILE_NAME }}-PDF-${{ env.GitVersion_InformationalVersion }}"
+          name: "${{ env.FILE_NAME }}-PDF-${{ env.InformationalVersion }}"
           path: |
             src/${{ env.FILE_NAME }}.pdf
