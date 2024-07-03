@@ -52,13 +52,38 @@
 \def\rrfloor{\right\rfloor\kern-3.5pt\right\rfloor}
 \newcommand \llceilCoefficient [3] {\llceil \nobarfrac{#1}{#2} \rrfloor_{#3}}
 
+% rascal numbers etc
+\newcommand \rascalNumber [3] {\binom{#1}{#2}_{#3}}
+\newcommand \north[0] {\mathbf{North}}
+\newcommand \south[0] {\mathbf{South}}
+\newcommand \west[0] {\mathbf{West}}
+\newcommand \east[0] {\mathbf{East}}
 
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{examp}[thm]{Example}
-\newtheorem{conj}[thm]{Conjecture}
-\newtheorem{defn}[thm]{Definition}
+% 1-q pascal notation
+
+\newcommand{\genstirlingI}[3]{%
+    \genfrac{[}{]}{0pt}{#1}{#2}{#3}%
+}
+\newcommand{\genstirlingII}[3]{%
+    \genfrac{\{}{\}}{0pt}{#1}{#2}{#3}%
+}
+\newcommand{\oneQBinomial}[3]{\genstirlingI{}{#1}{#2}^{#3}}
+
+% free foot note
+\let\svthefootnote\thefootnote
+\newcommand\freefootnote[1]{%
+    \let\thefootnote\relax%
+    \footnotetext{#1}%
+    \let\thefootnote\svthefootnote%
+}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
 
 \numberwithin{equation}{section}
 
@@ -92,6 +117,7 @@
 
     \tableofcontents
 
+    \freefootnote{Sources: \url{https://github.com/kolosovpetro/github-latex-template}}
 
     \section{Introduction} \label{sec:introduction}
     \input{sections/02_introduction}
