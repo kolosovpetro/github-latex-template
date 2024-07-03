@@ -87,4 +87,4 @@ jobs:
         env:
           USERNAME: "kolosovpetro"
           EMAIL: "kolosovp94@gmail.com"
-          MESSAGE: "CICD deploy of PDF document"
+          MESSAGE: "CICD deploy of ${{ env.FILE_NAME }} PDF document"
