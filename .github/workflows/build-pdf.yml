@@ -15,6 +15,7 @@ on:
 
 env:
   FILE_NAME: "GithubLatexTemplate"
+  ACTIONS_RUNNER_DEBUG: false
 
 jobs:
   build-pdf:
@@ -37,16 +38,16 @@ jobs:
 
       - name: Print SemVer
         run: |
-          echo ${{ env.GITVERSION_SEMVER }}
-          echo ${{ env.GitVersion_InformationalVersion }}
-          echo ${{ env.GitVersion_EscapedBranchName }}
-          newVersion="${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
+          echo "SemVer: ${{ env.GitVersion_SemVer }}"
+          echo "BranchName: ${{ env.GitVersion_BranchName }}"
+          echo "ShortSha: ${{ env.GitVersion_ShortSha }}"
+          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
           echo "Next version: $newVersion"
 
       - name: Update version.tex
         shell: bash
         run: |
-          newVersion="${{ env.GITVERSION_SEMVER }}+${{ env.GITVERSION_BRANCHNAME }}.${{ env.GITVERSION_SHORTSHA }}"
+          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
           sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
 
       - name: Build PDF
