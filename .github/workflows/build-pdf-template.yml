@@ -1,5 +1,6 @@
 name: 'Build LaTeX'
 description: 'Build LaTeX'
+on: [workflow_call]
 inputs:
   file_name:
     description: 'LaTeX root file name without extension, example: src/MyTeXFile'
