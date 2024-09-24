@@ -13,6 +13,7 @@ env:
 jobs:
   build-deploy-pdf:
     uses: kolosovpetro/github-latex-template/.github/workflows/build-and-deploy-pdf-template.yml@MATH-56
+    secrets: inherit
     with:
       file_name: 'GithubLatexTemplate'
       runs_on: 'ubuntu-latest'
