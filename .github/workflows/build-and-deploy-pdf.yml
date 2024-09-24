@@ -16,7 +16,7 @@ jobs:
     with:
       file_name: 'GithubLatexTemplate'
       runs_on: 'ubuntu-latest'
-      workflow_name: 'Build PDF'
+      workflow_name: 'Build and Deploy PDF'
       build_assets_path: |
         src/GithubLatexTemplate.tex
         src/GithubLatexTemplate.bbl
