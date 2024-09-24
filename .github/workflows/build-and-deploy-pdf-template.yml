@@ -27,6 +27,12 @@ on:
         required: true
         type: string
 
+env:
+  TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+  USERNAME: "kolosovpetro"
+  EMAIL: "kolosovp94@gmail.com"
+  MESSAGE: "CICD deploy of ${{ inputs.file_name }} PDF document"
+
 jobs:
   build-pdf:
     runs-on: ${{ inputs.runs_on }}
@@ -80,20 +86,14 @@ jobs:
 
       - name: '📀 Clone repository 📀'
         run: |
-          git clone https://$TOKEN@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
+          git clone https://${{ env.TOKEN }}@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
           cp src/${{ inputs.file_name }}.pdf ~/kolosovpetro.github.io/pdf/${{ inputs.file_name }}.pdf
-        env:
-          TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
       - name: '❇️ Commit changes ❇️'
         run: |
           cd ~/kolosovpetro.github.io
-          git config --global user.name "$USERNAME"
-          git config --global user.email "$EMAIL"
+          git config --global user.name "${{ env.USERNAME }}"
+          git config --global user.email "${{ env.EMAIL }}"
           git add .
-          git commit -m "$MESSAGE"
+          git commit -m "${{ env.MESSAGE }}"
           git push
-        env:
-          USERNAME: "kolosovpetro"
-          EMAIL: "kolosovp94@gmail.com"
-          MESSAGE: "CICD deploy of ${{ inputs.file_name }} PDF document"
