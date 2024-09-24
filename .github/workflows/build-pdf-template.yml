@@ -1,23 +1,23 @@
 name: 'Build LaTeX'
 description: 'Build LaTeX'
 on: [workflow_call]
-inputs:
-  file_name:
-    description: 'LaTeX root file name without extension, example: src/MyTeXFile'
-    required: true
-
-  runs_on:
-    description: 'Agent image'
-    required: true
-
-  workflow_name:
-    description: 'Workflow name'
-    default: 'Build PDF'
-    required: true
-
-  build_assets_path:
-    description: 'Build assets path'
-    required: true
+#inputs:
+#  file_name:
+#    description: 'LaTeX root file name without extension, example: src/MyTeXFile'
+#    required: true
+#
+#  runs_on:
+#    description: 'Agent image'
+#    required: true
+#
+#  workflow_name:
+#    description: 'Workflow name'
+#    default: 'Build PDF'
+#    required: true
+#
+#  build_assets_path:
+#    description: 'Build assets path'
+#    required: true
 
 jobs:
   build-pdf:
