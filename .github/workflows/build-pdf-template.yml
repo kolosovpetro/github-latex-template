@@ -1,5 +1,4 @@
 name: 'Build LaTeX'
-description: 'Build LaTeX'
 on: [workflow_call]
 #inputs:
 #  file_name:
