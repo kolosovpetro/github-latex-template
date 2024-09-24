@@ -14,7 +14,6 @@ on:
   workflow_dispatch:
 
 env:
-  FILE_NAME: "GithubLatexTemplate"
   ACTIONS_RUNNER_DEBUG: false
 
 jobs:
@@ -29,4 +28,4 @@ jobs:
         src/GithubLatexTemplate.bbl
         src/GithubLatexTemplate.bib
         src/sections
-      working_directory_for_latex: '$GITHUB_WORKSPACE/src'
+      working_directory_for_latex: 'src'
