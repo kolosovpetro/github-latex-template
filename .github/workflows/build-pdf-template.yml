@@ -76,4 +76,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.file_name }}.pdf'
+          path: '${{ inputs.working_directory_for_latex}}/${{ inputs.file_name }}.pdf'
