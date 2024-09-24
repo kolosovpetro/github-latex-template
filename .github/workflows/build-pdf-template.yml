@@ -1,0 +1,69 @@
+name: 'Build LaTeX'
+description: 'Build LaTeX'
+inputs:
+  file_name:
+    description: 'LaTeX root file name without extension, example: src/MyTeXFile'
+    required: true
+
+  runs_on:
+    description: 'Agent image'
+    required: true
+
+  workflow_name:
+    description: 'Workflow name'
+    default: 'Build PDF'
+    required: true
+
+  build_assets_path:
+    description: 'Build assets path'
+    required: true
+
+jobs:
+  build-pdf:
+    runs-on: ${{ inputs.runs_on }}
+    name: ${{ inputs.workflow_name }}
+
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 'Install GitVersion'
+        uses: gittools/actions/gitversion/setup@v1.1.1
+        with:
+          versionSpec: '5.x'
+
+      - name: 'Determine Version'
+        uses: gittools/actions/gitversion/execute@v1.1.1
+
+      - name: 'Print SemVer'
+        run: |
+          echo "SemVer: ${{ env.GitVersion_SemVer }}"
+          echo "BranchName: ${{ env.GitVersion_BranchName }}"
+          echo "ShortSha: ${{ env.GitVersion_ShortSha }}"
+          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
+          echo "Next version: $newVersion"
+
+      - name: 'Update version.tex'
+        shell: bash
+        run: |
+          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
+          sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
+
+      - name: 'Build PDF'
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: '${{ inputs.file_name }}.tex'
+
+      - name: 'Upload build assets'
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ inputs.file_name }}-${{ env.GitVersion_InformationalVersion }}'
+          path: '${{ inputs.build_assets_path }}'
+
+      - name: 'Upload artifacts PDF'
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
+          path: '${{ inputs.file_name }}.pdf'

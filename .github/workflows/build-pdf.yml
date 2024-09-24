@@ -19,7 +19,7 @@ env:
 
 jobs:
   build-pdf:
-    uses: kolosovpetro/github-latex-template/.github/workflows/actions/build-latex-template/action.yml@MATH-56
+    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@MATH-56
     with:
       file_name: 'src/GithubLatexTemplate'
       runs_on: 'ubuntu-latest'
