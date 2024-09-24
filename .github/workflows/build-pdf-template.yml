@@ -3,7 +3,7 @@ on:
   workflow_call:
     inputs:
       file_name:
-        description: 'LaTeX root file name without extension, example: src/MyTeXFile'
+        description: 'LaTeX root file name without extension, example: MyTeXFile'
         required: true
         type: string
 
@@ -19,6 +19,11 @@ on:
 
       build_assets_path:
         description: 'Build assets path'
+        required: true
+        type: string
+
+      working_directory_for_latex:
+        description: 'Working directory for LaTeX'
         required: true
         type: string
 
@@ -59,6 +64,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: '${{ inputs.file_name }}.tex'
+          working_directory: '${{ inputs.working_directory_for_latex }}'
 
       - name: 'Upload build assets'
         uses: actions/upload-artifact@v4

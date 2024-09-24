@@ -21,7 +21,12 @@ jobs:
   build-pdf:
     uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@MATH-56
     with:
-      file_name: 'src/GithubLatexTemplate'
+      file_name: 'GithubLatexTemplate'
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
-      build_assets_path: 'src'
+      build_assets_path: |
+        src/${{ env.FILE_NAME }}.tex
+        src/${{ env.FILE_NAME }}.bbl
+        src/${{ env.FILE_NAME }}.bib
+        src/sections
+      working_directory_for_latex: '$GITHUB_WORKSPACE/src'
