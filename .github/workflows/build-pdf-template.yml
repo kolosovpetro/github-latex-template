@@ -5,19 +5,22 @@ on:
       file_name:
         description: 'LaTeX root file name without extension, example: src/MyTeXFile'
         required: true
+        type: string
 
       runs_on:
         description: 'Agent image'
         required: true
+        type: string
 
       workflow_name:
         description: 'Workflow name'
-        default: 'Build PDF'
         required: true
+        type: string
 
       build_assets_path:
         description: 'Build assets path'
         required: true
+        type: string
 
 jobs:
   build-pdf:
