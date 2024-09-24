@@ -25,8 +25,8 @@ jobs:
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
       build_assets_path: |
-        src/${{ env.FILE_NAME }}.tex
-        src/${{ env.FILE_NAME }}.bbl
-        src/${{ env.FILE_NAME }}.bib
+        src/GithubLatexTemplate.tex
+        src/GithubLatexTemplate.bbl
+        src/GithubLatexTemplate.bib
         src/sections
       working_directory_for_latex: '$GITHUB_WORKSPACE/src'
