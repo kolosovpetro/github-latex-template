@@ -27,11 +27,6 @@ on:
         required: true
         type: string
 
-      github_access_token:
-        description: 'GitHub access token'
-        required: true
-        type: string
-
 jobs:
   build-pdf:
     runs-on: ${{ inputs.runs_on }}
@@ -88,7 +83,7 @@ jobs:
           git clone https://$TOKEN@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
           cp src/${{ inputs.file_name }}.pdf ~/kolosovpetro.github.io/pdf/${{ inputs.file_name }}.pdf
         env:
-          TOKEN: ${{ inputs.github_access_token }}
+          TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
       - name: '❇️ Commit changes ❇️'
         run: |
