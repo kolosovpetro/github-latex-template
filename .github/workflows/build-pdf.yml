@@ -14,65 +14,18 @@ on:
   workflow_dispatch:
 
 env:
-  FILE_NAME: "GithubLatexTemplate"
   ACTIONS_RUNNER_DEBUG: false
 
 jobs:
   build-pdf:
-    runs-on: ubuntu-latest
-    name: Build PDF
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v1.1.1
-        with:
-          versionSpec: '5.x'
-
-      - name: Determine Version
-        uses: gittools/actions/gitversion/execute@v1.1.1
-
-      - name: Print SemVer
-        run: |
-          echo "SemVer: ${{ env.GitVersion_SemVer }}"
-          echo "BranchName: ${{ env.GitVersion_BranchName }}"
-          echo "ShortSha: ${{ env.GitVersion_ShortSha }}"
-          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          echo "Next version: $newVersion"
-
-      - name: Update version.tex
-        shell: bash
-        run: |
-          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
-
-      - name: Build PDF
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: "${{ env.FILE_NAME }}.tex"
-          working_directory: src
-
-      - name: List src
-        run: |
-          ls -lsa src
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: "${{ env.FILE_NAME }}-${{ env.GitVersion_InformationalVersion }}"
-          path: |
-            src/${{ env.FILE_NAME }}.tex
-            src/${{ env.FILE_NAME }}.bbl
-            src/${{ env.FILE_NAME }}.bib
-            src/sections
-
-      - name: Upload artifacts PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: "${{ env.FILE_NAME }}-PDF-${{ env.GitVersion_InformationalVersion }}"
-          path: |
-            src/${{ env.FILE_NAME }}.pdf
+    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@MATH-56
+    with:
+      file_name: 'GithubLatexTemplate'
+      runs_on: 'ubuntu-latest'
+      workflow_name: 'Build PDF'
+      build_assets_path: |
+        src/GithubLatexTemplate.tex
+        src/GithubLatexTemplate.bbl
+        src/GithubLatexTemplate.bib
+        src/sections
+      working_directory_for_latex: 'src'
