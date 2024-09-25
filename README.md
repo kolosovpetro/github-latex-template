@@ -7,6 +7,13 @@ LaTeX template for GitHub including general CI/CD actions and Mathematica templa
 
 - https://dev.azure.com/PetroKolosovProjects/github-latex-template
 
+## GitHub Actions used
+
+- https://github.com/actions/checkout
+- https://github.com/GitTools/actions/blob/main/docs/examples/github/gitversion/index.md
+- https://github.com/xu-cheng/latex-action
+- https://github.com/actions/upload-artifact
+
 ## Build and run in Intellij IDEA
 
 - Install `MikTeX`: https://miktex.org/download

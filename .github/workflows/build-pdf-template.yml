@@ -39,12 +39,15 @@ jobs:
           fetch-depth: 0
 
       - name: '⬇️ Install GitVersion ⬇️'
-        uses: gittools/actions/gitversion/setup@v1.1.1
+        uses: gittools/actions/gitversion/setup@v3.0.0
         with:
-          versionSpec: '5.x'
+          versionSpec: '6.x'
+          preferLatestVersion: true
 
       - name: '🤔 Determine Version 🤔'
-        uses: gittools/actions/gitversion/execute@v1.1.1
+        uses: gittools/actions/gitversion/execute@v3.0.0
+        with:
+          useConfigFile: true
 
       - name: '📜 Print Version 📜'
         run: |
