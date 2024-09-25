@@ -46,8 +46,6 @@ jobs:
 
       - name: '🤔 Determine Version 🤔'
         uses: gittools/actions/gitversion/execute@v3.0.0
-        with:
-          useConfigFile: true
 
       - name: '📜 Print Version 📜'
         run: |
