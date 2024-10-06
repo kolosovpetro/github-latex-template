@@ -36,5 +36,11 @@ Write-Output "New name: $GitRootDirectory.bib"
 
 Write-Output "=============================================================================="
 
+Write-Output "Updating TeX root file with new BibTeX file name ..."
+$LatexFileContent = Get-Content -Path "$GitRootDirectory.tex"
+$LatexFileContent = $LatexFileContent -replace "$BibtexFileName", "$GitRootDirectory"
+
+Write-Output "=============================================================================="
+
 Write-Output "Changing Powershell Directory... "
 cd ..
