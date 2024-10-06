@@ -38,7 +38,11 @@ Write-Output "==================================================================
 
 Write-Output "Updating TeX root file with new BibTeX file name ..."
 $LatexFileContent = Get-Content -Path "$GitRootDirectory.tex"
+Write-Output "Old BibTeX file name: $BibtexFileName"
+Write-Output "New BibTeX file name: $GitRootDirectory"
+Write-Output "Latex file content: $LatexFileContent"
 $LatexFileContent = $LatexFileContent -replace "$BibtexFileName", "$GitRootDirectory"
+$content | Set-Content "$GitRootDirectory.tex"
 
 Write-Output "=============================================================================="
 
