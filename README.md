@@ -14,7 +14,15 @@ LaTeX template for GitHub including general CI/CD actions and Mathematica templa
 - https://github.com/xu-cheng/latex-action
 - https://github.com/actions/upload-artifact
 
-## Build and run in Intellij IDEA
+## Build and run using PowerShell (Windows)
+
+- Install `MikTeX`: https://miktex.org/download
+- Update `MikTeX`
+- Install `SumatraPDF` viewer: https://www.sumatrapdfreader.org/download-free-pdf-viewer
+- `Rename-Tex-Files.ps1` renames main LaTeX and BibTeX files to match the repository root directory name
+- `Build-Latex.ps1`
+
+## Build and run in Intellij IDEA (Windows)
 
 - Install `MikTeX`: https://miktex.org/download
 - Update `MikTeX`
@@ -42,10 +50,10 @@ LaTeX template for GitHub including general CI/CD actions and Mathematica templa
 
 ## Configure CI / CD
 
-Set repository secrets
-
-- `GH_ACCESS_TOKEN`: Generate GitHub Personal access token at
-  `Settings -> Developer Settings -> Personal access tokens -> Generate mew token`
+- Update root file name in `build-pdf.yml` and `build-and-deploy-pdf.yml`
+- Set repository secrets
+    - `GH_ACCESS_TOKEN`: Generate GitHub Personal access token at
+      `Settings -> Developer Settings -> Personal access tokens -> Generate mew token`
 
 ## Actions and their trigger policy
 

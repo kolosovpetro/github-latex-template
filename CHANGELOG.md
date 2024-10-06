@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Implement powershell build script that can be run from any location
 - Implement powershell build script that searches for latex file in its PSRoot folder
 - Implement powershell script that renames main latex and bibtex files to match repo root directory name
+- Update README with new build instructions
 
 ## [1.2.0] - 2024-09-25
 
