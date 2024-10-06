@@ -52,22 +52,21 @@
 \def\rrfloor{\right\rfloor\kern-3.5pt\right\rfloor}
 \newcommand \llceilCoefficient [3] {\llceil \nobarfrac{#1}{#2} \rrfloor_{#3}}
 
-% rascal numbers etc
-\newcommand \rascalNumber [3] {\binom{#1}{#2}_{#3}}
-\newcommand \north[0] {\mathbf{North}}
-\newcommand \south[0] {\mathbf{South}}
-\newcommand \west[0] {\mathbf{West}}
-\newcommand \east[0] {\mathbf{East}}
+% ~~~ Rascal numbers ~~~
+%\newcommand \rascalNumber [3] {\binom{#1}{#2}_{#3}}
+%\newcommand \north[0] {\mathbf{North}}
+%\newcommand \south[0] {\mathbf{South}}
+%\newcommand \west[0] {\mathbf{West}}
+%\newcommand \east[0] {\mathbf{East}}
 
-% 1-q pascal notation
-
-\newcommand{\genstirlingI}[3]{%
-    \genfrac{[}{]}{0pt}{#1}{#2}{#3}%
-}
-\newcommand{\genstirlingII}[3]{%
-    \genfrac{\{}{\}}{0pt}{#1}{#2}{#3}%
-}
-\newcommand{\oneQBinomial}[3]{\genstirlingI{}{#1}{#2}^{#3}}
+% ~~~~ 1-q pascal notation~~~~
+%\newcommand{\genstirlingI}[3]{%
+%    \genfrac{[}{]}{0pt}{#1}{#2}{#3}%
+%}
+%\newcommand{\genstirlingII}[3]{%
+%    \genfrac{\{}{\}}{0pt}{#1}{#2}{#3}%
+%}
+%\newcommand{\oneQBinomial}[3]{\genstirlingI{}{#1}{#2}^{#3}}
 
 % free foot note
 \let\svthefootnote\thefootnote
