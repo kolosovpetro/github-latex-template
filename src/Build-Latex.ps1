@@ -1,7 +1,14 @@
 param (
-    [string]$LatexFileName = "GithubLatexTemplate",
     [string]$OutputDirectory = "../out"
 )
+
+Write-Output "Setting working directory to PSScriptRoot: $PSScriptRoot"
+
+Set-Location -Path $PSScriptRoot
+
+Write-Output "Determining the root latex file to build ..."
+
+$LatexFileName = (Get-ChildItem -Filter "*.tex" | Select-Object -First 1).BaseName
 
 $OutputDirectoryAbsPath = (Resolve-Path $OutputDirectory).Path
 $LatexFileAbsPath = (Resolve-Path "$LatexFileName.tex").Path
