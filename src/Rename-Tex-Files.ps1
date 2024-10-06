@@ -1,0 +1,26 @@
+Write-Output "Setting working directory to PSScriptRoot: $PSScriptRoot"
+Set-Location -Path $PSScriptRoot
+
+Write-Output "=============================================================================="
+
+Write-Output "Determining the root latex file to build ..."
+$LatexFileName = (Get-ChildItem -Filter "*.tex" | Select-Object -First 1).BaseName
+Write-Output "Latex file: $LatexFileName"
+
+Write-Output "=============================================================================="
+
+Write-Output "Determining the root bibtex file ..."
+$BibtexFileName = (Get-ChildItem -Filter "*.bib" | Select-Object -First 1).BaseName
+Write-Output "Bibtex file: $BibtexFileName"
+
+Write-Output "=============================================================================="
+
+Write-Output "Determining New name for TeX and BibTeX files ..."
+Write-Output "New name is the root of Git repository ..."
+$GitRootDirectory = (Get-Item $PSScriptRoot).Parent.Name
+Write-Output "New name for TeX and BibTeX files: $GitRootDirectory"
+
+Write-Output "=============================================================================="
+
+Write-Output "Changing Powershell Directory... "
+cd ..
