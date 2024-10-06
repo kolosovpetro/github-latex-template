@@ -22,5 +22,19 @@ Write-Output "New name for TeX and BibTeX files: $GitRootDirectory"
 
 Write-Output "=============================================================================="
 
+Write-Output "Renaming TeX root file ..."
+Write-Output "Old name: $LatexFileName.tex"
+Rename-Item -Path "$LatexFileName.tex" -NewName "$GitRootDirectory.tex"
+Write-Output "New name: $GitRootDirectory.tex"
+
+Write-Output "=============================================================================="
+
+Write-Output "Renaming BibTeX root file ..."
+Write-Output "Old name: $BibtexFileName.bib"
+Rename-Item -Path "$BibtexFileName.bib" -NewName "$GitRootDirectory.bib"
+Write-Output "New name: $GitRootDirectory.bib"
+
+Write-Output "=============================================================================="
+
 Write-Output "Changing Powershell Directory... "
 cd ..
