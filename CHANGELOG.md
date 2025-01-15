@@ -1,4 +1,4 @@
-# Changelog
+# CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 ### Changed
 
 - Update initializer script
+- Move images folder
+- Add figures folder
+- Add default keywords
+- Update README
+
 
 ## [1.3.0] - 2024-10-06
 
