@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add figures folder
 - Add default keywords
 - Update README
+- Update bibliography
 
 
 ## [1.3.0] - 2024-10-06
