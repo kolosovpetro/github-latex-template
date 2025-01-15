@@ -1,9 +1,21 @@
-# Changelog
+# CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
+
+## [1.3.1] - 2025-01-15
+
+### Changed
+
+- Update initializer script
+- Move images folder
+- Add figures folder
+- Add default keywords
+- Update README
+- Update bibliography
+
 
 ## [1.3.0] - 2024-10-06
 

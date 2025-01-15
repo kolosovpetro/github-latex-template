@@ -41,7 +41,43 @@ $LatexFileContent = Get-Content -Path "$GitRootDirectory.tex"
 Write-Output "Old BibTeX file name: $BibtexFileName"
 Write-Output "New BibTeX file name: $GitRootDirectory"
 $LatexFileContent = $LatexFileContent -replace "$BibtexFileName", "$GitRootDirectory"
-$LatexFileContent| Set-Content "$GitRootDirectory.tex"
+$LatexFileContent | Set-Content "$GitRootDirectory.tex"
+
+Write-Output "=============================================================================="
+
+Write-Output "Updating Github Actions ..."
+$LatexFileName
+$BuildActionFile = "build-pdf.yml"
+$BuildActionFilePath = "../.github/workflows/$BuildActionFile"
+$BuildActionFileContent = Get-Content -Path $BuildActionFilePath
+Write-Output "=============================================================================="
+$BuildActionFileContent
+Write-Output "=============================================================================="
+$BuildActionFileContent = $BuildActionFileContent -replace "$LatexFileName", "$GitRootDirectory"
+$BuildActionFileContent | Set-Content $BuildActionFilePath
+Write-Output "=============================================================================="
+$BuildActionFileContent
+Write-Output "=============================================================================="
+
+$DeployActionFileName = "build-and-deploy-pdf.yml"
+$DeployActionFilePath = "../.github/workflows/$DeployActionFileName"
+$DeployActionFileConent = Get-Content -Path $DeployActionFilePath
+Write-Output "=============================================================================="
+$DeployActionFileConent
+Write-Output "=============================================================================="
+$DeployActionFileConent = $DeployActionFileConent -replace "$LatexFileName", "$GitRootDirectory"
+$DeployActionFileConent | Set-Content $DeployActionFilePath
+Write-Output "=============================================================================="
+$DeployActionFileConent
+Write-Output "=============================================================================="
+
+Write-Output "Updating Mathematica files ..."
+$MathematicaProgramsFolder = "../mathematica"
+$MathematicaPackageFilePath = "$MathematicaProgramsFolder/$LatexFileName.m"
+$MathematicaNotebookFilePath = "$MathematicaProgramsFolder/$LatexFileName.nb"
+Rename-Item -Path "$MathematicaPackageFilePath" -NewName "$GitRootDirectory.m"
+Rename-Item -Path "$MathematicaNotebookFilePath" -NewName "$GitRootDirectory.nb"
+
 
 Write-Output "=============================================================================="
 

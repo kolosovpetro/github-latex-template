@@ -34,9 +34,9 @@ LaTeX template for GitHub including general CI/CD actions and Mathematica templa
 - Clone this repository locally: `https://github.com/kolosovpetro/github-latex-template.git`
 - Open `github-latex-template` folder in `Intellij IDEA Ultimate` and configure as follows
     - LaTeX Configuration
-      ![LaTeX Configuration](./img/latex_configuration.PNG "LaTeX Configuration")
+      ![LaTeX Configuration](./src/sections/images/latex_configuration.png "LaTeX Configuration")
     - BibTeX Configuration
-      ![BibTeX Configuration](./img/bibtex_configuration.PNG "BibTeX Configuration")
+      ![BibTeX Configuration](./src/sections/images/bibtex_configuration.png "BibTeX Configuration")
 - Configure Inverse Search in `Intellij IDEA` for SumatraPDF: `Tools -> LaTeX -> Configure Inverse Search`
 - Compile document using `Shift + F10`
 
@@ -66,6 +66,6 @@ LaTeX template for GitHub including general CI/CD actions and Mathematica templa
 Compiled document looks like as follows
 
 <p align="center">
-  <img src="img/template_example.PNG" alt="template_example"/>
-  <img src="img/template_example2.PNG" alt="template_example"/>
+  <img src="src/sections/images/template_example.png" alt="template_example"/>
+  <img src="src/sections/images/template_example2.png" alt="template_example"/>
 </p>
