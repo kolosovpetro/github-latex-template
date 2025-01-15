@@ -72,21 +72,11 @@ $DeployActionFileConent
 Write-Output "=============================================================================="
 
 Write-Output "Updating Mathematica files ..."
-$folderPath = "../mathematica"
-$pattern = "$LatexFileName"    # Example: Matches files starting with 'oldname'
-$newNameBase = "$GitRootDirectory" # Base for the new names
-
-# Get all files in the folder that match the pattern
-Get-ChildItem -Path $folderPath -Filter "$pattern" | ForEach-Object {
-    # Create a new name
-    $newName = "$newNameBase$( $_.Extension )"
-
-    # Define the full path for the new file
-    $newFilePath = Join-Path -Path $folderPath -ChildPath $newName
-
-    # Rename the file
-    Rename-Item -Path $_.FullName -NewName $newFilePath
-}
+$MathematicaProgramsFolder = "../mathematica"
+$MathematicaPackageFilePath = "$MathematicaProgramsFolder/$LatexFileName.m"
+$MathematicaNotebookFilePath = "$MathematicaProgramsFolder/$LatexFileName.nb"
+Rename-Item -Path "$MathematicaPackageFilePath" -NewName "$GitRootDirectory.m"
+Rename-Item -Path "$MathematicaNotebookFilePath" -NewName "$GitRootDirectory.nb"
 
 
 Write-Output "=============================================================================="
