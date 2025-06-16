@@ -1,7 +1,8 @@
 function Build-Latex
 {
     param (
-        [string]$OutputDirectory = "..\out"
+        [string]$OutputDirectory = "..\out",
+        [Boolean]$ShouldCompileBibtex = $true
     )
 
     try
@@ -32,11 +33,14 @@ function Build-Latex
               -OutputDirectoryAbsPath $OutputDirectoryAbsPath `
               -AuxDirectoryAbsPath $AuxDirectoryAbsPath
 
-        Write-Dash
+        if ($ShouldCompileBibtex -eq $true)
+        {
+            Write-Dash
 
-        Write-Host "Compiling bibtex ... "  -ForegroundColor Magenta
+            Write-Host "Compiling bibtex ... "  -ForegroundColor Magenta
 
-        Compile-Bibtex -OutputDirectoryAbsPath $OutputDirectoryAbsPath -LatexFileName $LatexFileName
+            Compile-Bibtex -OutputDirectoryAbsPath $OutputDirectoryAbsPath -LatexFileName $LatexFileName
+        }
 
         Write-Dash
 
