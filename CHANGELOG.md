@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Date upper in the manuscript
 - Use `enumitem` package
 - Add `enable_patch_version` parameter to CI/CD
+- Comment excessive metadata
+- Add `physics` package for derivatives
+- Comment excessive custom commands
+- Update encoding script
 
 ## [1.3.1] - 2025-01-15
 
