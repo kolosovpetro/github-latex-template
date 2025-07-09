@@ -22,6 +22,9 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add `physics` package for derivatives
 - Comment excessive custom commands
 - Update encoding script
+- Remove azure pipelines CI/CD
+- Update initialization script
+- Build script fixes encoding
 
 ## [1.3.1] - 2025-01-15
 
