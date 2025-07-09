@@ -27,6 +27,12 @@ on:
         required: true
         type: string
 
+      enable_update_version:
+        description: 'Enable to patch version.tex file'
+        required: true
+        default: true
+        type: boolean
+
 env:
   TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
   USERNAME: "kolosovpetro"
@@ -64,6 +70,7 @@ jobs:
           echo "Next version: $newVersion"
 
       - name: '🔄 Update version.tex 🔄'
+        if: ${{ inputs.enable_update_version }}
         shell: bash
         run: |
           newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
