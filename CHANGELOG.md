@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update build script
 - Date upper in the manuscript
 - Use `enumitem` package
-- Update CI/CD add flag on version patch
+- Add `enable_patch_version` parameter to CI/CD
 
 ## [1.3.1] - 2025-01-15
 

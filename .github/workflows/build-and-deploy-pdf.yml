@@ -16,6 +16,7 @@ jobs:
     secrets: inherit
     with:
       file_name: 'GithubLatexTemplate'
+      enable_patch_version: true
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build and Deploy PDF'
       build_assets_path: |
