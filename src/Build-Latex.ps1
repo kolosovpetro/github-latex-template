@@ -60,11 +60,17 @@ function Build-Latex
 
         Write-Dash
 
-        Write-Host "Build complete." -ForegroundColor Green
+        Write-Host "Build complete!" -ForegroundColor Green
         Write-Host "Exit Code: $LASTEXITCODE" -ForegroundColor Green
         Write-Host "Changing Powershell Directory to $InitialDirectory ... " -ForegroundColor Green
 
         Set-Location $InitialDirectory
+
+        .\scripts\Test-Encoding -Autofix
+
+        Write-Host "Fix encoding is complete." -ForegroundColor Green
+        Write-Host "Exit Code: $LASTEXITCODE" -ForegroundColor Green
+        Write-Host "Changing Powershell Directory to $InitialDirectory ... " -ForegroundColor Green
     }
     catch
     {
