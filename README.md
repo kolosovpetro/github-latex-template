@@ -1,8 +1,5 @@
 # GitHub LaTeX Template
 
-[![Build PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build.yml/badge.svg)
-[![Build and Deploy PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy.yml/badge.svg)
-
 LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
 
 - https://dev.azure.com/PetroKolosovProjects/github-latex-template
