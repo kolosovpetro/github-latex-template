@@ -8,7 +8,7 @@ function Write-Section
     Write-Host $Message -ForegroundColor $Color
 }
 
-
+$ErrorActionPreference = "Stop"
 $InitialWorkingDirectory = Get-Location
 Write-Section "Initial working directory: $InitialWorkingDirectory" -Color Gray
 
