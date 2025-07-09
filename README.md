@@ -14,10 +14,10 @@ LaTeX template for GitHub including general CI/CD actions and Mathematica templa
 ## Build and run using PowerShell (Windows)
 
 - Install `MikTeX`: https://miktex.org/download
-- Update `MikTeX`
+- Update `MikTeX` packages
 - Install `SumatraPDF` viewer: https://www.sumatrapdfreader.org/download-free-pdf-viewer
-- `Rename-Tex-Files.ps1` renames main LaTeX and BibTeX files to match the repository root directory name
-- `Build-Latex.ps1`
+- `.\src\Initialize-Workspace.ps1` configures workspace, renames files and patches CI/CD values
+- `.\src\Build-Latex.ps1` to build LaTeX and BibTeX
 
 ## Build and run in Intellij IDEA (Windows)
 
