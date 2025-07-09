@@ -1,85 +1,83 @@
-Write-Output "Setting working directory to PSScriptRoot: $PSScriptRoot"
+function Write-Section
+{
+    param ([string]$Message = "")
+    Write-Host "`n==============================================================================" -ForegroundColor Cyan
+    Write-Host $Message
+}
+
+
+$InitialWorkingDirectory = Get-Location
+Write-Section "Initial working directory: $InitialWorkingDirectory"
+
+Write-Section "Setting working directory to PSScriptRoot: $PSScriptRoot"
 Set-Location -Path $PSScriptRoot
 
-Write-Output "=============================================================================="
-
-Write-Output "Determining the root latex file to build ..."
+Write-Section "Determining the root latex file ..."
 $LatexFileName = (Get-ChildItem -Filter "*.tex" | Select-Object -First 1).BaseName
-Write-Output "Latex file: $LatexFileName"
+Write-Section "LaTeX file name: $LatexFileName"
 
-Write-Output "=============================================================================="
-
-Write-Output "Determining the root bibtex file ..."
+Write-Section "Determining the root bibtex file ..."
 $BibtexFileName = (Get-ChildItem -Filter "*.bib" | Select-Object -First 1).BaseName
-Write-Output "Bibtex file: $BibtexFileName"
+Write-Section "BibTeX file name: $BibtexFileName"
 
-Write-Output "=============================================================================="
-
-Write-Output "Determining New name for TeX and BibTeX files ..."
-Write-Output "New name is the root of Git repository ..."
+Write-Section "Determining the name or root GIT repository ..."
 $GitRootDirectory = (Get-Item $PSScriptRoot).Parent.Name
-Write-Output "New name for TeX and BibTeX files: $GitRootDirectory"
+Write-Section "New name for LaTeX and BibTeX files: $GitRootDirectory"
 
-Write-Output "=============================================================================="
-
-Write-Output "Renaming TeX root file ..."
-Write-Output "Old name: $LatexFileName.tex"
+Write-Section "Renaming LaTeX file ..."
+Write-Section "Old LaTeX file name: $LatexFileName.tex"
+Write-Section "New LaTeX file name: $GitRootDirectory.tex"
 Rename-Item -Path "$LatexFileName.tex" -NewName "$GitRootDirectory.tex"
-Write-Output "New name: $GitRootDirectory.tex"
+Write-Section "LaTeX file renamed successfully!"
 
-Write-Output "=============================================================================="
-
-Write-Output "Renaming BibTeX root file ..."
-Write-Output "Old name: $BibtexFileName.bib"
+Write-Section "Renaming BibTeX file ..."
+Write-Section "Old BibTeX file name: $BibtexFileName.bib"
+Write-Section "New BibTeX file name: $GitRootDirectory.bib"
 Rename-Item -Path "$BibtexFileName.bib" -NewName "$GitRootDirectory.bib"
-Write-Output "New name: $GitRootDirectory.bib"
+Write-Section "BibTeX file renamed successfully!"
 
-Write-Output "=============================================================================="
-
-Write-Output "Updating TeX root file with new BibTeX file name ..."
+Write-Section "Patching LaTeX file with new BibTeX file name ..."
 $LatexFileContent = Get-Content -Path "$GitRootDirectory.tex"
-Write-Output "Old BibTeX file name: $BibtexFileName"
-Write-Output "New BibTeX file name: $GitRootDirectory"
+Write-Section "Old BibTeX file name: $BibtexFileName"
+Write-Section "New BibTeX file name: $GitRootDirectory"
 $LatexFileContent = $LatexFileContent -replace "$BibtexFileName", "$GitRootDirectory"
 $LatexFileContent | Set-Content "$GitRootDirectory.tex"
+Write-Section "Successfully patched LaTeX file with new BibTeX file!"
 
-Write-Output "=============================================================================="
-
-Write-Output "Updating Github Actions ..."
+Write-Section "Patching Github Actions ..."
 $LatexFileName
 $BuildActionFile = "build-pdf.yml"
 $BuildActionFilePath = "../.github/workflows/$BuildActionFile"
 $BuildActionFileContent = Get-Content -Path $BuildActionFilePath
-Write-Output "=============================================================================="
+Write-Section
 $BuildActionFileContent
-Write-Output "=============================================================================="
+Write-Section
 $BuildActionFileContent = $BuildActionFileContent -replace "$LatexFileName", "$GitRootDirectory"
 $BuildActionFileContent | Set-Content $BuildActionFilePath
-Write-Output "=============================================================================="
+Write-Section
 $BuildActionFileContent
-Write-Output "=============================================================================="
+Write-Section
 
 $DeployActionFileName = "build-and-deploy-pdf.yml"
 $DeployActionFilePath = "../.github/workflows/$DeployActionFileName"
 $DeployActionFileConent = Get-Content -Path $DeployActionFilePath
-Write-Output "=============================================================================="
+Write-Section
 $DeployActionFileConent
-Write-Output "=============================================================================="
+Write-Section
 $DeployActionFileConent = $DeployActionFileConent -replace "$LatexFileName", "$GitRootDirectory"
 $DeployActionFileConent | Set-Content $DeployActionFilePath
-Write-Output "=============================================================================="
-$DeployActionFileConent
-Write-Output "=============================================================================="
 
-Write-Output "Updating Mathematica files ..."
+Write-Section
+$DeployActionFileConent
+
+Write-Section "Renaming Mathematica files ..."
+
 $MathematicaProgramsFolder = "../mathematica"
 $MathematicaPackageFilePath = "$MathematicaProgramsFolder/$LatexFileName.m"
 $MathematicaNotebookFilePath = "$MathematicaProgramsFolder/$LatexFileName.nb"
 Rename-Item -Path "$MathematicaPackageFilePath" -NewName "$GitRootDirectory.m"
 Rename-Item -Path "$MathematicaNotebookFilePath" -NewName "$GitRootDirectory.nb"
 
+Write-Section "Changing Powershell directory to $GitRootDirectory... "
 
-Write-Output "=============================================================================="
-
-Write-Output "Changing Powershell Directory... "
-cd ..
+Set-Location $InitialWorkingDirectory
