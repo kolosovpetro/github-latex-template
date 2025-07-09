@@ -18,9 +18,10 @@ env:
 
 jobs:
   build-pdf:
-    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@main
+    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@MATH-90
     with:
       file_name: 'GithubLatexTemplate'
+      enable_patch_version: true
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
       build_assets_path: |

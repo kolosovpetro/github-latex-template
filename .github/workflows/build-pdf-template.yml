@@ -27,6 +27,12 @@ on:
         required: true
         type: string
 
+      enable_patch_version:
+        description: 'Enable to patch version.tex file'
+        required: true
+        default: true
+        type: boolean
+
 jobs:
   build-pdf:
     runs-on: ${{ inputs.runs_on }}
@@ -39,17 +45,20 @@ jobs:
           fetch-depth: 0
 
       - name: '⬇️ Install GitVersion ⬇️'
+        if: ${{ inputs.enable_patch_version }}
         uses: gittools/actions/gitversion/setup@v3.0.0
         with:
           versionSpec: '5.x'
           preferLatestVersion: true
 
       - name: '🤔 Determine Version 🤔'
+        if: ${{ inputs.enable_patch_version }}
         uses: gittools/actions/gitversion/execute@v3.0.0
         with:
           useConfigFile: true
 
       - name: '📜 Print Version 📜'
+        if: ${{ inputs.enable_patch_version }}
         run: |
           echo "SemVer: ${{ env.GitVersion_SemVer }}"
           echo "BranchName: ${{ env.GitVersion_BranchName }}"
@@ -58,6 +67,7 @@ jobs:
           echo "Next version: $newVersion"
 
       - name: '🔄 Update version.tex 🔄'
+        if: ${{ inputs.enable_patch_version }}
         shell: bash
         run: |
           newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"

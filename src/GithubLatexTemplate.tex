@@ -7,13 +7,16 @@
 \usepackage{mathrsfs}
 \usepackage{colonequals}
 \usepackage[font=small,labelfont=bf]{caption}
-\usepackage[left=1in,right=1in,bottom=1in,top=1in]{geometry}
 \usepackage[pdfpagelabels,hyperindex,colorlinks=true,linkcolor=blue,urlcolor=magenta,citecolor=green]{hyperref}
 \usepackage{graphicx}
-\linespread{1.7}
 \emergencystretch=1em
 \usepackage{array}
+\usepackage{enumitem}
 \usepackage{etoolbox}
+
+% margins and layout
+\linespread{1.7}
+\usepackage[left=1in,right=1in,bottom=1in,top=1in]{geometry}
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
 \raggedbottom
 
@@ -89,6 +92,7 @@
 \title[LaTeX Template for Github]
 {LaTeX Template for Github}
 \author[Petro Kolosov]{Petro Kolosov}
+\date{\today}
 \address{Software Developer, DevOps Engineer}
 \email{kolosovp94@gmail.com}
 \urladdr{https://kolosovpetro.github.io}
@@ -103,7 +107,6 @@
     Polynomial identities
 }
 \subjclass[2010]{26E70, 05A30}
-\date{\today}
 \hypersetup{
     pdftitle={LaTeX Template for Github},
     pdfsubject={
@@ -154,6 +157,7 @@
         Time scales
     }
 }
+
 \begin{document}
     \begin{abstract}
         \input{sections/01_abstract}
@@ -164,6 +168,7 @@
     \tableofcontents
 
     \freefootnote{Sources: \url{https://github.com/kolosovpetro/github-latex-template}}
+
 
     \section{Introduction} \label{sec:introduction}
     \input{sections/02_introduction}
