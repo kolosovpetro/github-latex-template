@@ -9,6 +9,7 @@ function Build-Latex
     {
         $InitialDirectory = Get-Location
 
+        Write-Host "Initial working directory: $InitialDirectory"  -ForegroundColor Magenta
         Write-Host "Setting working directory to PSScriptRoot: $PSScriptRoot"  -ForegroundColor Magenta
 
         Set-Location -Path $PSScriptRoot
@@ -66,7 +67,7 @@ function Build-Latex
 
         Set-Location $InitialDirectory
 
-        .\scripts\Test-Encoding -Autofix
+        .\..\scripts\Test-Encoding -Autofix
 
         Write-Host "Fix encoding is complete." -ForegroundColor Green
         Write-Host "Exit Code: $LASTEXITCODE" -ForegroundColor Green

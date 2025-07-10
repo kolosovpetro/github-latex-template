@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Remove azure pipelines CI/CD
 - Update initialization script
 - Build script fixes encoding
+- Commit build configurations
 
 ## [1.3.1] - 2025-01-15
 
