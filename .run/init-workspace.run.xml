@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="init-workspace" type="PowerShellRunType" factoryName="PowerShell" scriptUrl="E:\RiderProjects\04_LATEX\github-latex-template\src\Initialize-Workspace.ps1" executablePath="C:/Program Files/PowerShell/7/pwsh.exe">
+  <configuration default="false" name="init-workspace" type="PowerShellRunType" factoryName="PowerShell" scriptUrl="$PROJECT_DIR$/src/Initialize-Workspace.ps1" executablePath="C:/Program Files/PowerShell/7/pwsh.exe">
     <envs />
     <method v="2" />
   </configuration>
