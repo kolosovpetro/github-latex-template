@@ -25,15 +25,15 @@
 # *.eps
 # *.pdf
 
-## Generated if empty string is given at "Please type another file name for output:"
-.idea/
+## JetBrains
+.idea
+
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 #*.bbl
 *.bcf
 #*.blg
 *-blx.aux
 *-blx.bib
-*.run.xml
 
 ## Build tool auxiliary files:
 *.fdb_latexmk
@@ -139,7 +139,6 @@ acs-*.bib
 
 # knitr
 *-concordance.tex
-# TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
 # *.tikz
 *-tikzDictionary
 
@@ -223,7 +222,6 @@ pythontex-files-*/
 *.hst
 *.ver
 
-# easy-todo
 *.lod
 
 # xcolor
@@ -250,7 +248,6 @@ TSWLatexianTemp*
 # WinEdt
 *.bak
 *.sav
-.idea/
 
 # Texpad
 .texpadtmp

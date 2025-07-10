@@ -1,8 +1,8 @@
 # GitHub LaTeX Template
 
-LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
-
-- https://dev.azure.com/PetroKolosovProjects/github-latex-template
+- LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
+- Best compatible with JetBrains Rider 2024.3.8 Build #RD-243.26574.73, built on May 18, 2025.
+- Plugin: https://plugins.jetbrains.com/plugin/9473-texify-idea
 
 ## GitHub Actions used
 

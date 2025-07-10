@@ -86,7 +86,7 @@ Write-Section "Successfully renamed Mathematica files!" -Color Green
 Write-Section "Changing Powershell directory to $InitialWorkingDirectory ... " -Color Gray
 Set-Location $InitialWorkingDirectory
 
-$OutputFolder = "$InitialWorkingDirectory/out/*"
+$OutputFolder = "..\out\*"
 Write-Section "Cleaning output folder: $OutputFolder"  -Color Gray
 Remove-Item -Path $OutputFolder -Recurse -Force
 Write-Section "Succesfully cleaned the output folder." -Color Green
