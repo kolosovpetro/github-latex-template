@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="encoding" type="PowerShellRunType" factoryName="PowerShell" scriptUrl="$PROJECT_DIR$\scripts\Test-Encoding.ps1" scriptParameters="-Autofix" workingDirectory="$PROJECT_DIR$\src" executablePath="C:/Program Files/PowerShell/7/pwsh.exe">
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

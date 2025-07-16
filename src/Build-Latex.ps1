@@ -67,7 +67,7 @@ function Build-Latex
 
         Set-Location $InitialDirectory
 
-        .\..\scripts\Test-Encoding -Autofix
+        .\..\scripts\Test-Encoding.ps1 -Autofix
 
         Write-Host "Fix encoding is complete." -ForegroundColor Green
         Write-Host "Exit Code: $LASTEXITCODE" -ForegroundColor Green
