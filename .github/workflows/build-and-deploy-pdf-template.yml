@@ -80,7 +80,7 @@ jobs:
           sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
 
       - name: '🛠 Build PDF 🛠'
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: '${{ inputs.file_name }}.tex'
           working_directory: '${{ inputs.working_directory_for_latex }}'
