@@ -19,7 +19,7 @@ jobs:
     uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@main
     with:
       file_name: 'GithubLatexTemplate'
-      enable_patch_version: false
+      enable_patch_version: true
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
       build_assets_path: |
