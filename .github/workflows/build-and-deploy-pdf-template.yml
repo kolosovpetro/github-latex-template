@@ -52,14 +52,14 @@ jobs:
 
       - name: '⬇️ Install GitVersion ⬇️'
         if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/setup@v3.2.1
+        uses: gittools/actions/gitversion/setup@v4.1.0
         with:
           versionSpec: '6.x'
           preferLatestVersion: true
 
       - name: '🤔 Determine Version 🤔'
         if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/execute@v3.2.1
+        uses: gittools/actions/gitversion/execute@v4.1.0
         with:
           useConfigFile: true
 
@@ -80,7 +80,7 @@ jobs:
           sed -i "s|Local-0.1.0|$newVersion|" "src/sections/version.tex"
 
       - name: '🛠 Build PDF 🛠'
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: '${{ inputs.file_name }}.tex'
           working_directory: '${{ inputs.working_directory_for_latex }}'
