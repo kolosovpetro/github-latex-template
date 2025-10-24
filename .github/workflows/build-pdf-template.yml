@@ -80,13 +80,13 @@ jobs:
           working_directory: '${{ inputs.working_directory_for_latex }}'
 
       - name: '⬆️ Upload build assets ⬆️'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: '${{ inputs.file_name }}-${{ env.GitVersion_InformationalVersion }}'
           path: '${{ inputs.build_assets_path }}'
 
       - name: '⬆️ Upload artifacts PDF ⬆️'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
           path: '${{ inputs.working_directory_for_latex}}/${{ inputs.file_name }}.pdf'
