@@ -115,11 +115,11 @@ function Compile-Bibtex
         [string]$LatexFileName
     )
 
-    $BibTexFileAbsPath = "$OutputDirectoryAbsPath\$LatexFileName"
+    $WorkingDirectoryForBibtex = "$OutputDirectoryAbsPath\$LatexFileName"
 
-    Write-Host "Bibtex absolute path: $BibTexFileAbsPath" -ForegroundColor Magenta
+    Write-Host "Bibtex absolute path: $WorkingDirectoryForBibtex" -ForegroundColor Magenta
 
-    bibtex "$BibTexFileAbsPath"
+    bibtex "$WorkingDirectoryForBibtex"
 
     if ($LASTEXITCODE -ne 0)
     {
