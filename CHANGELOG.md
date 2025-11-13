@@ -31,6 +31,12 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Adjust template
 - Add Texify idea plugin build configurations
 - Add renovate configs
+- Make links color red
+- Copy bibliography from unexpected identities paper
+- Copy mathematica scripts from unexpected identities paper
+- Copy build scripts from unexpected identities paper
+- Move metadata and license to a separate file
+- Add BUILD.md
 
 ## [1.3.1] - 2025-01-15
 
