@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Copy build scripts from unexpected identities paper
 - Move metadata and license to a separate file
 - Add BUILD.md
+- Update Init workspace script
 
 ## [1.3.1] - 2025-01-15
 

@@ -91,4 +91,10 @@ Write-Section "Cleaning output folder: $OutputFolder"  -Color Gray
 Remove-Item -Path $OutputFolder -Recurse -Force
 Write-Section "Succesfully cleaned the output folder." -Color Green
 
+Write-Section "Deleting renovate configs..."
+$RenovateConfigPath = "../renovate.json"
+$RenovateLicensePath = "../renovate.json.license"
+Remove-Item -Path $RenovateConfigPath -Recurse -Force
+Remove-Item -Path $RenovateLicensePath -Recurse -Force
+
 Write-Section "Execurtion has been completed succesfully: $LASTEXITCODE" -Color Green
