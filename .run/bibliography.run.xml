@@ -5,7 +5,7 @@
       <compiler-path />
       <compiler-arguments />
       <envs />
-      <main-file>$PROJECT_DIR$/src/GithubLatexTemplate.tex</main-file>
+      <main-file>$PROJECT_DIR$/src/github-latex-template.tex</main-file>
       <aux-dir>$PROJECT_DIR$/out</aux-dir>
       <latex-distribution>PROJECT_SDK</latex-distribution>
     </texify-bibtex>
