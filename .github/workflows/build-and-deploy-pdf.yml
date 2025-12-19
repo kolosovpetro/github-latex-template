@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-deploy-pdf:
-    uses: kolosovpetro/github-latex-template/.github/workflows/build-and-deploy-pdf-template.yml@main
+    uses: kolosovpetro/github-latex-template/.github/workflows/build-and-deploy-pdf-template.yml@AZ400-381
     secrets: inherit
     with:
       file_name: 'GithubLatexTemplate'
