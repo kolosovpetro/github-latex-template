@@ -15,13 +15,13 @@ jobs:
     uses: kolosovpetro/github-latex-template/.github/workflows/build-and-deploy-pdf-template.yml@main
     secrets: inherit
     with:
-      file_name: 'GithubLatexTemplate'
+      file_name: 'github-latex-template'
       enable_patch_version: true
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build and Deploy PDF'
       build_assets_path: |
-        src/GithubLatexTemplate.tex
-        src/GithubLatexTemplate.bbl
-        src/GithubLatexTemplate.bib
+        src/github-latex-template.tex
+        src/github-latex-template.bbl
+        src/github-latex-template.bib
         src/sections
       working_directory_for_latex: 'src'

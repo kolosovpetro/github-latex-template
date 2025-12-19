@@ -1,13 +1,13 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: E:\RiderProjects\04_LATEX\github-latex-template\out\GithubLatexTemplate.aux
+The top-level auxiliary file: E:\RiderProjects\04_LATEX\github-latex-template\out\github-latex-template.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
-Reallocating 'name_of_file' (item size: 1) to 20 items.
-Database file #1: GithubLatexTemplate.bib
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+Database file #1: github-latex-template.bib
 You've used 5 entries,
             1791 wiz_defined-function locations,
-            471 strings with 4562 characters,
+            471 strings with 4568 characters,
 and the built_in function-call counts, 666 in all, are:
 = -- 53
 > -- 20
