@@ -11,7 +11,7 @@ param (
     [string] $SourceRoot,
     [switch] $Autofix,
     [string[]] $ExcludeExtensions = @(
-    '.dotsettings'
+    '.dotsettings', '.m', '.nb'
 )
 )
 
@@ -28,7 +28,7 @@ function Test-Encoding
 
     # List of file extensions (with leading dots) to ignore. Case-insensitive.
         [string[]] $ExcludeExtensions = @(
-        '.dotsettings'
+        '.dotsettings', '.m', '.nb'
     )
     )
 
