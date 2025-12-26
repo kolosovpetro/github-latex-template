@@ -24,4 +24,5 @@ jobs:
         src/github-latex-template.bbl
         src/github-latex-template.bib
         src/sections
+        src/metadata
       working_directory_for_latex: 'src'

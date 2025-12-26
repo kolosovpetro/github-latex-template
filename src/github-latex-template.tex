@@ -16,6 +16,7 @@
 \usepackage{physics}
 \usepackage{booktabs}
 \usepackage{url}
+\usepackage{mdframed}
 
 % margins and layout
 \linespread{1.7}
@@ -34,7 +35,9 @@
 \newcommand \centralFactorial [2] {#1^{[#2]}}
 \newcommand \fallingFactorial [2] {\left(#1 \right)^{\underline{#2}}}
 \newcommand{\stirlingii}{\genfrac{\{}{\}}{0pt}{}}
-\newcommand{\eulerianNumber}{\genfrac{\langle}{\rangle}{0pt}{}}
+\newcommand{\eulerian}[2]{\genfrac{\langle}{\rangle}{0pt}{}{#1}{#2}} % Eulerian
+
+\newcommand{\KnuthRFoldSum}[3]{\Sigma^{#1}\,{#2}^{#3}}
 
 % for llceil coeffcient
 \newcommand{\nobarfrac}{\genfrac{}{}{0pt}{}}
@@ -79,79 +82,101 @@
 \author[Petro Kolosov]{Petro Kolosov}
 \date{\today}
 
+% 05A19 — Combinatorial identities
+% 05A10 — Factorials, binomial coefficients, combinatorial functions
+% 41A15 — Spline approximation
+% 11B68 — Bernoulli and Euler numbers and polynomials
+% 11B73 — Bell and Stirling numbers
+% 11B83 — Special sequences and polynomials
+\subjclass[2010]{05A19, 05A10, 41A15, 11B68, 11B73, 11B83}
+
 % metadata
-%\email{kolosovp94@gmail.com}
-%\address{Software Developer, DevOps Engineer}
-%\urladdr{https://kolosovpetro.github.io}
-%\subjclass[2010]{05A19, 05A10, 41A15, 11B83, 68W30}
-%\keywords{Polynomial identities,
-%    Finite differences,
-%    Binomial coefficients,
-%    Faulhaber's formula,
-%    Sums of powers,
-%    Bernoulli numbers,
-%    Bernoulli polynomials,
-%    Interpolation,
-%    Approximation,
-%    Discrete convolution,
-%    Combinatorics,
-%    Pascal's triangle,
-%    OEIS}
-%\hypersetup{
-%    pdftitle={LaTeX Template for GitHub},
-%    pdfproducer={LaTeX},
-%    pdfcreator={pdflatex},
-%    pdfauthor={Petro Kolosov},
-%    pdfsubject={LaTeX Template for GitHub},
-%    pdfkeywords={Polynomials,
-%    Finite differences,
-%    Interpolation,
-%    Approximation,
-%    Polynomial identities,
-%    Sums of powers,
-%    Power sums,
-%    Binomial theorem,
-%    Power function,
-%    Binomial coefficients,
-%    Multinomial coefficients,
-%    Bernoulli numbers,
-%    Bernoulli polynomials,
-%    Worpitzky identity,
-%    Pascal's triangle,
-%    Faulhaber's formula,
-%    Derivatives,
-%    Differential calculus,
-%    Partial differential equations,
-%    OEIS,
-%    Combinatorics,
-%    Discrete convolution,
-%    Sums of convolved powers,
-%    Convolved power sums,
-%    Dynamic systems,
-%    Time scales}
-%}
+\email{kolosovp94@gmail.com}
+\address{Software Developer, DevOps Engineer}
+\urladdr{https://kolosovpetro.github.io}
+\keywords{Sums of powers,
+    Newton's interpolation formula,
+    Finite differences,
+    Binomial coefficients,
+    Faulhaber's formula,
+    Bernoulli numbers,
+    Bernoulli polynomials,
+    Interpolation,
+    Approximation,
+    Discrete convolution,
+    Combinatorics,
+    Polynomial identities,
+    Central factorial numbers,
+    Stirling numbers,
+    Eulerian numbers,
+    Worpitzky identity,
+    Pascal's triangle,
+    OEIS}
+\hypersetup{
+    pdftitle={LaTeX Template for GitHub},
+    pdfproducer={LaTeX},
+    pdfcreator={pdflatex},
+    pdfauthor={Petro Kolosov},
+    pdfsubject={LaTeX Template for GitHub},
+    pdfkeywords={Sums of powers,
+    Power sums,
+    Polynomials,
+    Power function,
+    Polynomial identities,
+    Newton's interpolation formula,
+    Finite differences,
+    Interpolation,
+    Approximation,
+    Binomial coefficients,
+    Multinomial coefficients,
+    Binomial theorem,
+    Faulhaber's formula,
+    Bernoulli numbers,
+    Bernoulli polynomials,
+    Derivatives,
+    Differential calculus,
+    Partial differential equations,
+    Discrete convolution,
+    Sums of convolved powers,
+    Convolved power sums,
+    Combinatorics,
+    Central factorial numbers,
+    Stirling numbers,
+    Eulerian numbers,
+    Worpitzky identity,
+    Pascal's triangle,
+    Dynamic systems,
+    Time scales,
+    OEIS}
+}
 
 \begin{document}
 
+    \begin{abstract}
+        \input{sections/abstract}
+    \end{abstract}
+
     \maketitle
 
-    \begin{abstract}
-        \input{sections/01_abstract}
-    \end{abstract}
+    \addcontentsline{toc}{section}{Abstract}
 
 %    \tableofcontents
 
 
     \section{Introduction} \label{sec:introduction}
-    \input{sections/02_introduction}
+    \input{sections/01_introduction}
 
 
     \section{Conclusions}\label{sec:conclusions}
-    \input{sections/03_conclusions}
+    \input{sections/conclusions}
+
+
+    \section{Acknowledgements}\label{sec:acknowledgements}
+    \input{sections/acknowledgements}
 
     \bibliographystyle{unsrt}
     \bibliography{github-latex-template}
 
-    \input{metadata/license}
+    \input{metadata/footer}
 
 \end{document}

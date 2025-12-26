@@ -15,6 +15,7 @@
 ## Archives
 *.rar
 *.zip
+tests
 
 ## Intermediate documents:
 *.dvi

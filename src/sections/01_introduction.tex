@@ -9,11 +9,11 @@ It has survived not only five centuries, but also the leap into electronic types
 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
 recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-Figure example
+Image example
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{sections/images/latex_configuration}
-    ~\caption{Figure example.}\label{fig:figure}
+    \includegraphics[width=1\textwidth]{sections/images/build_the_manuscript_rider}
+    ~\caption{Image example.}\label{fig:figure}
 \end{figure}
 
 \input{sections/figures/05_fig_coefficients_a}
@@ -43,3 +43,19 @@ In particular,
     = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)
 \end{equation}
 This is an equation reference~\eqref{eq:knuth-power-identity}.
+
+Continuing similarly, we are able to derive the formula for multifold sums of powers,
+which is
+\begin{theorem}[Multifold sums of powers via Newton's series]
+    \label{theorem:multifold-sums-of-powers-via-newtons-series}
+    \begin{mdframed}
+        For non-negative integers $r,n,m$ and an arbitrary integer $t$
+        \begin{align*}
+            \KnuthRFoldSum{r}{n}{m} = \sum_{j=0}^{m} \Delta^{j} t^{m} \left[ \left( \sum_{s=1}^{r} (-1)^{j+s-1} \binom{j+t-1}{j+s} \KnuthRFoldSum{r-s}{n}{0} \right) + \binom{n-t+r}{j+r} \right]
+        \end{align*}
+    \end{mdframed}
+    \begin{proof}
+        By Newton's series for power and repeated
+        applications of the segmented hockey stick identity.
+    \end{proof}
+\end{theorem}
