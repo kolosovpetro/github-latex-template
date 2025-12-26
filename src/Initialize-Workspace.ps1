@@ -43,9 +43,7 @@ function Replace-TextInFile
         [string] $OldText,
 
         [Parameter(Mandatory)]
-        [string] $NewText,
-
-        [string[]] $ExcludePatterns = @()
+        [string] $NewText
     )
 
     Write-Host "Invoke Replace-TextInFile with FilePath: $FilePath"
@@ -60,17 +58,8 @@ function Replace-TextInFile
 
     $content = Get-Content $FilePath -Raw
 
-    foreach ($pattern in $ExcludePatterns)
-    {
-        $content = $content -replace $pattern, "__EXCLUDED__$pattern"
-    }
-
     $content = $content -replace [regex]::Escape($OldText), $NewText
 
-    foreach ($pattern in $ExcludePatterns)
-    {
-        $content = $content -replace "__EXCLUDED__$pattern", $pattern
-    }
 
     Set-Content -Path $FilePath -Value $content -NoNewline
     Write-Host "Updated: $FilePath"
@@ -85,6 +74,9 @@ function Rename-FileSafe
         [Parameter(Mandatory)]
         [string] $NewPath
     )
+
+    Write-Host "Invoke Rename-FileSafe with OldPath: $OldPath"
+    Write-Host "Invoke Rename-FileSafe with NewPath: $NewPath"
 
     if (-not (Test-Path $OldPath))
     {
@@ -109,6 +101,8 @@ function Clear-Directory
         [string] $DirectoryPath
     )
 
+    Write-Host "Invoke Clear-Directory with DirectoryPath: $DirectoryPath"
+
     if (-not (Test-Path $DirectoryPath))
     {
         Write-Warning "Directory not found: $DirectoryPath"
@@ -128,16 +122,12 @@ $workflowFiles = @(
     "$GitRootDirectoryAbsPath/.github/workflows/build-pdf.yml"
 )
 
-$excludedWorkflowUrl =
-"kolosovpetro/github-latex-template/.github/workflows/build-and-deploy-pdf-template.yml@main"
-
 foreach ($file in $workflowFiles)
 {
     Replace-TextInFile `
         -FilePath $file `
         -OldText $DefaultGitRootDirectoryName `
-        -NewText $GitRootDirectoryName `
-        -ExcludePatterns @($excludedWorkflowUrl)
+        -NewText $GitRootDirectoryName
 }
 
 # ----------------------------------------------------------------------
