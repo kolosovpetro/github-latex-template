@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["SurprisingPolynomialIdentitiesClassicalInterpolation`"]
+BeginPackage["github-latex-template`"]
 
 (*BEGIN: Definitions *)
 A::usage="A[n, k] returns the real coefficient A of non-negative integers n, k such that n <= k."
@@ -188,8 +188,8 @@ BivaraiteFaulhabersFormula[n_, r_]:= n^(2r+1)/((2r+1)*Binomial[2r,r]) + (-1)^r *
 
 (*BEGIN: Sums of powers *)
 SumsOfPowers[n_, r_]:= Expand[Sum[k^r, {k, 1, n}]];
-SumsOfOddPowers[n_, m_]:= Sum[A[m,r] * Sum[Sum[(t*k)^r, {k, 0, n-t}], {t, 1, n}], {r, 0, m}]; 
-SumsOfOddPowersRearranged[n_, m_]:= Sum[A[m,r] * Sum[ t^r * Sum[(k)^r, {k, 0, n-t}], {t, 1, n}], {r, 0, m}]; 
+SumsOfOddPowers[n_, m_]:= Sum[A[m,r] * Sum[Sum[(t*k)^r, {k, 0, n-t}], {t, 1, n}], {r, 0, m}];
+SumsOfOddPowersRearranged[n_, m_]:= Sum[A[m,r] * Sum[ t^r * Sum[(k)^r, {k, 0, n-t}], {t, 1, n}], {r, 0, m}];
 SumsOfOddPowersReindexed[n_, m_]:= Sum[A[m,r] * Sum[Sum[((n-t)*k)^r, {k, 1, t}], {t, 1, n}], {r, 0, m}];
 SumsOfOddPowersTriple[n_, m_]:= Sum[A[m,r] * Sum[Sum[j^r * (k-j)^r, {j, 1, k}], {k, 1, n}], {r, 0, m}];
 (*END: Sums of powers *)

@@ -28,7 +28,7 @@ $GitRootDirectory = (Get-Item $PSScriptRoot).Parent.Name
 Write-Section "New name for LaTeX and BibTeX files: $GitRootDirectory"
 
 Write-Section "Renaming LaTeX file ..." -Color Gray
-Write-Section "Old LaTeX file name: $LatexFileName.tex"-Color Gray
+Write-Section "Old LaTeX file name: $LatexFileName.tex" -Color Gray
 Write-Section "New LaTeX file name: $GitRootDirectory.tex"
 Rename-Item -Path "$LatexFileName.tex" -NewName "$GitRootDirectory.tex"
 Write-Section "LaTeX file renamed successfully!" -Color Green
