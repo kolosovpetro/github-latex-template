@@ -23,6 +23,10 @@ $GitRootDirectoryName = (Get-Item $PSScriptRoot).Parent.Name
 $GitRootDirectoryAbsPath = (Get-Item $PSScriptRoot).Parent
 $DefaultGitRootDirectoryName = "github-latex-template"
 
+Write-Host "Git root directory name: $GitRootDirectoryName"
+Write-Host "Git root directory abs path: $GitRootDirectoryAbsPath"
+Write-Host "Git root default directory name: $DefaultGitRootDirectoryName"
+
 Write-Host "Initializing LaTeX template for repository: $GitRootDirectoryName" -ForegroundColor Cyan
 
 # ----------------------------------------------------------------------
@@ -43,6 +47,10 @@ function Replace-TextInFile
 
         [string[]] $ExcludePatterns = @()
     )
+
+    Write-Host "Invoke Replace-TextInFile with FilePath: $FilePath"
+    Write-Host "Invoke Replace-TextInFile with OldText: $OldText"
+    Write-Host "Invoke Replace-TextInFile with NewText: $NewText"
 
     if (-not (Test-Path $FilePath))
     {
