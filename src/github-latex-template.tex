@@ -16,6 +16,7 @@
 \usepackage{physics}
 \usepackage{booktabs}
 \usepackage{url}
+\usepackage{mdframed}
 
 % margins and layout
 \linespread{1.7}
@@ -34,7 +35,9 @@
 \newcommand \centralFactorial [2] {#1^{[#2]}}
 \newcommand \fallingFactorial [2] {\left(#1 \right)^{\underline{#2}}}
 \newcommand{\stirlingii}{\genfrac{\{}{\}}{0pt}{}}
-\newcommand{\eulerianNumber}{\genfrac{\langle}{\rangle}{0pt}{}}
+\newcommand{\eulerian}[2]{\genfrac{\langle}{\rangle}{0pt}{}{#1}{#2}} % Eulerian
+
+\newcommand{\KnuthRFoldSum}[3]{\Sigma^{#1}\,{#2}^{#3}}
 
 % for llceil coeffcient
 \newcommand{\nobarfrac}{\genfrac{}{}{0pt}{}}
@@ -152,6 +155,6 @@
     \bibliographystyle{unsrt}
     \bibliography{github-latex-template}
 
-    \input{metadata/license}
+    \input{metadata/footer}
 
 \end{document}

@@ -8,7 +8,24 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 [//]: # (## [1.0.0] - In progress)
 
 [//]: # ()
+
 [//]: # (### Changed)
+
+## [1.4.0] - In progress
+
+### Changed
+
+- Add `mdframed` package
+- Add multifold sums of powers symbol
+- Add `metadata` folder to artifacts
+- Add ORCID link
+- Rework footer
+- Move build docs to `BUILD.md`
+- Add default keywords to `README.md`
+- Add default MSC2101 to `README.md`
+- Add default Abstract to `README.md`
+- Add `REFERENCES.txt` file with plain text references
+- Add `CITATION.bib` file
 
 ## [1.3.3] - 19-Dec-2025
 
@@ -57,7 +74,6 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add default keywords
 - Update README
 - Update bibliography
-
 
 ## [1.3.0] - 2024-10-06
 

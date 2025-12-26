@@ -1,8 +1,35 @@
 # GitHub LaTeX Template
 
+## Abstract
+
 - LaTeX template for GitHub including general CI/CD actions and Mathematica templates.
 - Best compatible with JetBrains Rider 2024.3.8 Build #RD-243.26574.73, built on May 18, 2025.
 - Plugin: https://plugins.jetbrains.com/plugin/9473-texify-idea
+
+**DOI**: https://doi.org/10.5281/zenodo.18040979
+
+**MSC2010**: 05A19, 05A10, 11B83, 03C40.
+
+**Keywords**: Sums of powers, Newton's interpolation formula, Finite differences, Binomial coefficients, Faulhaber's formula,
+Bernoulli numbers, Bernoulli polynomials, Interpolation, Combinatorics, Central factorial numbers, OEIS, Stirling numbers,
+Eulerian numbers, Worpitzky identity.
+
+## References
+
+- Knuth, D. E. (1993). Johann Faulhaber and sums of powers. Mathematics of Computation, 61(203), 277–294. https://arxiv.org/abs/math/9207222
+- Newton, I., & Chittenden, N. W. (1850). Newton's Principia: The mathematical principles of natural philosophy. New-York: D. Adee. https://archive.org/details/bub_gb_KaAIAAAAIAAJ/page/466/mode/2up
+- Graham, R. L., Knuth, D. E., & Patashnik, O. (1994). Concrete mathematics: A foundation for computer science (2nd ed.). Addison-Wesley Publishing Company, Inc. https://archive.org/details/concrete-mathematics
+- Pfaff, T. J. (2007). Deriving a formula for sums of powers of integers. Pi Mu Epsilon Journal, 12(7), 425–430. https://www.jstor.org/stable/24340705
+- Sloane, N. J. A., et al. (2003). The on-line encyclopedia of integer sequences. https://oeis.org/
+- Cereceda, J. L. (2022). Sums of powers of integers and generalized Stirling numbers of the second kind. arXiv preprint arXiv:2211.11648. https://arxiv.org/abs/2211.11648
+- Worpitzky, J. (1883). Studien über die bernoullischen und eulerschen zahlen. Journal für die reine und angewandte Mathematik, 94, 203–232. http://eudml.org/doc/148532
+- Steffensen, J. F. (1927). Interpolation. Williams & Wilkins. https://www.amazon.com/-/de/Interpolation-Second-Dover-Books-Mathematics-ebook/dp/B00GHQVON8
+- Carlitz, L., & Riordan, J. (1963). The divided central differences of zero. Canadian Journal of Mathematics, 15, 94–100. https://doi.org/10.4153/CJM-1963-010-8
+- Riordan, J. (1968). Combinatorial identities (Vol. 217). Wiley New York. https://www.amazon.com/-/de/Combinatorial-Identities-Probability-Mathematical-Statistics/dp/0471722758
+- Scheuer, M. (2020). Reference request: identity in central factorial numbers. https://math.stackexchange.com/a/3665722/463487
+- Kolosov, P. (2025). Mathematica programs for finite differences, Stirling numbers, and sums of powers. GitHub repository. https://github.com/kolosovpetro/NewtonsInterpolationFormulaAndSumsOfPowers/tree/main/mathematica
+
+[//]: # (===============REMOVE AFTER THIS LINE=================)
 
 ## GitHub Actions used
 
@@ -10,32 +37,6 @@
 - https://github.com/GitTools/actions/blob/main/docs/examples/github/gitversion/index.md
 - https://github.com/xu-cheng/latex-action
 - https://github.com/actions/upload-artifact
-
-## Build and run using PowerShell (Windows)
-
-- Install `MikTeX`: https://miktex.org/download
-- Update `MikTeX` packages
-- Install `SumatraPDF` viewer: https://www.sumatrapdfreader.org/download-free-pdf-viewer
-- `.\src\Initialize-Workspace.ps1` configures workspace, renames files and patches CI/CD values
-- `.\src\Build-Latex.ps1` to build LaTeX and BibTeX
-
-## Build and run in Intellij IDEA (Windows)
-
-- Install `MikTeX`: https://miktex.org/download
-- Update `MikTeX`
-- Install `SumatraPDF` viewer: https://www.sumatrapdfreader.org/download-free-pdf-viewer
-- Path to SumatraPDF: `C:\Program Files\SumatraPDF`
-- Install `Intellij IDEA Ultimate`: https://www.jetbrains.com/idea/download/#section=windows
-- Activate `Intellij IDEA Ultimate`
-- Install `TeXiFy IDEA` plugin: https://plugins.jetbrains.com/plugin/9473-texify-idea
-- Clone this repository locally: `https://github.com/kolosovpetro/github-latex-template.git`
-- Open `github-latex-template` folder in `Intellij IDEA Ultimate` and configure as follows
-    - LaTeX Configuration
-      ![LaTeX Configuration](./src/sections/images/latex_configuration.png "LaTeX Configuration")
-    - BibTeX Configuration
-      ![BibTeX Configuration](./src/sections/images/bibtex_configuration.png "BibTeX Configuration")
-- Configure Inverse Search in `Intellij IDEA` for SumatraPDF: `Tools -> LaTeX -> Configure Inverse Search`
-- Compile document using `Shift + F10`
 
 ## How to use Mathematica package
 

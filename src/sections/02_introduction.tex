@@ -43,3 +43,19 @@ In particular,
     = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)
 \end{equation}
 This is an equation reference~\eqref{eq:knuth-power-identity}.
+
+Continuing similarly, we are able to derive the formula for multifold sums of powers,
+which is
+\begin{theorem}[Multifold sums of powers via Newton's series]
+    \label{theorem:multifold-sums-of-powers-via-newtons-series}
+    \begin{mdframed}
+        For non-negative integers $r,n,m$ and an arbitrary integer $t$
+        \begin{align*}
+            \KnuthRFoldSum{r}{n}{m} = \sum_{j=0}^{m} \Delta^{j} t^{m} \left[ \left( \sum_{s=1}^{r} (-1)^{j+s-1} \binom{j+t-1}{j+s} \KnuthRFoldSum{r-s}{n}{0} \right) + \binom{n-t+r}{j+r} \right]
+        \end{align*}
+    \end{mdframed}
+    \begin{proof}
+        By Newton's series for power and repeated
+        applications of the segmented hockey stick identity.
+    \end{proof}
+\end{theorem}
