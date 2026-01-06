@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 ## [1.5.0] - 06 Jan 2026
 
 - Reuse build template actions
+- Add notation for falling and rising factorials
 
 ### Changed
 
