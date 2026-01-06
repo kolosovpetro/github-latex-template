@@ -18,6 +18,8 @@ jobs:
       file_name: 'github-latex-template'
       enable_patch_version: true
       enable_pandoc: true
+      enable_html_deploy: true
+      html_deploy_path: 'test'
       runs_on: 'ubuntu-latest'
       workflow_name: 'Deploy PDF'
       build_assets_path: |

@@ -39,6 +39,19 @@ on:
         default: false
         type: boolean
 
+      enable_html_deploy:
+        description: 'Enable HTML deploy to GitHub pages'
+        required: false
+        default: false
+        type: boolean
+
+      html_deploy_path:
+        description: 'Path for HTML deploy. Example: kolosovpetro.github.io/math/${html_deploy_path}.'
+        required: false
+        default: 'test'
+        type: string
+
+
 env:
   TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
   USERNAME: "kolosovpetro"
@@ -74,7 +87,7 @@ jobs:
           name: 'pdf'
           path: downloaded/pdf
 
-      - name: '🔍 Validate PDF artifact'
+      - name: '🔍 Validate PDF artifact 🔍'
         run: |
           ls -lsa downloaded/pdf/*.pdf
 
@@ -92,7 +105,13 @@ jobs:
       - name: '📀 Clone repository 📀'
         run: |
           git clone https://${{ env.TOKEN }}@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
-          cp downloaded/pdf/*.pdf ~/kolosovpetro.github.io/pdf
+
+      - name: '📀 Deploy PDF 📀'
+        run: cp downloaded/pdf/*.pdf ~/kolosovpetro.github.io/pdf
+
+      - name: '📀 Deploy HTML 📀'
+        if: ${{ inputs.enable_html_deploy }}
+        run: cp downloaded/pdf/* ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
 
       - name: '❇️ Commit changes ❇️'
         run: |
