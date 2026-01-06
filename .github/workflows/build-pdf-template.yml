@@ -47,7 +47,7 @@ jobs:
       - name: Install pandoc
         uses: pandoc/actions/setup@v1
         with:
-          version: latest
+          version: pandoc 3.8.3
 
       - name: Run pandoc
         run: pandoc --version
