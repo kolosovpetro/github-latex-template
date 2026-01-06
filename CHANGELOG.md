@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 
 - Reuse build template actions
 - Add notation for falling and rising factorials
+- Add symbols for derivatives
 
 ### Changed
 
