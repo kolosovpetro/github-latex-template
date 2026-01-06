@@ -61,6 +61,14 @@
 %}
 %\newcommand{\oneQBinomial}[3]{\genstirlingI{}{#1}{#2}^{#3}}
 
+% free foot note
+\let\svthefootnote\thefootnote
+\newcommand\freefootnote[1]{%
+    \let\thefootnote\relax%
+    \footnotetext{#1}%
+    \let\thefootnote\svthefootnote%
+}
+
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
@@ -161,6 +169,8 @@
     \addcontentsline{toc}{section}{Abstract}
 
 %    \tableofcontents
+
+    \freefootnote{DOI: \url{https://doi.org/10.5281/zenodo.18040979}}
 
 
     \section{Introduction} \label{sec:introduction}
