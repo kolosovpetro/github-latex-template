@@ -363,11 +363,11 @@ polynomial identity <span class="math display">\[\begin{equation}
 \end{equation}\]</span> where <span
 class="math inline">\(x^{[k]}\)</span> denotes central factorial defined
 by <span class="math display">\[\begin{equation*}
-    x^{[n]} = x \left(x+\frac{n}{2}-1 \right)^{\underline{n-1}}
-\end{equation*}\]</span> where <span class="math inline">\(\left(n
-\right)^{\underline{k}} = n (n-1) (n-2) \cdots (n-k+1)\)</span> denotes
-falling factorial in Knuth’s notation. In particular, <span
-class="math display">\[\begin{equation}
+    x^{[n]} = x \left(x+\frac{n}{2}-1\right)_{n-1}
+\end{equation*}\]</span> where <span
+class="math inline">\(\left(n\right)_{k} = n (n-1) (n-2) \cdots
+(n-k+1)\)</span> denotes falling factorial in Knuth’s notation. In
+particular, <span class="math display">\[\begin{equation}
     \label{eq:falling-factorial}
     x^{[n]}
     = x \left( x+\frac{n}{2}-1 \right) \left( x+\frac{n}{2}-1 \right)
@@ -397,6 +397,56 @@ class="math display">\[\begin{align*}
 applications of the segmented hockey stick identity. ◻</em></p>
 </div>
 </div>
+<div class="proposition">
+<p><strong>Proposition 2</strong> (Falling factorial). <em><span
+class="math display">\[\begin{align*}
+        \left(x\right)_{n} = x(x-1)(x-2)(x-3)\cdots(x-n+1) =
+\prod_{k=0}^{n-1}(x-k)
+\end{align*}\]</span></em></p>
+</div>
+<div class="proposition">
+<p><strong>Proposition 3</strong>. <em><span
+class="math display">\[\begin{align*}
+        \frac{\left(x\right)_{n}}{n!} = \binom{x}{n}
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="rising-factorials">Rising factorials</h2>
+<div class="proposition">
+<p><strong>Proposition 4</strong> (Rising factorial). <em><span
+class="math display">\[\begin{align*}
+        x^{\left(n\right)} = x(x+1)(x+2)(x+3)\cdots(x+n-1) =
+\prod_{k=0}^{n-1}(x+k)
+\end{align*}\]</span></em></p>
+</div>
+<div class="proposition">
+<p><strong>Proposition 5</strong>. <em><span
+class="math display">\[\begin{align*}
+        \frac{x^{\left(n\right)}}{n!} = \binom{x+n-1}{n}
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="central-factorials">Central factorials</h2>
+<div class="lemma">
+<p><strong>Lemma 6</strong> (Central factorial). <em><span
+class="math display">\[\begin{align*}
+        n^{[k]}
+        = n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2
+\right) \cdots \left( n - \frac{k}{2} +1 \right)
+        = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)
+\end{align*}\]</span></em></p>
+</div>
+<div class="proposition">
+<p><strong>Proposition 7</strong>. <em><span
+class="math display">\[\begin{align*}
+        n^{[k]} = n \left(n+\frac{k}{2}-1\right)_{k-1}
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="derivatives">Derivatives</h2>
+<p><span class="math display">\[\begin{align*}
+    \frac{d x}{d y} = \frac{f(x+h)-f(x)}{h}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+    \frac{d^{3} x}{d y^{3}} = \frac{f(x+h)-f(x)}{h}
+\end{align*}\]</span></p>
 <h1 class="unnumbered" id="conclusions">Conclusions</h1>
 <p>Conclusions of your manuscript.</p>
 <p>Here is an itemize list with adjusted margins</p>
@@ -411,14 +461,6 @@ applications of the segmented hockey stick identity. ◻</em></p>
 <p><span><strong>Metadata</strong></span></p>
 <ul>
 <li><p><strong>Version:</strong> <code>Local-0.1.0</code></p></li>
-<li><p><strong>License:</strong> This work is licensed under a <a
-href="https://creativecommons.org/licenses/by/4.0/"><code>CC BY 4.0 License</code></a>.</p></li>
-<li><p><strong>Sources:</strong> <a
-href="https://github.com/kolosovpetro/github-latex-template"><code>github.com/kolosovpetro/github-latex-template</code></a></p></li>
-<li><p><strong>ORCID:</strong> <a
-href="https://orcid.org/0000-0002-6544-8880"><code>0000-0002-6544-8880</code></a></p></li>
-<li><p><strong>Email:</strong> <a
-href="mailto:kolosovp94@gmail.com"><code>kolosovp94@gmail.com</code></a></p></li>
 <li><p><strong>MSC2010:</strong> 05A19, 05A10, 41A15, 11B68, 11B73,
 11B83</p></li>
 <li><p><strong>Keywords:</strong> Sums of powers, Newton’s interpolation
@@ -427,6 +469,20 @@ Bernoulli numbers, Bernoulli polynomials Interpolation, Approximation,
 Discrete convolution, Combinatorics, Polynomial identities, Central
 factorial numbers, Stirling numbers, Eulerian numbers, Worpitzky
 identity, Pascal’s triangle, OEIS</p></li>
+<li><p><strong>License:</strong> This work is licensed under a <a
+href="https://creativecommons.org/licenses/by/4.0/"><code>CC BY 4.0 License</code></a>.</p></li>
+<li><p><strong>DOI:</strong> <a
+href="https://doi.org/10.5281/zenodo.18040979"
+class="uri">https://doi.org/10.5281/zenodo.18040979</a></p></li>
+<li><p><strong>Web Version:</strong> <a
+href="https://kolosovpetro.github.io/math/"
+class="uri">https://kolosovpetro.github.io/math/</a></p></li>
+<li><p><strong>Sources:</strong> <a
+href="https://github.com/kolosovpetro/github-latex-template"><code>github.com/kolosovpetro/github-latex-template</code></a></p></li>
+<li><p><strong>ORCID:</strong> <a
+href="https://orcid.org/0000-0002-6544-8880"><code>0000-0002-6544-8880</code></a></p></li>
+<li><p><strong>Email:</strong> <a
+href="mailto:kolosovp94@gmail.com"><code>kolosovp94@gmail.com</code></a></p></li>
 </ul>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
@@ -434,28 +490,33 @@ role="list">
 role="listitem">
 Alekseyev, Max. 2018. <span>“<span class="nocase">MathOverflow answer
 297916/113033</span>.”</span> In <em><span class="nocase">MathOverflow
-https://mathoverflow.net/a/297916/113033</span></em>, 297916/113033.
+https://mathoverflow.net/a/297916/113033</span></em>, 297916/113033. <a
+href="https://mathoverflow.net/a/297916/113033"
+class="uri">Https://mathoverflow.net/a/297916/113033</a>.
 </div>
 <div id="ref-oeis_numerators_of_the_coefficient_a_m_r" class="csl-entry"
 role="listitem">
 Kolosov, Petro. 2018a. <span>“<span class="nocase">Entry A302971 in The
 On-Line Encyclopedia of Integer Sequences</span>.”</span> In <em><span
 class="nocase">The On-Line Encyclopedia of Integer
-Sequences</span></em>, No. A302971.
+Sequences</span></em>, No. A302971. <a href="https://oeis.org/A302971"
+class="uri">Https://oeis.org/A302971</a>.
 </div>
 <div id="ref-oeis_denominators_of_the_coefficient_a_m_r"
 class="csl-entry" role="listitem">
 Kolosov, Petro. 2018b. <span>“<span class="nocase">Entry A304042 in The
 On-Line Encyclopedia of Integer Sequences</span>.”</span> In <em><span
 class="nocase">The On-Line Encyclopedia of Integer
-Sequences</span></em>, No. A304042.
+Sequences</span></em>, No. A304042. <a href="https://oeis.org/A304042"
+class="uri">Https://oeis.org/A304042</a>.
 </div>
 <div id="ref-oeis_coefficients_u_m_l_k_defined_by_polynomial_identity_3"
 class="csl-entry" role="listitem">
 Kolosov, Petro. 2018c. <span>“<span class="nocase">The coefficients U(m,
 l, k), m = 3 defined by the polynomial identity</span>.”</span> In
 <em><span class="nocase">The On-Line Encyclopedia of Integer
-Sequences</span></em>, No. A316387.
+Sequences</span></em>, No. A316387. <a href="https://oeis.org/A316387"
+class="uri">Https://oeis.org/A316387</a>.
 </div>
 <div id="ref-derivative_of_polynomials_via_double_limit"
 class="csl-entry" role="listitem">
