@@ -73,7 +73,9 @@ jobs:
           rm -f "src/metadata/version.tex"
           newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
           echo "New version: $newVersion"
-          echo $newVersion > "src/metadata/version.tex"
+          echo "\texttt{$newVersion}" > "src/metadata/version.tex"
+          echo "Contents of the file: src/metadata/version.tex"
+          cat "src/metadata/version.tex"
           
 
       - name: '🛠 Build PDF 🛠'
