@@ -12,7 +12,6 @@
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{etoolbox}
-\usepackage{physics}
 \usepackage{booktabs}
 \usepackage{mdframed}
 
@@ -22,7 +21,7 @@
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
 \raggedbottom
 
-\newcommand \coeffA [3][A] {{\mathbf{#1}} \sb{#2,#3}}
+\newcommand \coeffA [3][A] {{\mathbf{#1}}_{#2,#3}}
 \newcommand \polynomialP [4][P]{{\mathbf{#1}}\sp{#2} \sb{#3}(#4)}
 \newcommand \bernoulli [2][B] {{#1}\sb{#2}}
 
