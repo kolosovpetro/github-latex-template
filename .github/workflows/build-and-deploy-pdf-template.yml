@@ -113,7 +113,7 @@ jobs:
         if: ${{ inputs.enable_html_deploy }}
         run: |
           mkdir -p ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
-          cp downloaded/html/* ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
+          cp -r downloaded/html/* ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
 
       - name: '❇️ Commit changes ❇️'
         run: |
