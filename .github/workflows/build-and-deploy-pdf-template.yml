@@ -62,17 +62,12 @@ jobs:
   build:
     uses: ./.github/workflows/build-pdf-template.yml
     with:
-      file_name: 'github-latex-template'
+      file_name: '${{ inputs.file_name }}'
       enable_patch_version: true
       enable_pandoc: ${{ inputs.enable_pandoc }}
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
-      build_assets_path: |
-        src/github-latex-template.tex
-        src/github-latex-template.bbl
-        src/github-latex-template.bib
-        src/sections
-        src/metadata
+      build_assets_path: '${{ inputs.build_assets_path }}'
       working_directory_for_latex: 'src'
   
   deploy:
