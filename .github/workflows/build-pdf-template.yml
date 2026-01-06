@@ -114,9 +114,17 @@ jobs:
           name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
           path: '${{ inputs.working_directory_for_latex }}/${{ inputs.file_name }}.pdf'
 
+      - name: '🔄 Prepare HTML artifact 🔄'
+        run: |
+          mkdir -p artifact/sections
+          if [ -d "src/sections/images" ]; then
+            cp -r src/sections/images artifact/sections/
+          fi
+          cp ${{ inputs.working_directory_for_latex }}/index.html artifact/
+
       - name: '⬆️ Upload artifacts HTML ⬆️'
         if: ${{ inputs.enable_pandoc }}
         uses: actions/upload-artifact@v6
         with:
           name: '${{ inputs.file_name }}-HTML-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.working_directory_for_latex }}/index.html'
+          path: /artifact
