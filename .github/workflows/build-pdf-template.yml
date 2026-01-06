@@ -44,6 +44,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install pandoc
+        uses: pandoc/actions/setup@v1
+        with:
+          version: latest
+
+      - name: Run pandoc
+        run: pandoc --version
+
       - name: '⬇️ Install GitVersion ⬇️'
         if: ${{ inputs.enable_patch_version }}
         uses: gittools/actions/gitversion/setup@v4.2.0
@@ -77,7 +85,6 @@ jobs:
           echo "Contents of the file: src/metadata/version.tex"
           cat "src/metadata/version.tex"
           
-
       - name: '🛠 Build PDF 🛠'
         uses: xu-cheng/latex-action@v4
         with:
