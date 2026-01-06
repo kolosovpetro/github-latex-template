@@ -127,4 +127,4 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: '${{ inputs.file_name }}-HTML-${{ env.GitVersion_InformationalVersion }}'
-          path: /artifact
+          path: artifact
