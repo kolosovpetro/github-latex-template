@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update metadata
 - Rework MSC2010 subjects
 - Rework `Initialize-Workspace.ps1` script
+- Fix build script
 
 ## [1.3.3] - 19-Dec-2025
 
