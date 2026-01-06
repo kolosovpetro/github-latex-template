@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 
 [//]: # (### Changed)
 
+## [1.5.0] - 06 Jan 2026
+
+- Reuse build template actions
+- Add notation for falling and rising factorials
+- Add symbols for derivatives
+- Edits in footer
+- In bibliography: note -> howpublished
+- Update init script
+- Implement HTML deploy to GitHub pages
+
+### Changed
+
 ## [1.4.0] - 06 Jan 2026
 
 ### Changed

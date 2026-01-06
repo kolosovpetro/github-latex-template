@@ -244,4 +244,48 @@ Replace-TextInFile `
     -OldText "$DefaultGitRootDirectoryName" `
     -NewText "$GitRootDirectoryName"
 
+# ----------------------------------------------------------------------
+# 10. Delete renovate configs
+# ----------------------------------------------------------------------
+
+Write-Host "Removing renovate configs ..."
+
+$RenoveteConfig = "$GitRootDirectoryAbsPath/renovate.json"
+$RenoveteLicense = "$GitRootDirectoryAbsPath/renovate.json.license"
+
+$renovate = @($RenoveteConfig, $RenoveteLicense)
+
+foreach ($file in $renovate) 
+{
+    if (Test-Path $file) {
+        Write-Host "Removing: $file ..."
+        Remove-Item $file
+        continue
+    }
+
+    Write-Host "Skipping non-existing file: $file ..."
+}
+
+# ----------------------------------------------------------------------
+# 11. Delete unnecessary GitHub actions templates
+# ----------------------------------------------------------------------
+
+Write-Host "Removing unnecessary GitHub actions templates ..."
+
+$BuildTemplate = "$GitRootDirectoryAbsPath/.github/workflows/build-pdf-template.yml"
+$DeployTemplate = "$GitRootDirectoryAbsPath/.github/workflows/build-and-deploy-pdf-template.yml"
+
+$actions = @($BuildTemplate, $DeployTemplate)
+
+foreach ($file in $actions) 
+{
+    if (Test-Path $file) {
+        Write-Host "Removing: $file ..."
+        Remove-Item $file
+        continue
+    }
+
+    Write-Host "Skipping non-existing file: $file ..."
+}
+
 Write-Host "`nInitialization completed successfully." -ForegroundColor Green

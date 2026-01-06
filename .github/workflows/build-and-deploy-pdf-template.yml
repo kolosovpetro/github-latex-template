@@ -1,4 +1,4 @@
-name: 'Build and Deploy LaTeX'
+name: 'Deploy'
 on:
   workflow_call:
     inputs:
@@ -39,6 +39,19 @@ on:
         default: false
         type: boolean
 
+      enable_html_deploy:
+        description: 'Enable HTML deploy to GitHub pages'
+        required: false
+        default: false
+        type: boolean
+
+      html_deploy_path:
+        description: 'Path for HTML deploy. Example: kolosovpetro.github.io/math/${html_deploy_path}.'
+        required: false
+        default: 'test'
+        type: string
+
+
 env:
   TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
   USERNAME: "kolosovpetro"
@@ -46,99 +59,61 @@ env:
   MESSAGE: "CICD deploy of ${{ inputs.file_name }} PDF document"
 
 jobs:
-  build-pdf:
+  build:
+    uses: ./.github/workflows/build-pdf-template.yml
+    with:
+      file_name: 'github-latex-template'
+      enable_patch_version: true
+      enable_pandoc: ${{ inputs.enable_pandoc }}
+      runs_on: 'ubuntu-latest'
+      workflow_name: 'Build PDF'
+      build_assets_path: |
+        src/github-latex-template.tex
+        src/github-latex-template.bbl
+        src/github-latex-template.bib
+        src/sections
+        src/metadata
+      working_directory_for_latex: 'src'
+  
+  deploy:
+    needs: build
     runs-on: ${{ inputs.runs_on }}
     name: ${{ inputs.workflow_name }}
 
     steps:
-      - name: '🔎 Fetch sources 🔎'
-        uses: actions/checkout@v6
+      - name: '⬇️ Download PDF artifact ⬇️'
+        uses: actions/download-artifact@v6
         with:
-          fetch-depth: 0
+          name: 'pdf'
+          path: downloaded/pdf
 
-      - name: '⬇️ Install pandoc ⬇️'
-        if: ${{ inputs.enable_pandoc }}
-        uses: pandoc/actions/setup@v1
-
-      - name: '🔄 Run pandoc 🔄'
-        if: ${{ inputs.enable_pandoc }}
-        run: pandoc --version
-
-      - name: '⬇️ Install GitVersion ⬇️'
-        if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/setup@v4.2.0
-        with:
-          versionSpec: '6.x'
-          preferLatestVersion: true
-
-      - name: '🤔 Determine Version 🤔'
-        if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/execute@v4.2.0
-        with:
-          configFilePath: GitVersion.yml
-
-      - name: '📜 Print Version 📜'
-        if: ${{ inputs.enable_patch_version }}
+      - name: '🔍 Validate PDF artifact 🔍'
         run: |
-          echo "SemVer: ${{ env.GitVersion_SemVer }}"
-          echo "BranchName: ${{ env.GitVersion_BranchName }}"
-          echo "ShortSha: ${{ env.GitVersion_ShortSha }}"
-          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          echo "Next version: $newVersion"
+          ls -lsa downloaded/pdf/*.pdf
 
-      - name: '🔄 Update version.tex 🔄'
-        if: ${{ inputs.enable_patch_version }}
-        shell: bash
-        run: |
-          rm -f "src/metadata/version.tex"
-          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          echo "New version: $newVersion"
-          echo "\texttt{$newVersion}" > "src/metadata/version.tex"
-          echo "Contents of the file: src/metadata/version.tex"
-          cat "src/metadata/version.tex"
-
-      - name: '🛠 Build PDF 🛠'
-        uses: xu-cheng/latex-action@v4
-        with:
-          root_file: '${{ inputs.file_name }}.tex'
-          working_directory: '${{ inputs.working_directory_for_latex }}'
-
-      - name: '🛠 Build Pandoc 🛠'
+      - name: '⬇️ Download HTML artifact ⬇️'
         if: ${{ inputs.enable_pandoc }}
-        run: ./src/Generate-Html.ps1
-        shell: pwsh
-
-      - name: '⬆️ Upload build assets ⬆️'
-        uses: actions/upload-artifact@v6
+        uses: actions/download-artifact@v6
         with:
-          name: '${{ inputs.file_name }}-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.build_assets_path }}'
+          name: 'html'
+          path: downloaded/html
 
-      - name: '⬆️ Upload artifacts PDF ⬆️'
-        uses: actions/upload-artifact@v6
-        with:
-          name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.working_directory_for_latex}}/${{ inputs.file_name }}.pdf'
-
-      - name: '🔄 Prepare HTML artifact 🔄'
+      - name: '🔍 Validate HTML artifact'
         run: |
-          mkdir -p artifact/sections
-          if [ -d "src/sections/images" ]; then
-            cp -r src/sections/images artifact/sections/
-          fi
-          cp ${{ inputs.working_directory_for_latex }}/index.html artifact/
-
-      - name: '⬆️ Upload artifacts HTML ⬆️'
-        if: ${{ inputs.enable_pandoc }}
-        uses: actions/upload-artifact@v6
-        with:
-          name: '${{ inputs.file_name }}-HTML-${{ env.GitVersion_InformationalVersion }}'
-          path: artifact
-
+          ls -lsa downloaded/html
+      
       - name: '📀 Clone repository 📀'
         run: |
           git clone https://${{ env.TOKEN }}@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
-          cp src/${{ inputs.file_name }}.pdf ~/kolosovpetro.github.io/pdf/${{ inputs.file_name }}.pdf
+
+      - name: '📀 Deploy PDF 📀'
+        run: cp downloaded/pdf/*.pdf ~/kolosovpetro.github.io/pdf
+
+      - name: '📀 Deploy HTML 📀'
+        if: ${{ inputs.enable_html_deploy }}
+        run: |
+          mkdir -p ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
+          cp -r downloaded/html/* ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
 
       - name: '❇️ Commit changes ❇️'
         run: |

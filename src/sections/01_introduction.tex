@@ -1,7 +1,6 @@
 Your introduction here.
 Include some references~\cite{derivative_of_polynomials_via_double_limit,
-    alekseyev2018mathoverflow,
-    oeis_coefficients_u_m_l_k_defined_by_polynomial_identity_3}.
+    alekseyev2018mathoverflow,oeis_coefficients_u_m_l_k_defined_by_polynomial_identity_3}.
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
 of type and scrambled it to make a type specimen book.
@@ -59,3 +58,53 @@ which is
         applications of the segmented hockey stick identity.
     \end{proof}
 \end{theorem}
+
+\begin{proposition}[Falling factorial]
+    \begin{align*}
+        \fallingFactorial{x}{n} = x(x-1)(x-2)(x-3)\cdots(x-n+1) = \prod_{k=0}^{n-1}(x-k)
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}
+    \begin{align*}
+        \frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}
+    \end{align*}
+\end{proposition}
+
+\subsection{Rising factorials}
+\begin{proposition} [Rising factorial]
+    \begin{align*}
+        \risingFactorial{x}{n} = x(x+1)(x+2)(x+3)\cdots(x+n-1) = \prod_{k=0}^{n-1}(x+k)
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}
+    \begin{align*}
+        \frac{\risingFactorial{x}{n}}{n!} = \binom{x+n-1}{n}
+    \end{align*}
+\end{proposition}
+
+\subsection{Central factorials}
+\begin{lemma}[Central factorial]
+    \begin{align*}
+        \centralFactorial{n}{k}
+        = n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right) \cdots \left( n - \frac{k}{2} +1 \right)
+        = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)
+    \end{align*}
+\end{lemma}
+
+\begin{proposition}
+    \begin{align*}
+        \centralFactorial{n}{k} = n \fallingFactorial{n+\frac{k}{2}-1}{k-1}
+    \end{align*}
+\end{proposition}
+
+\subsection{Derivatives}
+
+\begin{align*}
+    \od{x}{y} = \frac{f(x+h)-f(x)}{h}
+\end{align*}
+
+\begin{align*}
+    \odd{x}{y}{3} = \frac{f(x+h)-f(x)}{h}
+\end{align*}

@@ -22,25 +22,37 @@
 \raggedbottom
 
 \newcommand \coeffA [3][A] {{\mathbf{#1}}_{#2,#3}}
-\newcommand \polynomialP [4][P]{{\mathbf{#1}}\sp{#2} \sb{#3}(#4)}
-\newcommand \bernoulli [2][B] {{#1}\sb{#2}}
+\newcommand \polynomialP [4][P]{{\mathbf{#1}}^{#2}_{#3}(#4)}
 
 %\newcommand \anglePower [2]{\langle #1 \rangle \sp{#2}}
 %\newcommand \curvePower [2]{\{#1\}\sp{#2}}
 
-% central factorials and related symbols
+% factorial notations
 \newcommand \centralFactorial [2] {#1^{[#2]}}
-\newcommand \fallingFactorial [2] {\left(#1 \right)^{\underline{#2}}}
-\newcommand{\stirlingii}{\genfrac{\{}{\}}{0pt}{}}
-\newcommand{\eulerian}[2]{\genfrac{\langle}{\rangle}{0pt}{}{#1}{#2}} % Eulerian
+\newcommand{\fallingFactorial}[2]{\left(#1\right)_{#2}}
+\newcommand{\risingFactorial}[2]{#1^{\left(#2\right)}}
 
 \newcommand{\KnuthRFoldSum}[3]{\Sigma^{#1}\,{#2}^{#3}}
+
+% Special numbers
+\newcommand{\stirlingii}{\genfrac{\{}{\}}{0pt}{}}
+\newcommand{\eulerian}[2]{\genfrac{\langle}{\rangle}{0pt}{}{#1}{#2}} % Eulerian
+\newcommand \bernoulli [2][B] {{#1}_{#2}}
 
 % for llceil coeffcient
 \newcommand{\nobarfrac}{\genfrac{}{}{0pt}{}}
 \def\llceil{\left\lceil\kern-3.5pt\left\lceil}
 \def\rrfloor{\right\rfloor\kern-3.5pt\right\rfloor}
 \newcommand \llceilCoefficient [3] {\llceil \nobarfrac{#1}{#2} \rrfloor_{#3}}
+
+% Ordinary derivatives
+\newcommand{\od}[2]{\frac{d #1}{d #2}}
+\newcommand{\odd}[3]{\frac{d^{#3} #1}{d #2^{#3}}}
+
+% Partial derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
 
 % ~~~ Rascal numbers ~~~
 %\newcommand \rascalNumber [3] {\binom{#1}{#2}_{#3}}
