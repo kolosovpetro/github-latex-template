@@ -37,6 +37,8 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update article structure
 - Clean-up in preambule
 - Rework metadata
+- Add pandoc script
+- Configure pandoc with GitHub Actions
 
 ## [1.3.3] - 19-Dec-2025
 
@@ -74,8 +76,6 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update Init workspace script
 - Add encoding exclusions: `.m` and `.nb`
 - Move version files to root folder
-- Add pandoc script
-- Configure pandoc with GitHub Actions
 
 ## [1.3.1] - 2025-01-15
 
