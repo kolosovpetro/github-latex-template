@@ -51,7 +51,7 @@ jobs:
     with:
       file_name: 'github-latex-template'
       enable_patch_version: true
-      enable_pandoc: true
+      enable_pandoc: ${{ inputs.enable_pandoc }}
       runs_on: 'ubuntu-latest'
       workflow_name: 'Build PDF'
       build_assets_path: |
@@ -77,6 +77,17 @@ jobs:
       - name: '🔍 Validate PDF artifact'
         run: |
           ls -lsa downloaded/pdf/*.pdf
+
+      - name: '⬇️ Download HTML artifact ⬇️'
+        if: ${{ inputs.enable_pandoc }}
+        uses: actions/download-artifact@v6
+        with:
+          name: 'html'
+          path: downloaded/html
+
+      - name: '🔍 Validate HTML artifact'
+        run: |
+          ls -lsa downloaded/html
       
       - name: '📀 Clone repository 📀'
         run: |
