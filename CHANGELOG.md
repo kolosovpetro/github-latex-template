@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add symbols for derivatives
 - Edits in footer
 - In bibliography: note -> howpublished
+- Update init script
 
 ### Changed
 
