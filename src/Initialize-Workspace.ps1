@@ -253,7 +253,7 @@ Write-Host "Removing renovate configs ..."
 $RenoveteConfig = "$GitRootDirectoryAbsPath/renovate.json"
 $RenoveteLicense = "$GitRootDirectoryAbsPath/renovate.json.license"
 
-$renovate = @(RenoveteConfig, $RenoveteLicense)
+$renovate = @($RenoveteConfig, $RenoveteLicense)
 
 foreach ($file in $renovate) 
 {
