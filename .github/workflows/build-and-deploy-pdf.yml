@@ -11,7 +11,7 @@ env:
   # REQUIRES ${{ secrets.GH_ACCESS_TOKEN }} defined in secrets
 
 jobs:
-  build-deploy-pdf:
+  deploy-pdf:
     uses: kolosovpetro/github-latex-template/.github/workflows/build-and-deploy-pdf-template.yml@MATH-90
     secrets: inherit
     with:
@@ -19,7 +19,7 @@ jobs:
       enable_patch_version: true
       enable_pandoc: true
       runs_on: 'ubuntu-latest'
-      workflow_name: 'Build and Deploy PDF'
+      workflow_name: 'Deploy PDF'
       build_assets_path: |
         src/github-latex-template.tex
         src/github-latex-template.bbl
