@@ -16,7 +16,7 @@ env:
 
 jobs:
   build-pdf:
-    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@main
+    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@MATH-90
     with:
       file_name: 'github-latex-template'
       enable_patch_version: true
