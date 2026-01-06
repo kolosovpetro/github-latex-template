@@ -33,6 +33,12 @@ on:
         default: true
         type: boolean
 
+      enable_pandoc:
+        description: 'Enable pandoc build for HTML'
+        required: false
+        default: false
+        type: boolean
+
 jobs:
   build-pdf:
     runs-on: ${{ inputs.runs_on }}
@@ -43,6 +49,14 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+
+      - name: '⬇️ Install pandoc ⬇️'
+        if: ${{ inputs.enable_pandoc }}
+        uses: pandoc/actions/setup@v1
+
+      - name: '🔄 Run pandoc 🔄'
+        if: ${{ inputs.enable_pandoc }}
+        run: pandoc --version
 
       - name: '⬇️ Install GitVersion ⬇️'
         if: ${{ inputs.enable_patch_version }}
@@ -70,14 +84,23 @@ jobs:
         if: ${{ inputs.enable_patch_version }}
         shell: bash
         run: |
+          rm -f "src/metadata/version.tex"
           newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          sed -i "s|Local-0.1.0|$newVersion|" "src/metadata/version.tex"
-
+          echo "New version: $newVersion"
+          echo "\texttt{$newVersion}" > "src/metadata/version.tex"
+          echo "Contents of the file: src/metadata/version.tex"
+          cat "src/metadata/version.tex"
+          
       - name: '🛠 Build PDF 🛠'
         uses: xu-cheng/latex-action@v4
         with:
           root_file: '${{ inputs.file_name }}.tex'
           working_directory: '${{ inputs.working_directory_for_latex }}'
+
+      - name: '🛠 Build Pandoc 🛠'
+        if: ${{ inputs.enable_pandoc }}
+        run: ./src/Generate-Html.ps1
+        shell: pwsh
 
       - name: '⬆️ Upload build assets ⬆️'
         uses: actions/upload-artifact@v6
@@ -89,4 +112,19 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.working_directory_for_latex}}/${{ inputs.file_name }}.pdf'
+          path: '${{ inputs.working_directory_for_latex }}/${{ inputs.file_name }}.pdf'
+
+      - name: '🔄 Prepare HTML artifact 🔄'
+        run: |
+          mkdir -p artifact/sections
+          if [ -d "src/sections/images" ]; then
+            cp -r src/sections/images artifact/sections/
+          fi
+          cp ${{ inputs.working_directory_for_latex }}/index.html artifact/
+
+      - name: '⬆️ Upload artifacts HTML ⬆️'
+        if: ${{ inputs.enable_pandoc }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: '${{ inputs.file_name }}-HTML-${{ env.GitVersion_InformationalVersion }}'
+          path: artifact

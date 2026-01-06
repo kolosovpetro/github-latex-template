@@ -76,8 +76,12 @@ jobs:
         if: ${{ inputs.enable_patch_version }}
         shell: bash
         run: |
+          rm -f "src/metadata/version.tex"
           newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          sed -i "s|Local-0.1.0|$newVersion|" "src/metadata/version.tex"
+          echo "New version: $newVersion"
+          echo "\texttt{$newVersion}" > "src/metadata/version.tex"
+          echo "Contents of the file: src/metadata/version.tex"
+          cat "src/metadata/version.tex"
 
       - name: '🛠 Build PDF 🛠'
         uses: xu-cheng/latex-action@v4
