@@ -46,7 +46,7 @@ env:
   MESSAGE: "CICD deploy of ${{ inputs.file_name }} PDF document"
 
 jobs:
-  build-pdf:
+  build:
     uses: ./.github/workflows/build-pdf-template.yml
     with:
       file_name: 'github-latex-template'
