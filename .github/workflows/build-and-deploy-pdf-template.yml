@@ -111,7 +111,7 @@ jobs:
 
       - name: '📀 Deploy HTML 📀'
         if: ${{ inputs.enable_html_deploy }}
-        run: cp downloaded/pdf/* ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
+        run: cp downloaded/html/* ~/kolosovpetro.github.io/math/${{ inputs.html_deploy_path }}
 
       - name: '❇️ Commit changes ❇️'
         run: |
