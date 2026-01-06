@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add free foot note
 - Update article structure
 - Clean-up in preambule
+- Rework metadata
 
 ## [1.3.3] - 19-Dec-2025
 
