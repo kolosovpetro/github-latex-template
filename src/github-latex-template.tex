@@ -160,28 +160,26 @@
 
 \begin{document}
 
+    \maketitle
+
     \begin{abstract}
         \input{sections/abstract}
     \end{abstract}
 
-    \maketitle
-
-    \addcontentsline{toc}{section}{Abstract}
-
-%    \tableofcontents
-
     \freefootnote{DOI: \url{https://doi.org/10.5281/zenodo.18040979}}
+
+    \tableofcontents
 
 
     \section{Introduction} \label{sec:introduction}
     \input{sections/01_introduction}
 
 
-    \section{Conclusions}\label{sec:conclusions}
+    \section*{Conclusions}
     \input{sections/conclusions}
 
 
-    \section{Acknowledgements}\label{sec:acknowledgements}
+    \section*{Acknowledgements}
     \input{sections/acknowledgements}
 
     \bibliographystyle{unsrt}
