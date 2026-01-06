@@ -33,6 +33,12 @@ on:
         default: true
         type: boolean
 
+      enable_pandoc:
+        description: 'Enable pandoc build for HTML'
+        required: false
+        default: false
+        type: boolean
+
 jobs:
   build-pdf:
     runs-on: ${{ inputs.runs_on }}
@@ -44,10 +50,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pandoc
+      - name: '⬇️ Install pandoc ⬇️'
+        if: ${{ inputs.enable_pandoc }}
         uses: pandoc/actions/setup@v1
 
-      - name: Run pandoc
+      - name: '🔄 Run pandoc 🔄'
+        if: ${{ inputs.enable_pandoc }}
         run: pandoc --version
 
       - name: '⬇️ Install GitVersion ⬇️'
@@ -89,6 +97,11 @@ jobs:
           root_file: '${{ inputs.file_name }}.tex'
           working_directory: '${{ inputs.working_directory_for_latex }}'
 
+      - name: '🛠 Build Pandoc 🛠'
+        if: ${{ inputs.enable_pandoc }}
+        run: ./src/Generate-Html.ps1
+        shell: pwsh
+
       - name: '⬆️ Upload build assets ⬆️'
         uses: actions/upload-artifact@v6
         with:
@@ -99,4 +112,11 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.working_directory_for_latex}}/${{ inputs.file_name }}.pdf'
+          path: '${{ inputs.working_directory_for_latex }}/${{ inputs.file_name }}.pdf'
+
+      - name: '⬆️ Upload artifacts HTML ⬆️'
+        if: ${{ inputs.enable_pandoc }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: '${{ inputs.file_name }}-HTML-${{ env.GitVersion_InformationalVersion }}'
+          path: '${{ inputs.working_directory_for_latex }}/index.html'
