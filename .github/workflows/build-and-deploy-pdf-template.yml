@@ -47,7 +47,7 @@ env:
 
 jobs:
   build-pdf:
-    uses: ./.github/workflows/build-pdf-template.yml@main
+    uses: ./.github/workflows/build-pdf-template.yml
     with:
       file_name: 'github-latex-template'
       enable_patch_version: true
@@ -61,7 +61,7 @@ jobs:
         src/sections
         src/metadata
       working_directory_for_latex: 'src'
-      
+
   deploy:
     runs-on: ${{ inputs.runs_on }}
     name: ${{ inputs.workflow_name }}
