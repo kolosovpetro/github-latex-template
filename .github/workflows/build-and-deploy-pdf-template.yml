@@ -47,94 +47,26 @@ env:
 
 jobs:
   build-pdf:
+    uses: ./.github/workflows/build-pdf-template.yml@main
+    with:
+      file_name: 'github-latex-template'
+      enable_patch_version: true
+      enable_pandoc: true
+      runs_on: 'ubuntu-latest'
+      workflow_name: 'Build PDF'
+      build_assets_path: |
+        src/github-latex-template.tex
+        src/github-latex-template.bbl
+        src/github-latex-template.bib
+        src/sections
+        src/metadata
+      working_directory_for_latex: 'src'
+      
+  deploy:
     runs-on: ${{ inputs.runs_on }}
     name: ${{ inputs.workflow_name }}
 
     steps:
-      - name: '🔎 Fetch sources 🔎'
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - name: '⬇️ Install pandoc ⬇️'
-        if: ${{ inputs.enable_pandoc }}
-        uses: pandoc/actions/setup@v1
-
-      - name: '🔄 Run pandoc 🔄'
-        if: ${{ inputs.enable_pandoc }}
-        run: pandoc --version
-
-      - name: '⬇️ Install GitVersion ⬇️'
-        if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/setup@v4.2.0
-        with:
-          versionSpec: '6.x'
-          preferLatestVersion: true
-
-      - name: '🤔 Determine Version 🤔'
-        if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/execute@v4.2.0
-        with:
-          configFilePath: GitVersion.yml
-
-      - name: '📜 Print Version 📜'
-        if: ${{ inputs.enable_patch_version }}
-        run: |
-          echo "SemVer: ${{ env.GitVersion_SemVer }}"
-          echo "BranchName: ${{ env.GitVersion_BranchName }}"
-          echo "ShortSha: ${{ env.GitVersion_ShortSha }}"
-          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          echo "Next version: $newVersion"
-
-      - name: '🔄 Update version.tex 🔄'
-        if: ${{ inputs.enable_patch_version }}
-        shell: bash
-        run: |
-          rm -f "src/metadata/version.tex"
-          newVersion="${{ env.GitVersion_SemVer }}+${{ env.GitVersion_BranchName }}.${{ env.GitVersion_ShortSha }}"
-          echo "New version: $newVersion"
-          echo "\texttt{$newVersion}" > "src/metadata/version.tex"
-          echo "Contents of the file: src/metadata/version.tex"
-          cat "src/metadata/version.tex"
-
-      - name: '🛠 Build PDF 🛠'
-        uses: xu-cheng/latex-action@v4
-        with:
-          root_file: '${{ inputs.file_name }}.tex'
-          working_directory: '${{ inputs.working_directory_for_latex }}'
-
-      - name: '🛠 Build Pandoc 🛠'
-        if: ${{ inputs.enable_pandoc }}
-        run: ./src/Generate-Html.ps1
-        shell: pwsh
-
-      - name: '⬆️ Upload build assets ⬆️'
-        uses: actions/upload-artifact@v6
-        with:
-          name: '${{ inputs.file_name }}-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.build_assets_path }}'
-
-      - name: '⬆️ Upload artifacts PDF ⬆️'
-        uses: actions/upload-artifact@v6
-        with:
-          name: '${{ inputs.file_name }}-PDF-${{ env.GitVersion_InformationalVersion }}'
-          path: '${{ inputs.working_directory_for_latex}}/${{ inputs.file_name }}.pdf'
-
-      - name: '🔄 Prepare HTML artifact 🔄'
-        run: |
-          mkdir -p artifact/sections
-          if [ -d "src/sections/images" ]; then
-            cp -r src/sections/images artifact/sections/
-          fi
-          cp ${{ inputs.working_directory_for_latex }}/index.html artifact/
-
-      - name: '⬆️ Upload artifacts HTML ⬆️'
-        if: ${{ inputs.enable_pandoc }}
-        uses: actions/upload-artifact@v6
-        with:
-          name: '${{ inputs.file_name }}-HTML-${{ env.GitVersion_InformationalVersion }}'
-          path: artifact
-
       - name: '📀 Clone repository 📀'
         run: |
           git clone https://${{ env.TOKEN }}@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
