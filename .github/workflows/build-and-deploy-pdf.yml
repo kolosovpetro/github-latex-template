@@ -19,7 +19,7 @@ jobs:
       enable_patch_version: true
       enable_pandoc: true
       enable_html_deploy: true
-      html_deploy_path: 'test'
+      html_deploy_path: 'math/test'
       runs_on: 'ubuntu-latest'
       workflow_name: 'Deploy PDF'
       build_assets_path: |
