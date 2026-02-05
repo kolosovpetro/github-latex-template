@@ -1,110 +1,111 @@
-Your introduction here.
 Include some references~\cite{derivative_of_polynomials_via_double_limit,
-    alekseyev2018mathoverflow,oeis_coefficients_u_m_l_k_defined_by_polynomial_identity_3}.
+alekseyev2018mathoverflow,oeis_coefficients_u_m_l_k_defined_by_polynomial_identity_3}.
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+when an unknown printer took a galley
 of type and scrambled it to make a type specimen book.
-It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+It has survived not only five centuries, but also the leap into electronic
+typesetting, remaining essentially unchanged.
+It was popularised in the 1960s with the release of Letraset sheets containing
+Lorem Ipsum passages, and more
+recently with desktop publishing software like Aldus PageMaker
+including versions of Lorem Ipsum.
 
 Image example
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{sections/images/build_the_manuscript_rider}
-    ~\caption{Image example (from caption).}\label{fig:figure}
+  \centering
+  \includegraphics[width=1\textwidth]{sections/images/build_the_manuscript_rider}
+  ~\caption{Image example (from caption).}\label{fig:figure}
 \end{figure}
 
 \input{sections/figures/05_fig_coefficients_a}
 
 \begin{equation*}
-    \llceil \nobarfrac{a}{b} \rrfloor_{m}
+  \llceil \nobarfrac{a}{b} \rrfloor_{m}
 \end{equation*}
 \begin{equation*}
-    \llceilCoefficient{a}{b}{m}
+  \llceilCoefficient{a}{b}{m}
 \end{equation*}
 
 And for any natural $m$ we have polynomial identity
 \begin{equation}
-    x^m = \sum_{k=1}^{m} T(m, k) \centralFactorial{x}{k}
-    \label{eq:knuth-power-identity}
+  x^m = \sum_{k=1}^{m} T(m, k) \centralFactorial{x}{k}
+  \label{eq:knuth-power-identity}
 \end{equation}
 where $\centralFactorial{x}{k}$ denotes central factorial defined by
 \begin{equation*}
-    \centralFactorial{x}{n} = x \fallingFactorial{x+\frac{n}{2}-1}{n-1}
+  \centralFactorial{x}{n} = x \fallingFactorial{x+\frac{n}{2}-1}{n-1}
 \end{equation*}
 where $\fallingFactorial{n}{k} = n (n-1) (n-2) \cdots (n-k+1)$ denotes falling factorial in Knuth's notation.
 In particular,
 \begin{equation}
-    \label{eq:falling-factorial}
-    \centralFactorial{x}{n}
-    = x \left( x+\frac{n}{2}-1 \right) \left( x+\frac{n}{2}-1 \right) \cdots \left (x+\frac{n}{2}-n-1 \right)
-    = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)
+  \label{eq:falling-factorial}
+  \centralFactorial{x}{n}
+  = x \left( x+\frac{n}{2}-1 \right) \left( x+\frac{n}{2}-1 \right) \cdots \left (x+\frac{n}{2}-n-1 \right)
+  = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)
 \end{equation}
 This is an equation reference~\eqref{eq:knuth-power-identity}.
 
 Continuing similarly, we are able to derive the formula for multifold sums of powers,
 which is
 \begin{theorem}[Multifold sums of powers via Newton's series]
-    \label{theorem:multifold-sums-of-powers-via-newtons-series}
-    \begin{mdframed}
-        For non-negative integers $r,n,m$ and an arbitrary integer $t$
-        \begin{align*}
-            \KnuthRFoldSum{r}{n}{m} = \sum_{j=0}^{m} \Delta^{j} t^{m} \left[ \left( \sum_{s=1}^{r} (-1)^{j+s-1} \binom{j+t-1}{j+s} \KnuthRFoldSum{r-s}{n}{0} \right) + \binom{n-t+r}{j+r} \right]
-        \end{align*}
-    \end{mdframed}
-    \begin{proof}
-        By Newton's series for power and repeated
-        applications of the segmented hockey stick identity.
-    \end{proof}
+  \label{theorem:multifold-sums-of-powers-via-newtons-series}
+  For non-negative integers $r,n,m$ and an arbitrary integer $t$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m} = \sum_{j=0}^{m} \Delta^{j} t^{m} \left[ \left( \sum_{s=1}^{r} (-1)^{j+s-1} \binom{j+t-1}{j+s} \KnuthRFoldSum{r-s}{n}{0} \right) + \binom{n-t+r}{j+r} \right]
+  \end{align*}
+  \begin{proof}
+    By Newton's series for power and repeated
+    applications of the segmented hockey stick identity.
+  \end{proof}
 \end{theorem}
 
 \begin{proposition}[Falling factorial]
-    \begin{align*}
-        \fallingFactorial{x}{n} = x(x-1)(x-2)(x-3)\cdots(x-n+1) = \prod_{k=0}^{n-1}(x-k)
-    \end{align*}
+  \begin{align*}
+    \fallingFactorial{x}{n} = x(x-1)(x-2)(x-3)\cdots(x-n+1) = \prod_{k=0}^{n-1}(x-k)
+  \end{align*}
 \end{proposition}
 
 \begin{proposition}
-    \begin{align*}
-        \frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}
-    \end{align*}
+  \begin{align*}
+    \frac{\fallingFactorial{x}{n}}{n!} = \binom{x}{n}
+  \end{align*}
 \end{proposition}
 
 \subsection{Rising factorials}
 \begin{proposition} [Rising factorial]
-    \begin{align*}
-        \risingFactorial{x}{n} = x(x+1)(x+2)(x+3)\cdots(x+n-1) = \prod_{k=0}^{n-1}(x+k)
-    \end{align*}
+  \begin{align*}
+    \risingFactorial{x}{n} = x(x+1)(x+2)(x+3)\cdots(x+n-1) = \prod_{k=0}^{n-1}(x+k)
+  \end{align*}
 \end{proposition}
 
 \begin{proposition}
-    \begin{align*}
-        \frac{\risingFactorial{x}{n}}{n!} = \binom{x+n-1}{n}
-    \end{align*}
+  \begin{align*}
+    \frac{\risingFactorial{x}{n}}{n!} = \binom{x+n-1}{n}
+  \end{align*}
 \end{proposition}
 
 \subsection{Central factorials}
 \begin{lemma}[Central factorial]
-    \begin{align*}
-        \centralFactorial{n}{k}
-        = n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right) \cdots \left( n - \frac{k}{2} +1 \right)
-        = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)
-    \end{align*}
+  \begin{align*}
+    \centralFactorial{n}{k}
+    = n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2 \right) \cdots \left( n - \frac{k}{2} +1 \right)
+    = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)
+  \end{align*}
 \end{lemma}
 
 \begin{proposition}
-    \begin{align*}
-        \centralFactorial{n}{k} = n \fallingFactorial{n+\frac{k}{2}-1}{k-1}
-    \end{align*}
+  \begin{align*}
+    \centralFactorial{n}{k} = n \fallingFactorial{n+\frac{k}{2}-1}{k-1}
+  \end{align*}
 \end{proposition}
 
 \subsection{Derivatives}
 
 \begin{align*}
-    \od{x}{y} = \frac{f(x+h)-f(x)}{h}
+  \od{x}{y} = \frac{f(x+h)-f(x)}{h}
 \end{align*}
 
 \begin{align*}
-    \odd{x}{y}{3} = \frac{f(x+h)-f(x)}{h}
+  \odd{x}{y}{3} = \frac{f(x+h)-f(x)}{h}
 \end{align*}
