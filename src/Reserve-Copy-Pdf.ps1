@@ -4,7 +4,7 @@ param(
 
 $RootDirectory = "$PSScriptRoot/.."
 
-cd $RootDirectory
+Set-Location $RootDirectory
 
 $SourcePath = "$RootDirectory/out/$FileName.pdf"
 $DestinationPath = "$RootDirectory/out/$FileName.annotated.pdf"
