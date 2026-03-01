@@ -103,13 +103,13 @@ jobs:
         shell: pwsh
 
       - name: '⬆️ Upload build assets ⬆️'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: 'build-assets'
           path: '${{ inputs.build_assets_path }}'
 
       - name: '⬆️ Upload artifacts PDF ⬆️'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: 'pdf'
           path: '${{ inputs.working_directory_for_latex }}/${{ inputs.file_name }}.pdf'
@@ -125,7 +125,7 @@ jobs:
 
       - name: '⬆️ Upload artifacts HTML ⬆️'
         if: ${{ inputs.enable_pandoc }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: 'html'
           path: html
