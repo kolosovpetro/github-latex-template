@@ -60,14 +60,14 @@ jobs:
 
       - name: '⬇️ Install GitVersion ⬇️'
         if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/setup@v4.2.0
+        uses: gittools/actions/gitversion/setup@v4.3.3
         with:
           versionSpec: '6.x'
           preferLatestVersion: true
 
       - name: '🤔 Determine Version 🤔'
         if: ${{ inputs.enable_patch_version }}
-        uses: gittools/actions/gitversion/execute@v4.2.0
+        uses: gittools/actions/gitversion/execute@v4.3.3
         with:
           configFilePath: GitVersion.yml
 
