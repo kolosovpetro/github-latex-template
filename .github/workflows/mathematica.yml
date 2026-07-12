@@ -16,7 +16,7 @@ on:
 
 jobs:
   mathematica:
-    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@MATH-90
+    uses: kolosovpetro/github-latex-template/.github/workflows/mathematica-template.yml@MATH-90
     with:
       mathematica-directory: ./mathematica
       wolfram-image: wolframresearch/wolframengine:15.0
