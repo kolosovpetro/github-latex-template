@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Fix keywords comma before Interpolation
 - Github actions for Mathematica CI/CD
 - Sync VScode config
+- GitHub Actions reusable template for Mathematica
 
 ## [1.5.0] - 06 Jan 2026
 

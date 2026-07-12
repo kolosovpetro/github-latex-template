@@ -16,37 +16,18 @@ on:
 
 jobs:
   mathematica:
-    name: Mathematica
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Fetch Sources
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - name: Pull Wolfram image
-        run: docker pull wolframresearch/wolframengine:15.0
-
-      - name: Copy License File
-        shell: bash
-        run: |
-          mkdir -p "./mathematica/Licensing"
-          cd "./mathematica/Licensing"
-          echo "$WOLFRAM_LICENSE_FILE" > mathpass
-        env:
-          WOLFRAM_LICENSE_FILE: ${{ secrets.WOLFRAM_LICENSE_FILE }}
-
-      - name: Run WolframScript in Docker
-        shell: bash
-        run: |
-          cd "./mathematica"
-          chmod +x Run-Wolfram-Container.sh
-          ./Run-Wolfram-Container.sh "ValidateOrdinarySumsOfPowers.txt"
-          ./Run-Wolfram-Container.sh "ValidateDoubleSumsOfPowers.txt"
-          ./Run-Wolfram-Container.sh "ValidateMultifoldSumsOfPowers.txt"
-          ./Run-Wolfram-Container.sh "ValidateMultifoldBinomialSumsOfPowers.txt"
-          ./Run-Wolfram-Container.sh "ValidateOrdinarySumsOfPowersAtZero.txt"
-          ./Run-Wolfram-Container.sh "ValidateDoubleSumsOfPowersAtZero.txt"
-          ./Run-Wolfram-Container.sh "ValidateMultifoldSumsOfPowersAtZero.txt"
-          ./Run-Wolfram-Container.sh "ValidateMultifoldSumsOfPowersAtZeroBinomialForm.txt"
+    uses: kolosovpetro/github-latex-template/.github/workflows/build-pdf-template.yml@MATH-90
+    with:
+      mathematica-directory: ./mathematica
+      wolfram-image: wolframresearch/wolframengine:15.0
+      wolfram-scripts: |
+        ValidateOrdinarySumsOfPowers.txt
+        ValidateDoubleSumsOfPowers.txt
+        ValidateMultifoldSumsOfPowers.txt
+        ValidateMultifoldBinomialSumsOfPowers.txt
+        ValidateOrdinarySumsOfPowersAtZero.txt
+        ValidateDoubleSumsOfPowersAtZero.txt
+        ValidateMultifoldSumsOfPowersAtZero.txt
+        ValidateMultifoldSumsOfPowersAtZeroBinomialForm.txt
+    secrets:
+      WOLFRAM_LICENSE_FILE: ${{ secrets.WOLFRAM_LICENSE_FILE }}
