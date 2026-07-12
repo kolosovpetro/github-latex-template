@@ -1,0 +1,74 @@
+Generate examples for the formula:
+
+\begin{theorem} [Multifold sums of powers]
+  \label{thm:multifold-sum-of-powers}
+  For non-negative integers $r,n,m$, and an arbitrary integer $t$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    =
+    \sum_{k=0}^{m}
+    \left[
+      \binom{n-t+k+r-1}{k+r}
+      -
+      \sum_{s=0}^{r-1}
+      \binom{k-t+r-1-s}{k+r-s} \KnuthRFoldSum{s}{n}{0}
+    \right] \nabla^{k} t^{m}.
+  \end{align*}
+\end{theorem}
+
+For t = 0,1,2,3, substitute values of t directly. 
+
+Use the pattern as:
+
+\begin{example}
+  For non-negative integers $r,n,m$ we have
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &=
+    \tsum_{k=0}^{m}
+    \left[
+      \tbinom{n+r-0}{k+r}
+      -
+      \tsum_{s=0}^{r-1}
+      \tbinom{r-s}{k+r-s}
+      \tbinom{s+n-1}{s}
+    \right]
+    \Delta^k 0^m,
+    \\
+    \KnuthRFoldSum{r}{n}{m}
+    &=
+    \tsum_{k=0}^{m}
+    \left[
+      \tbinom{n+r-1}{k+r}
+      -
+      \tsum_{s=0}^{r-1}
+      \tbinom{r-s-1}{k+r-s}
+      \tbinom{s+n-1}{s}
+    \right]
+    \Delta^k 1^m,
+    \\
+    \KnuthRFoldSum{r}{n}{m}
+    &=
+    \tsum_{k=0}^{m}
+    \left[
+      \tbinom{n+r-2}{k+r}
+      -
+      \tsum_{s=0}^{r-1}
+      \tbinom{r-s-2}{k+r-s}
+      \tbinom{s+n-1}{s}
+    \right]
+    \Delta^k 2^m,
+    \\
+    \KnuthRFoldSum{r}{n}{m}
+    &=
+    \tsum_{k=0}^{m}
+    \left[
+      \tbinom{n+r-3}{k+r}
+      -
+      \tsum_{s=0}^{r-1}
+      \tbinom{r-s-3}{k+r-s}
+      \tbinom{s+n-1}{s}
+    \right]
+    \Delta^k 3^m.
+  \end{align*}
+\end{example}

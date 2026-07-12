@@ -1,0 +1,27 @@
+Please propose me improvements for the section of my mathematical
+article. It is in LaTeX format. Please generate improved version of the
+section in a code section, so that I copy paste it easily.
+Highlight the places you changed with bold font, but keep bold only in
+browser response, do not include \textbf commands to your generated LaTeX
+code. Explain what is the motivation of your improvements after the code block.
+
+My LaTeX code goes after this line:
+
+The main results establish an algorithm~\eqref{alg:sums-of-powers}
+for deriving closed formulas for multifold sums of powers of integers
+by combining variations of Newton's interpolation formula with
+hockey-stick family identities for binomial coefficients.
+Using the algorithm, some remarkable formulas were obtained,
+closed formula for sums of powers~\eqref{prop:ordinary-sums-of-powers-decomposition},
+formula for $r-$fold sums of powers~\eqref{thm:multifold-sums-of-powers}, formula
+for $r-$fold sums of powers in pure binomial view~\eqref{prop:multifold-binomial-sums-of-powers}.
+In addition, we have shown that famous Knuth's formula for sums of odd powers~\eqref{prop:knuth-odd-powers-sum}
+originates from Newton's interpolation formula~\eqref{lem:central-newtons-formula-for-powers},
+thus generalizing it for $r-$fold case~\eqref{prop:knuth-odd-powers-sum-multifold}.
+In addition, inspired by Knuth's formula for odd powers,
+using centered Newton's formula evaluated at zero,
+we derived formula for sums of powers~\eqref{prop:ordinary-sums-of-powers-at-zero},
+and generalized it in Theorem~\eqref{thm:multifold-sums-of-powers-at-zero},
+also, providing its pure binomial view in Proposition~\eqref{prop:multifold-sums-of-powers-at-zero-binomial-form}.
+
+

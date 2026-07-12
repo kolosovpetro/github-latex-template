@@ -1,0 +1,149 @@
+Generate Mathematica program to validate the identity:
+
+\begin{proposition}[Multifold Binomial sums of powers]
+  \label{prop:multifold-binomial-sums-of-powers}
+  For non-negative integers $r,n,m$, and an arbitrary integer $t$
+  \begin{align*}
+    \KnuthRFoldSum{r}{n}{m}
+    &= \frac{1}{2}
+    \sum_{k=0}^{m}
+    \Bigg[
+      \binom{n-t+\frac{k}{2}+r-1}{k+r}
+      +
+      \binom{n-t+\frac{k}{2}+r}{k+r} \\
+      &-
+      \sum_{s=0}^{r-1}
+      \Bigg(
+        \binom{s-t+\frac{k}{2}}{k+s+1}
+        +
+        \binom{s-t+\frac{k}{2}+1}{k+s+1}
+      \Bigg) \binom{r-s+n-2}{r-s-1}
+    \Bigg] \delta^{k} t^{m}.
+  \end{align*}
+\end{proposition}
+
+Use the definitions as follows, if they appear in identity under validation
+
+\begin{align*}
+    \nabla^{k} t^{m} = \tsum_{j=0}^{k} (-1)^j \tbinom{k}{j} (t-j)^m.
+\end{align*}
+
+And
+
+\begin{definition} [Multifold sums of powers]
+  \label{def:multifold-sums-of-powers-recurrence}
+  For non-negative integers $r,n,m$
+  \begin{align*}
+    \KnuthRFoldSum{0}{n}{m}   &= n^m, \\
+    \KnuthRFoldSum{1}{n}{m}   &= \KnuthRFoldSum{0}{1}{m}
+    + \KnuthRFoldSum{0}{2}{m} + \cdots + \KnuthRFoldSum{0}{n}{m}, \\
+    \KnuthRFoldSum{r+1}{n}{m} &= \KnuthRFoldSum{r}{1}{m}
+    + \KnuthRFoldSum{r}{2}{m} + \cdots + \KnuthRFoldSum{r}{n}{m}.
+  \end{align*}
+\end{definition}
+
+Add convention for x^0 = 1 for all x.
+Treat symbol \nabla as backward finite difference.
+Treat symbol \delta as cental finite difference.
+Treat symbol \stirlingii as Stirling number of the second kind.
+Do not decompose main formula by different functions.
+Generate just code block, so that I easily copy paste it,
+no additional comments required.
+Do not move - Sum[...] to the next line, Mathematica ignores it.
+Add definitions only if they are used.
+
+EulerianNumber[0, 0] = 1;
+EulerianNumber[n_, k_] /; k < 0 || k >= n := 0;
+EulerianNumber[n_, k_] := EulerianNumber[n, k] =(k + 1) EulerianNumber[n - 1, k] + (n - k) EulerianNumber[n - 1, k - 1];
+
+Use the example below, give your response in a separate code block so that I 
+copy paste it easily
+
+(* ================================================================ *)
+(*  Validates Proposition: Multifold Eulerian sums of powers       *)
+(* ================================================================ *)
+
+ClearAll[
+  KnuthRFoldSum,
+  EulerianNumber,
+  ValidateMultifoldEulerianSumsOfPowers
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: x^0 = 1 for all x                                  *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[_?NumericQ | _, 0] = 1;
+Protect[Power];
+
+End[];
+
+(* --------------------------------------------------------------- *)
+(*  Eulerian numbers (as given)                                    *)
+(* --------------------------------------------------------------- *)
+
+EulerianNumber[0, 0] = 1;
+EulerianNumber[n_, k_] /; k < 0 || k >= n := 0;
+EulerianNumber[n_, k_] :=
+  EulerianNumber[n, k] =
+    (k + 1) EulerianNumber[n - 1, k] +
+    (n - k) EulerianNumber[n - 1, k - 1];
+
+(* --------------------------------------------------------------- *)
+(*  Multifold sums of powers                                       *)
+(* --------------------------------------------------------------- *)
+
+KnuthRFoldSum[0, n_, m_] := n^m;
+
+KnuthRFoldSum[r_, n_, m_] :=
+  Sum[KnuthRFoldSum[r - 1, k, m], {k, 1, n}];
+
+(* --------------------------------------------------------------- *)
+(*  Main identity kernel                                            *)
+(* --------------------------------------------------------------- *)
+
+MultifoldEulerianSumsOfPowers[r_, n_, m_, t_] :=
+  Sum[
+    Sum[
+      (
+        Binomial[n - t + k + r - 1, k + r]
+        - Sum[
+            Binomial[k - t + r - 1 - s, k + r - s]*
+              Binomial[s + n - 1, s],
+            {s, 0, r - 1}
+          ]
+      )
+      * Binomial[t + j - k, m - k]
+      * EulerianNumber[m, j],
+      {j, 0, m}
+    ],
+    {k, 0, m}
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                              *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldEulerianSumsOfPowers[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        KnuthRFoldSum[r, n, m]
+        -
+        MultifoldEulerianSumsOfPowers[r, n, m, t]
+      ],
+      {r, 0, max},
+      {n, 1, max},
+      {m, 0, max},
+      {t, -max, max}
+    ]
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Run test                                                       *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldEulerianSumsOfPowers[5]

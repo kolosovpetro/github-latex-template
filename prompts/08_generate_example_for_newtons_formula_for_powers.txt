@@ -1,0 +1,52 @@
+Generate example similar to this:
+
+\begin{example} For integer $0 \leq t \leq 3$, we have
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{3}
+    &= 0\!\left[\tbinom{n+1}{1}-\tbinom{1}{1}\right]
+    + 1\!\left[\tbinom{n+1}{2}-\tbinom{1}{2}\right]
+    + 6\!\left[\tbinom{n+1}{3}-\tbinom{1}{3}\right]
+    + 6\!\left[\tbinom{n+1}{4}-\tbinom{1}{4}\right], \\
+    %
+    \KnuthRFoldSum{1}{n}{3}
+    &= 1\!\left[\tbinom{n}{2}-\tbinom{0}{2}\right]
+    + 7\!\left[\tbinom{n}{3}-\tbinom{0}{3}\right]
+    + 12\!\left[\tbinom{n}{4}-\tbinom{0}{4}\right]
+    + 6\!\left[\tbinom{n}{5}-\tbinom{0}{5}\right], \\
+    %
+    \KnuthRFoldSum{1}{n}{3}
+    &= 8\!\left[\tbinom{n-1}{2}-\tbinom{-1}{2}\right]
+    + 19\!\left[\tbinom{n-1}{3}-\tbinom{-1}{3}\right]
+    + 18\!\left[\tbinom{n-1}{4}-\tbinom{-1}{4}\right]
+    + 6\!\left[\tbinom{n-1}{5}-\tbinom{-1}{5}\right], \\
+    %
+    \KnuthRFoldSum{1}{n}{3}
+    &= 27\!\left[\tbinom{n-2}{2}-\tbinom{-2}{2}\right]
+    + 37\!\left[\tbinom{n-2}{3}-\tbinom{-2}{3}\right]
+    + 24\!\left[\tbinom{n-2}{4}-\tbinom{-2}{4}\right]
+    + 6\!\left[\tbinom{n-2}{5}-\tbinom{-2}{5}\right].
+  \end{align*}
+\end{example}
+
+For the formula:
+
+\begin{proposition}[Ordinary sums of powers]
+  \label{prop:ordinary-sums-of-powers}
+  For non-negative integers $n,m$, and an arbitrary integer $t$
+  \begin{align*}
+    \KnuthRFoldSum{1}{n}{m}
+    = \sum_{k=0}^{m}
+    \left[
+      \binom{n-t+k}{k+1} - \binom{k-t}{k+1}
+    \right] \nabla^{k} t^m.
+  \end{align*}
+\end{proposition}
+
+Using the values for backward difference:
+
+{0,1,-6,6}
+{1,1,0,6}
+{8,7,6,6}
+{27,19,12,6}
+
+Give response in a code block so that I easily copt paste it

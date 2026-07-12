@@ -1,0 +1,71 @@
+Please generate a list of reference strings using the data below.
+Use plain text, use - as beginning of new line.
+Give response in code block.
+
+\begin{thebibliography}{1}
+
+\bibitem{knuth1993johann}
+{Knuth, Donald E.}
+\newblock {Johann Faulhaber and sums of powers}.
+\newblock {\em {Mathematics of Computation}}, 61(203):277--294, 1993.
+\newblock \url{https://arxiv.org/abs/math/9207222}.
+
+\bibitem{steffensen1933definition}
+J.~F. Steffensen.
+\newblock On the definition of the central factorial.
+\newblock {\em Journal of the Institute of Actuaries (1886-1994)},
+  64(2):165--168, 1933.
+\newblock \url{https://www.jstor.org/stable/41137516}.
+
+\bibitem{steffensen1927interpolation}
+{Steffensen, Johan Frederik}.
+\newblock {\em Interpolation}.
+\newblock {Williams \& Wilkins}, 1927.
+\newblock
+  \url{https://www.amazon.com/-/de/Interpolation-Second-Dover-Books-Mathematics-ebook/dp/B00GHQVON8}.
+
+\bibitem{riordan1968combinatorial}
+John Riordan.
+\newblock {\em Combinatorial identities}, volume 217.
+\newblock {Wiley New York}, 1968.
+\newblock
+  \url{https://www.amazon.com/-/de/Combinatorial-Identities-Probability-Mathematical-Statistics/dp/0471722758}.
+
+\bibitem{graham1994concrete}
+{Graham, Ronald L. and Knuth, Donald E. and Patashnik, Oren}.
+\newblock {\em {Concrete mathematics: A foundation for computer science (second
+  edition)}}.
+\newblock {Addison-Wesley Publishing Company, Inc.}, 1994.
+\newblock \url {https://archive.org/details/concrete-mathematics}.
+
+\bibitem{knuth1992notesnotation}
+Donald~E. Knuth.
+\newblock Two notes on notation, 1992.
+\newblock \url{https://arxiv.org/abs/math/9205211}.
+
+\bibitem{kolosov2026framework}
+Petro Kolosov.
+\newblock Sums of powers of integers: A complete framework for closed formulas,
+  June 2026.
+\newblock \url{https://doi.org/10.5281/zenodo.20548019}.
+
+\bibitem{kolosov2026interpolation}
+Petro Kolosov.
+\newblock {Newton's interpolation formula and sums of powers}, December 2025.
+\newblock \url{https://doi.org/10.5281/zenodo.18040979}.
+
+\bibitem{kolosov2026backward}
+Petro Kolosov.
+\newblock {Sums of powers via backward finite differences and Newton's
+  formula}, January 2026.
+\newblock \url{https://doi.org/10.5281/zenodo.18118011}.
+
+\end{thebibliography}
+
+
+
+Give response so that I copy paste it, use the example of format:
+
+- Knuth, D. E. (1993). Johann Faulhaber and sums of powers. Mathematics of Computation, 61(203), 277–294. https://arxiv.org/abs/math/9207222
+- Sloane, N. J. A., et al. (2003). The on-line encyclopedia of integer sequences. https://oeis.org/
+- Steffensen, J. F. (1927). Interpolation. Williams & Wilkins. https://www.amazon.com/-/de/Interpolation-Second-Dover-Books-Mathematics-ebook/dp/B00GHQVON8
