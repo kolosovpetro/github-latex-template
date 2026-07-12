@@ -1,0 +1,116 @@
+(* ================================================================ *)
+(*  Validates Theorem: Multifold Sums of Powers at Zero             *)
+(* ================================================================ *)
+
+ClearAll[
+  KnuthRFoldSum,
+  CentralDifferenceAtZero,
+  MultifoldSumsOfPowersAtZero,
+  ValidateMultifoldSumsOfPowersAtZero
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: 0^0 = 1                                             *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[0 | 0., 0 | 0.] = 1;
+Protect[Power];
+
+End[];
+
+
+(* --------------------------------------------------------------- *)
+(*  r-fold sums of powers                                           *)
+(* --------------------------------------------------------------- *)
+
+KnuthRFoldSum[r_, n_, m_] := 0 /; n <= 0;
+
+KnuthRFoldSum[0, n_, m_] :=
+  n^m;
+
+KnuthRFoldSum[r_, n_, m_] :=
+  Sum[
+    KnuthRFoldSum[r - 1, k, m],
+    {k, 1, n}
+  ] /; r > 0;
+
+
+(* --------------------------------------------------------------- *)
+(*  Central difference at zero                                      *)
+(*      δ^k 0^n                                                     *)
+(* --------------------------------------------------------------- *)
+
+CentralDifferenceAtZero[n_, k_] :=
+  Sum[
+    (-1)^j
+      Binomial[k, j]
+      (k/2 - j)^n,
+    {j, 0, k}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Theorem                                                         *)
+(*                                                                   *)
+(*      Σ^r n^m                                                     *)
+(*        = Σ [                                                     *)
+(*            Binomial[n + k/2 + (2r-1)/2, k+r]                     *)
+(*            - Σ Binomial[k/2 + (2(r-s)-1)/2, k+r-s] Σ^s n^0       *)
+(*          ] δ^(k+1)0^(m+1)/(k+1)                                  *)
+(* --------------------------------------------------------------- *)
+
+MultifoldSumsOfPowersAtZero[r_, n_, m_] :=
+  Sum[
+    (
+      Binomial[
+        n + k/2 + (2 r - 1)/2,
+        k + r
+      ]
+
+      -
+
+      Sum[
+        Binomial[
+          k/2 + (2 (r - s) - 1)/2,
+          k + r - s
+        ]
+        *
+        KnuthRFoldSum[s, n, 0],
+        {s, 0, r - 1}
+      ]
+    )
+    *
+    CentralDifferenceAtZero[m + 1, k + 1]
+    /
+    (k + 1),
+    {k, 0, m}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                              *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldSumsOfPowersAtZero[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        KnuthRFoldSum[r, n, m]
+          -
+        MultifoldSumsOfPowersAtZero[r, n, m]
+      ],
+      {r, 0, max},
+      {n, 1, max},
+      {m, 0, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldSumsOfPowersAtZero[6]

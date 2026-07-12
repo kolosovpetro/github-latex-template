@@ -25,6 +25,9 @@ tests
 # *.ps
 # *.eps
 # *.pdf
+*.annotated.pdf
+#out
+mathematica/Licensing
 
 ## JetBrains
 .idea

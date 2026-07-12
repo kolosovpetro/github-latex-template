@@ -1,0 +1,80 @@
+(* ================================================================ *)
+(*  Validates Proposition: Double sums of powers                    *)
+(* ================================================================ *)
+
+ClearAll[
+  KnuthRFoldSum,
+  CentralDifference,
+  ValidateDoubleCentralSumsOfPowers
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: x^0 = 1 for all x                                  *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[_?NumericQ | _, 0] = 1;
+Protect[Power];
+
+End[];
+
+(* --------------------------------------------------------------- *)
+(*  Multifold sums of powers                                       *)
+(* --------------------------------------------------------------- *)
+
+KnuthRFoldSum[0, n_, m_] := n^m;
+
+KnuthRFoldSum[r_, n_, m_] :=
+  Sum[KnuthRFoldSum[r - 1, k, m], {k, 1, n}];
+
+(* --------------------------------------------------------------- *)
+(*  Central finite difference                                      *)
+(* --------------------------------------------------------------- *)
+
+CentralDifference[t_, m_, k_] :=
+  Sum[
+    (-1)^j Binomial[k, j] (t + k/2 - j)^m,
+    {j, 0, k}
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Main identity                                                  *)
+(* --------------------------------------------------------------- *)
+
+DoubleCentralSumsOfPowers[n_, m_, t_] :=
+  1/2 Sum[
+    (
+      Binomial[n - t + k/2 + 1, k + 2]
+      + Binomial[n - t + k/2 + 2, k + 2]
+      - (Binomial[-t + k/2, k + 1] + Binomial[1 - t + k/2, k + 1]) KnuthRFoldSum[1, n, 0]
+      - (Binomial[1 - t + k/2, k + 2] + Binomial[2 - t + k/2, k + 2]) KnuthRFoldSum[0, n, 0]
+    )
+    * CentralDifference[t, m, k],
+    {k, 0, m}
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                             *)
+(* --------------------------------------------------------------- *)
+
+ValidateDoubleCentralSumsOfPowers[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        KnuthRFoldSum[2, n, m]
+        -
+        DoubleCentralSumsOfPowers[n, m, t]
+      ],
+      {n, 1, max},
+      {m, 0, max},
+      {t, -max, max}
+    ]
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Run test                                                       *)
+(* --------------------------------------------------------------- *)
+
+ValidateDoubleCentralSumsOfPowers[5]

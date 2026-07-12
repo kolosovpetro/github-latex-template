@@ -1,0 +1,101 @@
+(* ================================================================ *)
+(*  Validates Proposition: Ordinary Sums of Powers at Zero          *)
+(* ================================================================ *)
+
+ClearAll[
+  KnuthRFoldSum,
+  CentralDifferenceAtZero,
+  OrdinarySumsOfPowersAtZero,
+  ValidateOrdinarySumsOfPowersAtZero
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: 0^0 = 1                                             *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[0 | 0., 0 | 0.] = 1;
+Protect[Power];
+
+End[];
+
+
+(* --------------------------------------------------------------- *)
+(*  Ordinary sums of powers                                         *)
+(*      S(n,m) = Σ_{j=1}^{n} j^m                                    *)
+(* --------------------------------------------------------------- *)
+
+KnuthRFoldSum[0, n_, m_] :=
+  n^m;
+
+KnuthRFoldSum[1, n_, m_] :=
+  Sum[
+    KnuthRFoldSum[0, j, m],
+    {j, 1, n}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Central difference at zero                                      *)
+(*      δ^k 0^n                                                     *)
+(* --------------------------------------------------------------- *)
+
+CentralDifferenceAtZero[n_, k_] :=
+  Sum[
+    (-1)^j
+      Binomial[k, j]
+      (k/2 - j)^n,
+    {j, 0, k}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Proposition                                                     *)
+(*                                                                   *)
+(*      S(n,m)                                                      *)
+(*        = Σ 1/(k+1) [                                              *)
+(*            Binomial[n + k/2 + 1/2, k+1]                          *)
+(*            - Binomial[k/2 + 1/2, k+1]                            *)
+(*          ] δ^(k+1) 0^(m+1)                                        *)
+(* --------------------------------------------------------------- *)
+
+OrdinarySumsOfPowersAtZero[n_, m_] :=
+  Sum[
+    (
+      Binomial[n + k/2 + 1/2, k + 1]
+      -
+      Binomial[k/2 + 1/2, k + 1]
+    )
+    *
+    CentralDifferenceAtZero[m + 1, k + 1]
+    /
+    (k + 1),
+    {k, 0, m}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                              *)
+(* --------------------------------------------------------------- *)
+
+ValidateOrdinarySumsOfPowersAtZero[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        KnuthRFoldSum[1, n, m]
+          -
+        OrdinarySumsOfPowersAtZero[n, m]
+      ],
+      {n, 1, max},
+      {m, 0, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
+
+ValidateOrdinarySumsOfPowersAtZero[10]
