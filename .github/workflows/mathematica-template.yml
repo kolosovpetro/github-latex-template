@@ -1,0 +1,65 @@
+name: Mathematica Template
+
+on:
+  workflow_call:
+    inputs:
+      mathematica-directory:
+        description: Mathematica project directory
+        required: false
+        type: string
+        default: ./mathematica
+
+      wolfram-image:
+        description: Wolfram Engine Docker image
+        required: false
+        type: string
+        default: wolframresearch/wolframengine:15.0
+
+      wolfram-scripts:
+        description: List of Wolfram scripts to execute
+        required: true
+        type: string
+
+    secrets:
+      WOLFRAM_LICENSE_FILE:
+        required: true
+
+jobs:
+  mathematica:
+    name: Mathematica
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Fetch Sources 📥
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: 🐳 Pull Wolfram Image 🐳
+        shell: bash
+        run: |
+          docker pull "${{ inputs.wolfram-image }}"
+
+      - name: 🔑 Copy License File 🔑
+        shell: bash
+        working-directory: ${{ inputs.mathematica-directory }}
+        env:
+          WOLFRAM_LICENSE_FILE: ${{ secrets.WOLFRAM_LICENSE_FILE }}
+        run: |
+          mkdir -p "./Licensing"
+          echo "$WOLFRAM_LICENSE_FILE" > "./Licensing/mathpass"
+
+      - name: 🧮 Run WolframScript in Docker 🧮
+        shell: bash
+        working-directory: ${{ inputs.mathematica-directory }}
+        env:
+          WOLFRAM_SCRIPTS: ${{ inputs.wolfram-scripts }}
+        run: |
+          chmod +x ./Run-Wolfram-Container.sh
+
+          while IFS= read -r script; do
+            [[ -z "$script" ]] && continue
+
+            echo "Running: $script"
+            ./Run-Wolfram-Container.sh "$script"
+          done <<< "$WOLFRAM_SCRIPTS"

@@ -1,0 +1,84 @@
+(* ================================================================ *)
+(*  Validates Theorem: Multifold sums of powers                     *)
+(* ================================================================ *)
+
+ClearAll[
+  KnuthRFoldSum,
+  CentralDifference,
+  ValidateMultifoldCentralSumsOfPowers
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: x^0 = 1 for all x                                  *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[_?NumericQ | _, 0] = 1;
+Protect[Power];
+
+End[];
+
+(* --------------------------------------------------------------- *)
+(*  Multifold sums of powers                                       *)
+(* --------------------------------------------------------------- *)
+
+KnuthRFoldSum[0, n_, m_] := n^m;
+
+KnuthRFoldSum[r_, n_, m_] :=
+  Sum[KnuthRFoldSum[r - 1, k, m], {k, 1, n}];
+
+(* --------------------------------------------------------------- *)
+(*  Central finite difference                                      *)
+(* --------------------------------------------------------------- *)
+
+CentralDifference[t_, m_, k_] :=
+  Sum[
+    (-1)^j Binomial[k, j] (t + k/2 - j)^m,
+    {j, 0, k}
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Main identity                                                  *)
+(* --------------------------------------------------------------- *)
+
+MultifoldCentralSumsOfPowers[r_, n_, m_, t_] :=
+  1/2 Sum[
+    (
+      Binomial[n - t + k/2 + r - 1, k + r] +
+      Binomial[n - t + k/2 + r, k + r] -
+      Sum[
+          (Binomial[s - t + k/2, k + s + 1] + Binomial[s - t + k/2 + 1, k + s + 1])
+          * KnuthRFoldSum[r - 1 - s, n, 0],
+          {s, 0, r - 1}
+        ]
+    )
+    * CentralDifference[t, m, k],
+    {k, 0, m}
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                             *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldCentralSumsOfPowers[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        KnuthRFoldSum[r, n, m]
+        -
+        MultifoldCentralSumsOfPowers[r, n, m, t]
+      ],
+      {r, 0, max},
+      {n, 1, max},
+      {m, 0, max},
+      {t, -max, max}
+    ]
+  ];
+
+(* --------------------------------------------------------------- *)
+(*  Run test                                                       *)
+(* --------------------------------------------------------------- *)
+
+ValidateMultifoldCentralSumsOfPowers[5]

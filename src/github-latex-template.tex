@@ -57,21 +57,22 @@
 \newcommand \centralFactorial [2] {#1^{[#2]}}
 \newcommand{\fallingFactorial}[2]{\left(#1\right)_{#2}}
 \newcommand{\risingFactorial}[2]{#1^{\left(#2\right)}}
+\newcommand{\generalizedFactorial}[3]{\left(#1\mid #2\right)_{#3}}
 
 \newcommand{\KnuthRFoldSum}[3]{\Sigma^{#1}\,{#2}^{#3}}
+\newcommand{\tsum}{\mathop{\textstyle\sum}}
 
 % Special numbers
 \newcommand{\stirlingii}{\genfrac{\{}{\}}{0pt}{}}
+\newcommand{\tstirlingii}[2]{{\textstyle\genfrac\{\}{0pt}{}{#1}{#2}}}
+
 \newcommand{\eulerian}[2]{\genfrac{\langle}{\rangle}{0pt}{}{#1}{#2}} % Eulerian
+\newcommand{\teulerian}[2]{{\textstyle\genfrac\langle\rangle{0pt}{}{#1}{#2}}}
+
 \newcommand \bernoulli [2][B] {{#1}_{#2}}
+\newcommand{\stirlingi}{\genfrac{[}{]}{0pt}{}}
 
-% for llceil coeffcient
-\newcommand{\nobarfrac}{\genfrac{}{}{0pt}{}}
-\def\llceil{\left\lceil\kern-3.5pt\left\lceil}
-\def\rrfloor{\right\rfloor\kern-3.5pt\right\rfloor}
-\newcommand \llceilCoefficient [3] {\llceil \nobarfrac{#1}{#2} \rrfloor_{#3}}
-
-% Ordinary derivatives
+% % Ordinary derivatives
 \newcommand{\od}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
 \newcommand{\odd}[3]{\frac{\mathrm{d}^{#3} #1}{\mathrm{d} #2^{#3}}}
 
@@ -100,8 +101,8 @@
 \newtheorem{question}[theorem]{Question}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{assumption}[theorem]{Assumption}
-
-%\numberwithin{equation}{section}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{convention}[theorem]{Convention}
 
 \title[LaTeX Template for GitHub]
 {LaTeX Template for GitHub}
@@ -119,7 +120,7 @@
 \begin{document}
 
 \begin{abstract}
-  \input{sections/abstract}
+  \input{sections/01_abstract}
 \end{abstract}
 
 \maketitle
@@ -130,18 +131,23 @@
 
 
 \section{Introduction} \label{sec:introduction}
-\input{sections/01_introduction}
+\input{sections/02_introduction}
 
 
 \section*{Conclusions}
-\input{sections/conclusions}
+\input{sections/03_conclusions}
 
 
 \section*{Acknowledgements}
-\input{sections/acknowledgements}
+\input{sections/04_acknowledgements}
 
 \bibliographystyle{unsrt}
 \bibliography{github-latex-template}
+
+\clearpage
+
+\section*{Mathematica}
+\input{sections/05_mathematica.tex}
 
 \clearpage
 

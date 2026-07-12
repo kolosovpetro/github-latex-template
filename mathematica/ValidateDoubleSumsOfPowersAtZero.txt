@@ -1,0 +1,113 @@
+(* ================================================================ *)
+(*  Validates Proposition: Double Sums of Powers at Zero            *)
+(* ================================================================ *)
+
+ClearAll[
+  KnuthRFoldSum,
+  CentralDifferenceAtZero,
+  DoubleSumsOfPowersAtZero,
+  ValidateDoubleSumsOfPowersAtZero
+];
+
+(* --------------------------------------------------------------- *)
+(*  Convention: 0^0 = 1                                             *)
+(* --------------------------------------------------------------- *)
+
+Begin["`Private`"]
+
+Unprotect[Power];
+Power[0 | 0., 0 | 0.] = 1;
+Protect[Power];
+
+End[];
+
+
+(* --------------------------------------------------------------- *)
+(*  r-fold sums of powers                                           *)
+(* --------------------------------------------------------------- *)
+
+KnuthRFoldSum[r_, n_, m_] := 0 /; n <= 0;
+
+KnuthRFoldSum[0, n_, m_] :=
+  n^m;
+
+KnuthRFoldSum[r_, n_, m_] :=
+  Sum[
+    KnuthRFoldSum[r - 1, k, m],
+    {k, 1, n}
+  ] /; r > 0;
+
+
+(* --------------------------------------------------------------- *)
+(*  Central difference at zero                                      *)
+(*      δ^k 0^n                                                     *)
+(* --------------------------------------------------------------- *)
+
+CentralDifferenceAtZero[n_, k_] :=
+  Sum[
+    (-1)^j
+      Binomial[k, j]
+      (k/2 - j)^n,
+    {j, 0, k}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Proposition                                                     *)
+(*                                                                   *)
+(*      Σ² n^m                                                      *)
+(*        = Σ 1/(k+1) [                                              *)
+(*            Binomial[n + k/2 + 3/2, k+2]                          *)
+(*            - Binomial[k/2 + 1/2, k+1] Σ¹ n^0                     *)
+(*            - Binomial[k/2 + 3/2, k+2] Σ⁰ n^0                     *)
+(*          ] δ^(k+1) 0^(m+1)                                        *)
+(* --------------------------------------------------------------- *)
+
+DoubleSumsOfPowersAtZero[n_, m_] :=
+  Sum[
+    (
+      Binomial[n + k/2 + 3/2, k + 2]
+
+      -
+
+      Binomial[k/2 + 1/2, k + 1]
+        *
+      KnuthRFoldSum[1, n, 0]
+
+      -
+
+      Binomial[k/2 + 3/2, k + 2]
+        *
+      KnuthRFoldSum[0, n, 0]
+    )
+    *
+    CentralDifferenceAtZero[m + 1, k + 1]
+    /
+    (k + 1),
+    {k, 0, m}
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Validation routine                                              *)
+(* --------------------------------------------------------------- *)
+
+ValidateDoubleSumsOfPowersAtZero[max_] :=
+  Flatten[
+    Table[
+      FullSimplify[
+        KnuthRFoldSum[2, n, m]
+          -
+        DoubleSumsOfPowersAtZero[n, m]
+      ],
+      {n, 1, max},
+      {m, 0, max}
+    ]
+  ];
+
+
+(* --------------------------------------------------------------- *)
+(*  Run validation                                                  *)
+(* --------------------------------------------------------------- *)
+
+ValidateDoubleSumsOfPowersAtZero[10]
