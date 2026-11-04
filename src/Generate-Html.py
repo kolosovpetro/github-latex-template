@@ -46,7 +46,7 @@ def main() -> int:
         [
             "pandoc",
             str(latex_file),
-            "--mathjax=https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js",
+            "--math-method=mathjax:https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js",
             "--standalone",
             "--citeproc",
             "--metadata=lang:en",

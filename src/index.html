@@ -3,33 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <link rel="canonical" href="https://kolosovpetro.github.io/sums-of-powers-central-differences/" />
-  <meta name="description" content="Closed-form formulas for ordinary, double, and multifold sums of integer powers using the central Newton interpolation formula and central finite differences, with Mathematica verification." />
-  <meta name="keywords" content="sums of powers, power sums, multifold sums, central finite differences, Newton interpolation formula, binomial sums, central factorial numbers, Stirling numbers, Eulerian numbers, Faulhaber's formula" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Sums of Powers via Central Finite Differences and Newton's Formula" />
-  <meta property="og:description" content="Closed-form formulas for ordinary, double, and multifold sums of integer powers using the central Newton interpolation formula and central finite differences, with Mathematica verification." />
-  <meta property="og:url" content="https://kolosovpetro.github.io/sums-of-powers-central-differences/" />
+  <link rel="canonical" href="https://kolosovpetro.github.io/math/test" />
+  <meta name="description" content="LaTeX template for GitHub, including general CI/CD workflows and Mathematica templates." />
+  <meta name="keywords" content="Sums of powers, Power sums, Polynomials, Power function, Polynomial identities, Newton's interpolation formula, Finite differences, Interpolation, Approximation, Binomial coefficients, Multinomial coefficients, Binomial theorem, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Derivatives, Differential calculus, Partial differential equations, Discrete convolution, Sums of convolved powers, Convolved power sums, Combinatorics, Central factorial numbers, Stirling numbers, Eulerian numbers, Worpitzky identity, Pascal's triangle, Dynamic systems, Time scales, OEIS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LaTeX Template for GitHub" />
+  <meta property="og:description" content="LaTeX template for GitHub, including general CI/CD workflows and Mathematica templates." />
+  <meta property="og:url" content="https://kolosovpetro.github.io/math/test" />
   <meta name="twitter:card" content="summary" />
-  <meta name="citation_title" content="Sums of Powers via Central Finite Differences and Newton's Formula" />
+  <meta name="twitter:title" content="LaTeX Template for GitHub" />
+  <meta name="twitter:description" content="LaTeX template for GitHub, including general CI/CD workflows and Mathematica templates." />
+  <meta name="citation_title" content="LaTeX Template for GitHub" />
   <meta name="citation_author" content="Kolosov, Petro" />
-  <meta name="citation_publication_date" content="2026/01/24" />
-  <meta name="citation_doi" content="10.5281/zenodo.18096789" />
-  <meta name="citation_public_url" content="https://kolosovpetro.github.io/sums-of-powers-central-differences/" />
-  <meta name="citation_abstract" content="We derive closed-form formulas for ordinary, double, and multifold sums of integer powers using the central Newton interpolation formula and central finite differences. The formulas hold at arbitrary integer centers and yield binomially weighted sum identities, along with representations using Stirling numbers of the second kind and Eulerian numbers." />
-  <meta name="citation_keywords" content="sums of powers" />
-  <meta name="citation_keywords" content="central finite differences" />
-  <meta name="citation_keywords" content="Newton interpolation formula" />
-  <meta name="citation_keywords" content="multifold sums" />
-  <meta name="citation_keywords" content="binomial sums" />
+  <meta name="citation_publication_date" content="2025/12/24" />
+  <meta name="citation_doi" content="10.5281/zenodo.18040979" />
+  <meta name="citation_public_url" content="https://kolosovpetro.github.io/math/test" />
+  <meta name="citation_abstract" content="LaTeX template for GitHub including general CI/CD workflows and Mathematica templates." />
+  <meta name="citation_keywords" content="Sums of powers" />
+  <meta name="citation_keywords" content="Power sums" />
+  <meta name="citation_keywords" content="Polynomials" />
+  <meta name="citation_keywords" content="Power function" />
+  <meta name="citation_keywords" content="Polynomial identities" />
+  <meta name="citation_keywords" content="Newton's interpolation formula" />
+  <meta name="citation_keywords" content="Finite differences" />
+  <meta name="citation_keywords" content="Interpolation" />
+  <meta name="citation_keywords" content="Approximation" />
+  <meta name="citation_keywords" content="Binomial coefficients" />
+  <meta name="citation_keywords" content="Multinomial coefficients" />
+  <meta name="citation_keywords" content="Binomial theorem" />
+  <meta name="citation_keywords" content="Faulhaber's formula" />
+  <meta name="citation_keywords" content="Bernoulli numbers" />
+  <meta name="citation_keywords" content="Bernoulli polynomials" />
+  <meta name="citation_keywords" content="Derivatives" />
+  <meta name="citation_keywords" content="Differential calculus" />
+  <meta name="citation_keywords" content="Partial differential equations" />
+  <meta name="citation_keywords" content="Discrete convolution" />
+  <meta name="citation_keywords" content="Sums of convolved powers" />
+  <meta name="citation_keywords" content="Convolved power sums" />
+  <meta name="citation_keywords" content="Combinatorics" />
+  <meta name="citation_keywords" content="Central factorial numbers" />
+  <meta name="citation_keywords" content="Stirling numbers" />
+  <meta name="citation_keywords" content="Eulerian numbers" />
+  <meta name="citation_keywords" content="Worpitzky identity" />
+  <meta name="citation_keywords" content="Pascal's triangle" />
+  <meta name="citation_keywords" content="Dynamic systems" />
+  <meta name="citation_keywords" content="Time scales" />
+  <meta name="citation_keywords" content="OEIS" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Petro Kolosov" />
   <meta name="dcterms.date" content="2026-11-05" />
   <title>LaTeX Template for GitHub</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
+      color: light-dark(#1a1a1a, #fdfdfd);
       background-color: #fdfdfd;
+      background-color: light-dark(#fdfdfd, #1a1a1a);
+      color-scheme: light dark;
     }
     body {
       margin: 0 auto;
@@ -54,12 +87,16 @@
     }
     @media print {
       html {
-        background-color: white;
+        color-scheme: light only;
       }
-      body {
+      html, body, pre, code {
         background-color: transparent;
+      }
+      body, a, a:visited, blockquote {
         color: black;
-        font-size: 12pt;
+      }
+      pre, code {
+        padding: 0;
       }
       p, h2, h3 {
         orphans: 3;
@@ -72,11 +109,8 @@
     p {
       margin: 1em 0;
     }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
+    a, a:visited {
+      color: inherit;
     }
     img {
       max-width: 100%;
@@ -105,8 +139,11 @@
     blockquote {
       margin: 1em 0 1em 1.7em;
       padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
+      border-left: 2px solid;
+      border-color: #e6e6e6;
+      border-color: light-dark(#e6e6e6, #4c4c4c);
       color: #606060;
+      color: light-dark(#606060, #b6b6b6);
     }
     div.abstract {
       margin: 2em 2em 2em 2em;
@@ -120,6 +157,7 @@
       margin-bottom: 0.5em;
     }
     code {
+      white-space: pre-wrap;
       font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
@@ -140,7 +178,7 @@
     }
     hr {
       border: none;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
       height: 1px;
       margin: 1em 0;
     }
@@ -157,11 +195,11 @@
     }
     tbody {
       margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
     }
     th {
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
       padding: 0.25em 0.5em 0.25em 0.5em;
     }
     td {
@@ -183,10 +221,13 @@
     #TOC a:not(:hover) {
       text-decoration: none;
     }
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -217,7 +258,8 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
   type="text/javascript"></script>
 </head>
 <body>
@@ -243,14 +285,13 @@ popularised in the 1960s with the release of Letraset sheets containing
 Lorem Ipsum passages, and more recently with desktop publishing software
 like Aldus PageMaker including versions of Lorem Ipsum.</p>
 <p>Image example</p>
-<figure id="fig:figure">
+<figure id="fig:figure" data-latex-placement="H">
 <p><img src="sections/images/build_the_manuscript_rider.png"
 style="width:100.0%" alt="image" />  </p>
 <figcaption>Image example (from caption).</figcaption>
 </figure>
 <div class="center">
-<div id="tab:table_of_coefficients_a">
-<table>
+<table id="tab:table_of_coefficients_a">
 <caption>Coefficients <span
 class="math inline">\({\mathbf{A}}_{m,r}\)</span>. See OEIS sequences
  <span class="citation"
@@ -362,23 +403,25 @@ class="math inline">\(m/r\)</span></th>
 </tbody>
 </table>
 </div>
-</div>
 <p>And for any natural <span class="math inline">\(m\)</span> we have
-polynomial identity <span class="math display">\[x^m = \sum_{k=1}^{m}
-T(m, k) x^{[k]}
-  \label{eq:knuth-power-identity}\]</span> where <span
+polynomial identity <span class="math display">\[\begin{equation}
+  x^m = \sum_{k=1}^{m} T(m, k) x^{[k]}
+  \label{eq:knuth-power-identity}
+\end{equation}\]</span> where <span
 class="math inline">\(x^{[k]}\)</span> denotes central factorial defined
-by <span class="math display">\[x^{[n]} = x
-\left(x+\frac{n}{2}-1\right)_{n-1}\]</span> where <span
+by <span class="math display">\[\begin{equation*}
+  x^{[n]} = x \left(x+\frac{n}{2}-1\right)_{n-1}
+\end{equation*}\]</span> where <span
 class="math inline">\(\left(n\right)_{k} = n (n-1) (n-2) \cdots
 (n-k+1)\)</span> denotes falling factorial in Knuth’s notation. In
-particular, <span class="math display">\[\label{eq:falling-factorial}
+particular, <span class="math display">\[\begin{equation}
+  \label{eq:falling-factorial}
   x^{[n]}
   = x \left( x+\frac{n}{2}-1 \right) \left( x+\frac{n}{2}-1 \right)
 \cdots \left (x+\frac{n}{2}-n-1 \right)
-  = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)\]</span> This is
-an equation reference <a href="#eq:knuth-power-identity"
-data-reference-type="eqref"
+  = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)
+\end{equation}\]</span> This is an equation reference <a
+href="#eq:knuth-power-identity" data-reference-type="eqref"
 data-reference="eq:knuth-power-identity">[eq:knuth-power-identity]</a>.</p>
 <p>Continuing similarly, we are able to derive the formula for multifold
 sums of powers, which is</p>
@@ -388,12 +431,11 @@ class="theorem">
 series). <em>For non-negative integers <span
 class="math inline">\(r,n,m\)</span> and an arbitrary integer <span
 class="math inline">\(t\)</span> <span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     \Sigma^{r}\,{n}^{m} = \sum_{j=0}^{m} \Delta^{j} t^{m} \left[ \left(
 \sum_{s=1}^{r} (-1)^{j+s-1} \binom{j+t-1}{j+s} \Sigma^{r-s}\,{n}^{0}
 \right) + \binom{n-t+r}{j+r} \right]
-  
-\end{aligned}\]</span></em></p>
+\end{align*}\]</span></em></p>
 <div class="proof">
 <p><em><em>Proof.</em> By Newton’s series for power and repeated
 applications of the segmented hockey stick identity. ◻</em></p>
@@ -401,60 +443,54 @@ applications of the segmented hockey stick identity. ◻</em></p>
 </div>
 <div class="proposition">
 <p><strong>Proposition 2</strong> (Falling factorial). <em><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     \left(x\right)_{n} = x(x-1)(x-2)(x-3)\cdots(x-n+1) =
 \prod_{k=0}^{n-1}(x-k)
-  
-\end{aligned}\]</span></em></p>
+\end{align*}\]</span></em></p>
 </div>
 <div class="proposition">
 <p><strong>Proposition 3</strong>. <em><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     \frac{\left(x\right)_{n}}{n!} = \binom{x}{n}
-  
-\end{aligned}\]</span></em></p>
+\end{align*}\]</span></em></p>
 </div>
 <h2 id="rising-factorials">Rising factorials</h2>
 <div class="proposition">
 <p><strong>Proposition 4</strong> (Rising factorial). <em><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     x^{\left(n\right)} = x(x+1)(x+2)(x+3)\cdots(x+n-1) =
 \prod_{k=0}^{n-1}(x+k)
-  
-\end{aligned}\]</span></em></p>
+\end{align*}\]</span></em></p>
 </div>
 <div class="proposition">
 <p><strong>Proposition 5</strong>. <em><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     \frac{x^{\left(n\right)}}{n!} = \binom{x+n-1}{n}
-  
-\end{aligned}\]</span></em></p>
+\end{align*}\]</span></em></p>
 </div>
 <h2 id="central-factorials">Central factorials</h2>
 <div class="lemma">
 <p><strong>Lemma 6</strong> (Central factorial). <em><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     n^{[k]}
     = n \left( n + \frac{k}{2} -1 \right)\left( n + \frac{k}{2} -2
 \right) \cdots \left( n - \frac{k}{2} +1 \right)
     = n \prod_{j=1}^{k-1} \left( n + \frac{k}{2} -j \right)
-  
-\end{aligned}\]</span></em></p>
+\end{align*}\]</span></em></p>
 </div>
 <div class="proposition">
 <p><strong>Proposition 7</strong>. <em><span
-class="math display">\[\begin{aligned}
+class="math display">\[\begin{align*}
     n^{[k]} = n \left(n+\frac{k}{2}-1\right)_{k-1}
-  
-\end{aligned}\]</span></em></p>
+\end{align*}\]</span></em></p>
 </div>
 <h2 id="derivatives">Derivatives</h2>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{align*}
   \frac{\mathrm{d} x}{\mathrm{d} y} = \frac{f(x+h)-f(x)}{h}
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
   \frac{\mathrm{d}^{3} x}{\mathrm{d} y^{3}} = \frac{f(x+h)-f(x)}{h}
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <h1 class="unnumbered" id="conclusions">Conclusions</h1>
 <p>Conclusions of your manuscript.</p>
 <p>Here is an itemize list with adjusted margins</p>
@@ -573,33 +609,33 @@ role="list">
 <div id="ref-alekseyev2018mathoverflow" class="csl-entry"
 role="listitem">
 Alekseyev, Max. 2018. <span>“<span class="nocase">MathOverflow answer
-297916/113033</span>.”</span> In <em><span>MathOverflow
-Https://Mathoverflow.net/a/297916/113033</span></em>, 297916/113033. <a
+297916/113033</span>.”</span> In <em><span class="nocase">MathOverflow
+https://mathoverflow.net/a/297916/113033</span></em>, 297916/113033. <a
 href="https://mathoverflow.net/a/297916/113033"
 class="uri">Https://mathoverflow.net/a/297916/113033</a>.
 </div>
 <div id="ref-oeis_numerators_of_the_coefficient_a_m_r" class="csl-entry"
 role="listitem">
 Kolosov, Petro. 2018a. <span>“<span class="nocase">Entry A302971 in The
-On-Line Encyclopedia of Integer Sequences</span>.”</span> In
-<em><span>The On-Line Encyclopedia of Integer Sequences</span></em>,
-A302971. <a href="https://oeis.org/A302971"
+On-Line Encyclopedia of Integer Sequences</span>.”</span> In <em><span
+class="nocase">The On-Line Encyclopedia of Integer
+Sequences</span></em>, No. A302971. <a href="https://oeis.org/A302971"
 class="uri">Https://oeis.org/A302971</a>.
 </div>
 <div id="ref-oeis_denominators_of_the_coefficient_a_m_r"
 class="csl-entry" role="listitem">
 Kolosov, Petro. 2018b. <span>“<span class="nocase">Entry A304042 in The
-On-Line Encyclopedia of Integer Sequences</span>.”</span> In
-<em><span>The On-Line Encyclopedia of Integer Sequences</span></em>,
-A304042. <a href="https://oeis.org/A304042"
+On-Line Encyclopedia of Integer Sequences</span>.”</span> In <em><span
+class="nocase">The On-Line Encyclopedia of Integer
+Sequences</span></em>, No. A304042. <a href="https://oeis.org/A304042"
 class="uri">Https://oeis.org/A304042</a>.
 </div>
 <div id="ref-oeis_coefficients_u_m_l_k_defined_by_polynomial_identity_3"
 class="csl-entry" role="listitem">
 Kolosov, Petro. 2018c. <span>“<span class="nocase">The coefficients U(m,
 l, k), m = 3 defined by the polynomial identity</span>.”</span> In
-<em><span>The On-Line Encyclopedia of Integer Sequences</span></em>,
-A316387. <a href="https://oeis.org/A316387"
+<em><span class="nocase">The On-Line Encyclopedia of Integer
+Sequences</span></em>, No. A316387. <a href="https://oeis.org/A316387"
 class="uri">Https://oeis.org/A316387</a>.
 </div>
 <div id="ref-derivative_of_polynomials_via_double_limit"

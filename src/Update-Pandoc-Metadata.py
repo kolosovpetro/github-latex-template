@@ -8,7 +8,7 @@ import sys
 SCRIPT_DIR = Path(__file__).resolve().parent
 METADATA_FILE = SCRIPT_DIR / "metadata.html"
 HTML_FILE = SCRIPT_DIR / "index.html"
-MARKER = b'  <meta name="generator" content="pandoc" />'
+MARKER = b'  <meta name="generator" content="pandoc 3.13" />'
 
 
 def main() -> int:
