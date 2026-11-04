@@ -101,8 +101,8 @@ jobs:
 
       - name: '🛠 Build Pandoc 🛠'
         if: ${{ inputs.enable_pandoc }}
-        run: ./src/Generate-Html.ps1
-        shell: pwsh
+        run: python3 src/Generate-Html.py
+        shell: bash
 
       - name: '⬆️ Upload build assets ⬆️'
         uses: actions/upload-artifact@v7
