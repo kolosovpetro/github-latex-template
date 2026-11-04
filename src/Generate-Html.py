@@ -26,26 +26,26 @@ def main() -> int:
         )
         return 1
 
-    latex_file = tex_files[0]
-    latex_name = Path(latex_file).stem
-    bibliography_file = f"{latex_name}.bib"
+    latex_file = SCRIPT_DIR / tex_files[0]
+    latex_name = latex_file.stem
+    bibliography_file = SCRIPT_DIR / f"{latex_name}.bib"
     csl_file = "chicago-author-date.csl"
     metadata_file = "metadata.html"
     output_file = "index.html"
 
-    for required_file in (bibliography_file, csl_file, metadata_file):
-        if not (SCRIPT_DIR / required_file).is_file():
+    for required_file in (bibliography_file, SCRIPT_DIR / csl_file, SCRIPT_DIR / metadata_file):
+        if not required_file.is_file():
             print(
-                f"Error: required input file not found: {SCRIPT_DIR / required_file}",
+                f"Error: required input file not found: {required_file}",
                 file=sys.stderr,
             )
             return 1
 
-    print(f"Generating {output_file} from {latex_file}...", flush=True)
+    print(f"Generating {output_file} from {latex_file.name}...", flush=True)
     subprocess.run(
         [
             "pandoc",
-            latex_file,
+            str(latex_file),
             "--mathjax=https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js",
             "--standalone",
             "--citeproc",
