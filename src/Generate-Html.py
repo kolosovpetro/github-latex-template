@@ -50,6 +50,8 @@ def main() -> int:
             "--standalone",
             "--citeproc",
             "--metadata=lang:en",
+            "--variable=backgroundcolor:#ffffff",
+            "--variable=fontcolor:#1a1a1a",
             f"--bibliography={bibliography_file}",
             f"--csl={csl_file}",
             "-o",
