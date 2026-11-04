@@ -1,14 +1,13 @@
 PLAIN TEXT CHECKLIST: GENERAL WRITING RULES FOR INTEGERS
 
-Use this as a final checklist before submission.
+Use this checklist when drafting, editing, or reviewing the paper. Apply it to prose and LaTeX source where relevant, then check the rendered document for layout issues before submission.
 
 1. Page layout
    - All text, formulas, tables, and figures must stay inside the page margins.
    - No equation or figure may extend into the margin.
 
 2. Sentence beginnings
-   - Every sentence must start with a normal English word.
-   - Do NOT start a sentence with a formula or symbol.
+   - Begin every sentence, including theorem statements, with an English word rather than a formula or symbol.
    - Bad:  n^2 is an integer.
    - Good: For all integers n, the quantity n^2 is an integer.
    - This rule also applies to theorem statements.
@@ -21,8 +20,8 @@ Use this as a final checklist before submission.
    - Bad: We now state the following result:
 
 4. Section and subsection titles
-   - Capitalize the first letter of each important word.
-   - Do not capitalize articles, conjunctions, or prepositions.
+   - Use title case: capitalize the first and last words and the principal words.
+   - Lowercase articles, coordinating conjunctions, and prepositions unless they are the first or last word.
    - Example:
      - Good: Sums of Powers via Finite Differences
      - Bad: Sums Of Powers Via Finite Differences
@@ -33,16 +32,15 @@ Use this as a final checklist before submission.
    - Good: do not, cannot, it is, we have
 
 6. Definitions
-   - When defining a term, write the defined word or phrase in italics.
+   - Italicize a term when it is introduced as a formal definition; use `\emph{...}` in LaTeX.
    - Do not use boldface.
-   - Example:
-     - We define the sequence a_n to be the central difference sequence.
+   - Example: We call `\emph{a central difference sequence}` a sequence defined by the central difference operator.
 
 7. Tables and figures
    - Every table and figure must have:
      - A number (label)
      - A caption
-   - The caption must appear below the table or figure, not above it.
+   - Place captions below both tables and figures, following this project's style.
 
 8. Referring to theorems and similar results
    - Capitalize the word when it has a number.
@@ -77,8 +75,8 @@ Use this as a final checklist before submission.
     - This rule also applies to bibliographies with three or more authors.
 
 13. Referencing figures, tables, and equations
-    - Every numbered figure, table, and equation must be mentioned in the text.
-    - Do not number an equation unless you refer to it in the paper.
+   - Refer to every numbered figure and table in the text.
+   - Number an equation only when the text refers to it; refer to every numbered equation using the format in Rule 9.
 
 14. References
     - Every item in the bibliography must be cited somewhere in the text.
@@ -99,11 +97,10 @@ Use this as a final checklist before submission.
       - Thus, we obtain the desired identity.
 
 17. Paragraph indentation
-    - Only the first line of a new paragraph should be indented.
-    - Do not indent lines for any other reason.
+   - Use normal paragraph indentation only; do not add spaces or manual indentation to align wrapped lines or displayed material.
 
 18. Single-paragraph rule
-    - Each of the following must be exactly one paragraph:
+   - Keep each of the following to exactly one paragraph:
       - Theorem statements
       - Lemma statements
       - Definitions
@@ -112,12 +109,11 @@ Use this as a final checklist before submission.
       - Acknowledgements section
 
 19. Punctuation after displayed equations
-    - If a sentence ends with a displayed equation, add a period.
-    - The period goes at the end of the last line of the display.
+   - Punctuate a displayed equation as part of its surrounding sentence.
+   - If the sentence ends with the display, place the terminal period at the end of the final equation line, before the closing display delimiter.
 
 20. Long equations
-    - If a mathematical expression is long and spans multiple lines of text,
-      put it in display mode instead of inline math.
+   - Keep short expressions inline. Put an expression in display mode when it is too long to read comfortably within the sentence or needs to break across lines.
 
 21. Bold text
     - Do not use boldface text in the body of the paper.
@@ -125,3 +121,15 @@ Use this as a final checklist before submission.
       - Section titles
       - Subsection titles
       - Theorem, lemma, definition, remark, and example headings
+
+22. Remove unused references in *.bib file.
+23. Arrange references in *.bib file in order as they used in paper.
+24. For every reference add its number in comment, the line before reference goes.
+25. For every reference always use terms "in", "from", "given by"
+  - Bad: Donald Knuth gives a formula for sums of odd powers in terms of the central factorial numbers of the second kind $T(n,k)$~\cite{knuth1993johann}.
+  - Good: Donald Knuth gives a formula for sums of odd powers in terms of the central factorial numbers of the second kind $T(n,k)$ in~\cite{knuth1993johann}.
+  - Ignore: "in the OEIS~\cite{...}"
+26. In proof environment use \tbinom, \tsum
+27. Do not use period after cases environment
+  - Bad: \end{cases}.
+  - Good: \end{cases}

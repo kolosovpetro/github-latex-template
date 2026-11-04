@@ -90,7 +90,7 @@ jobs:
           echo "\texttt{$newVersion}" > "src/metadata/version.tex"
           echo "Contents of the file: src/metadata/version.tex"
           cat "src/metadata/version.tex"
-          
+
       - name: '🛠 Build PDF 🛠'
         uses: xu-cheng/latex-action@v4
         with:

@@ -69,7 +69,7 @@ jobs:
       workflow_name: 'Build PDF'
       build_assets_path: '${{ inputs.build_assets_path }}'
       working_directory_for_latex: 'src'
-  
+
   deploy:
     needs: build
     runs-on: ${{ inputs.runs_on }}
@@ -96,7 +96,7 @@ jobs:
       - name: '🔍 Validate HTML artifact'
         run: |
           ls -lsa downloaded/html
-      
+
       - name: '📀 Clone repository 📀'
         run: |
           git clone https://${{ env.TOKEN }}@github.com/kolosovpetro/kolosovpetro.github.io.git ~/kolosovpetro.github.io
