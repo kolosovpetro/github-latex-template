@@ -44,6 +44,7 @@
 - https://github.com/GitTools/actions/blob/main/docs/examples/github/gitversion/index.md
 - https://github.com/xu-cheng/latex-action
 - https://github.com/actions/upload-artifact
+- https://github.com/pandoc/actions
 
 ## How to use Mathematica package
 

@@ -53,6 +53,8 @@ jobs:
       - name: '⬇️ Install pandoc ⬇️'
         if: ${{ inputs.enable_pandoc }}
         uses: pandoc/actions/setup@v1
+        with:
+          version: '3.13'
 
       - name: '🔄 Run pandoc 🔄'
         if: ${{ inputs.enable_pandoc }}
