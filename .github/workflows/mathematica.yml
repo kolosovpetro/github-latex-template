@@ -16,7 +16,7 @@ on:
 
 jobs:
   mathematica:
-    uses: kolosovpetro/github-latex-template/.github/workflows/mathematica-template.yml@MATH-90
+    uses: kolosovpetro/github-latex-template/.github/workflows/mathematica-template.yml@main
     #secrets: inherit
     with:
       mathematica-directory: ./mathematica
