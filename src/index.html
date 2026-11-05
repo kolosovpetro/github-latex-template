@@ -1,14 +1,57 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <link rel="canonical" href="https://kolosovpetro.github.io/math/test/" />
-  <meta name="keywords" content="sums of powers, Newton interpolation formula, finite differences, binomial coefficients, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, interpolation, discrete convolution, combinatorics, polynomial identities, Stirling numbers of the second kind, Eulerian numbers, Worpitzky identity, Pascal's triangle, OEIS" />
-  <meta name="description" content="LaTeX template for GitHub including general CI/CD actions and Mathematica templates." />
+  <link rel="canonical" href="https://kolosovpetro.github.io/math/test" />
+  <meta name="description" content="LaTeX template for GitHub, including general CI/CD workflows and Mathematica templates." />
+  <meta name="keywords" content="Sums of powers, Power sums, Polynomials, Power function, Polynomial identities, Newton's interpolation formula, Finite differences, Interpolation, Approximation, Binomial coefficients, Multinomial coefficients, Binomial theorem, Faulhaber's formula, Bernoulli numbers, Bernoulli polynomials, Derivatives, Differential calculus, Partial differential equations, Discrete convolution, Sums of convolved powers, Convolved power sums, Combinatorics, Central factorial numbers, Stirling numbers, Eulerian numbers, Worpitzky identity, Pascal's triangle, Dynamic systems, Time scales, OEIS" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LaTeX Template for GitHub" />
+  <meta property="og:description" content="LaTeX template for GitHub, including general CI/CD workflows and Mathematica templates." />
+  <meta property="og:url" content="https://kolosovpetro.github.io/math/test" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LaTeX Template for GitHub" />
+  <meta name="twitter:description" content="LaTeX template for GitHub, including general CI/CD workflows and Mathematica templates." />
+  <meta name="citation_title" content="LaTeX Template for GitHub" />
+  <meta name="citation_author" content="Kolosov, Petro" />
+  <meta name="citation_publication_date" content="2025/12/24" />
+  <meta name="citation_doi" content="10.5281/zenodo.18040979" />
+  <meta name="citation_public_url" content="https://kolosovpetro.github.io/math/test" />
+  <meta name="citation_abstract" content="LaTeX template for GitHub including general CI/CD workflows and Mathematica templates." />
+  <meta name="citation_keywords" content="Sums of powers" />
+  <meta name="citation_keywords" content="Power sums" />
+  <meta name="citation_keywords" content="Polynomials" />
+  <meta name="citation_keywords" content="Power function" />
+  <meta name="citation_keywords" content="Polynomial identities" />
+  <meta name="citation_keywords" content="Newton's interpolation formula" />
+  <meta name="citation_keywords" content="Finite differences" />
+  <meta name="citation_keywords" content="Interpolation" />
+  <meta name="citation_keywords" content="Approximation" />
+  <meta name="citation_keywords" content="Binomial coefficients" />
+  <meta name="citation_keywords" content="Multinomial coefficients" />
+  <meta name="citation_keywords" content="Binomial theorem" />
+  <meta name="citation_keywords" content="Faulhaber's formula" />
+  <meta name="citation_keywords" content="Bernoulli numbers" />
+  <meta name="citation_keywords" content="Bernoulli polynomials" />
+  <meta name="citation_keywords" content="Derivatives" />
+  <meta name="citation_keywords" content="Differential calculus" />
+  <meta name="citation_keywords" content="Partial differential equations" />
+  <meta name="citation_keywords" content="Discrete convolution" />
+  <meta name="citation_keywords" content="Sums of convolved powers" />
+  <meta name="citation_keywords" content="Convolved power sums" />
+  <meta name="citation_keywords" content="Combinatorics" />
+  <meta name="citation_keywords" content="Central factorial numbers" />
+  <meta name="citation_keywords" content="Stirling numbers" />
+  <meta name="citation_keywords" content="Eulerian numbers" />
+  <meta name="citation_keywords" content="Worpitzky identity" />
+  <meta name="citation_keywords" content="Pascal's triangle" />
+  <meta name="citation_keywords" content="Dynamic systems" />
+  <meta name="citation_keywords" content="Time scales" />
+  <meta name="citation_keywords" content="OEIS" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Petro Kolosov" />
-  <meta name="dcterms.date" content="2026-02-05" />
+  <meta name="dcterms.date" content="2026-11-05" />
   <title>LaTeX Template for GitHub</title>
   <style>
     /* Default styles provided by pandoc.
@@ -16,7 +59,10 @@
     */
     html {
       color: #1a1a1a;
-      background-color: #fdfdfd;
+      color: light-dark(#1a1a1a, #fdfdfd);
+      background-color: #ffffff;
+      background-color: light-dark(#ffffff, #1a1a1a);
+      color-scheme: light;
     }
     body {
       margin: 0 auto;
@@ -41,12 +87,16 @@
     }
     @media print {
       html {
-        background-color: white;
+        color-scheme: light only;
       }
-      body {
+      html, body, pre, code {
         background-color: transparent;
+      }
+      body, a, a:visited, blockquote {
         color: black;
-        font-size: 12pt;
+      }
+      pre, code {
+        padding: 0;
       }
       p, h2, h3 {
         orphans: 3;
@@ -59,11 +109,8 @@
     p {
       margin: 1em 0;
     }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
+    a, a:visited {
+      color: inherit;
     }
     img {
       max-width: 100%;
@@ -92,8 +139,11 @@
     blockquote {
       margin: 1em 0 1em 1.7em;
       padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
+      border-left: 2px solid;
+      border-color: #e6e6e6;
+      border-color: light-dark(#e6e6e6, #4c4c4c);
       color: #606060;
+      color: light-dark(#606060, #b6b6b6);
     }
     div.abstract {
       margin: 2em 2em 2em 2em;
@@ -107,6 +157,7 @@
       margin-bottom: 0.5em;
     }
     code {
+      white-space: pre-wrap;
       font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
@@ -127,7 +178,7 @@
     }
     hr {
       border: none;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
       height: 1px;
       margin: 1em 0;
     }
@@ -144,11 +195,11 @@
     }
     tbody {
       margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
     }
     th {
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
       padding: 0.25em 0.5em 0.25em 0.5em;
     }
     td {
@@ -170,10 +221,13 @@
     #TOC a:not(:hover) {
       text-decoration: none;
     }
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -205,14 +259,14 @@
       margin-left: 2em;
     }  </style>
   <script defer=""
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
   type="text/javascript"></script>
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">LaTeX Template for GitHub</h1>
 <p class="author">Petro Kolosov</p>
-<p class="date">2026-02-05</p>
+<p class="date">2026-11-05</p>
 <div class="abstract">
 <div class="abstract-title">Abstract</div>
 <p>Your abstract here.</p>
@@ -237,8 +291,7 @@ style="width:100.0%" alt="image" />  </p>
 <figcaption>Image example (from caption).</figcaption>
 </figure>
 <div class="center">
-<div id="tab:table_of_coefficients_a">
-<table>
+<table id="tab:table_of_coefficients_a">
 <caption>Coefficients <span
 class="math inline">\({\mathbf{A}}_{m,r}\)</span>. See OEIS sequences
  <span class="citation"
@@ -350,14 +403,6 @@ class="math inline">\(m/r\)</span></th>
 </tbody>
 </table>
 </div>
-</div>
-<p><span class="math display">\[\begin{equation*}
-  \left\lceil\kern-3.5pt\left\lceil\genfrac{}{}{0pt}{}{a}{b}
-\right\rfloor\kern-3.5pt\right\rfloor_{m}
-\end{equation*}\]</span> <span class="math display">\[\begin{equation*}
-  \left\lceil\kern-3.5pt\left\lceil\genfrac{}{}{0pt}{}{a}{b}
-\right\rfloor\kern-3.5pt\right\rfloor_{m}
-\end{equation*}\]</span></p>
 <p>And for any natural <span class="math inline">\(m\)</span> we have
 polynomial identity <span class="math display">\[\begin{equation}
   x^m = \sum_{k=1}^{m} T(m, k) x^{[k]}
@@ -457,11 +502,86 @@ class="math display">\[\begin{align*}
 <h1 class="unnumbered" id="acknowledgements">Acknowledgements</h1>
 <p>The author is grateful to [Full Name] for his valuable contribution
 [contribution] about the fact that [interesting claim].</p>
+<h1 class="unnumbered" id="mathematica">Mathematica</h1>
+<p>Use this <a
+href="https://github.com/kolosovpetro/SumsOfPowersViaCentralFiniteDifferencesAndNewtonFormula/tree/main/mathematica"><code>GitHub</code></a>
+repository to validate the results using Mathematica programs.<br />
+</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Mathematica Function</strong></th>
+<th style="text-align: left;"><strong>Validates / Prints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td
+style="text-align: left;"><code>ValidateOrdinarySumsOfPowers.txt</code></td>
+<td style="text-align: left;">Validates Prop. <a
+href="#prop:ordinary-sums-of-powers" data-reference-type="eqref"
+data-reference="prop:ordinary-sums-of-powers">[prop:ordinary-sums-of-powers]</a></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><code>ValidateDoubleSumsOfPowers.txt</code></td>
+<td style="text-align: left;">Validates Prop. <a
+href="#prop:double-sums-of-powers" data-reference-type="eqref"
+data-reference="prop:double-sums-of-powers">[prop:double-sums-of-powers]</a></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><code>ValidateMultifoldSumsOfPowers.txt</code></td>
+<td style="text-align: left;">Validates Thm. <a
+href="#thm:multifold-sums-of-powers" data-reference-type="eqref"
+data-reference="thm:multifold-sums-of-powers">[thm:multifold-sums-of-powers]</a></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><code>ValidateMultifoldBinomialSumsOfPowers.txt</code></td>
+<td style="text-align: left;">Validates Prop. <a
+href="#prop:multifold-binomial-sums-of-powers"
+data-reference-type="eqref"
+data-reference="prop:multifold-binomial-sums-of-powers">[prop:multifold-binomial-sums-of-powers]</a></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><code>ValidateOrdinarySumsOfPowersAtZero.txt</code></td>
+<td style="text-align: left;">Validates Prop. <a
+href="#prop:ordinary-sums-of-powers-at-zero" data-reference-type="eqref"
+data-reference="prop:ordinary-sums-of-powers-at-zero">[prop:ordinary-sums-of-powers-at-zero]</a></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><code>ValidateDoubleSumsOfPowersAtZero.txt</code></td>
+<td style="text-align: left;">Validates Prop. <a
+href="#prop:double-sums-of-powers-at-zero" data-reference-type="eqref"
+data-reference="prop:double-sums-of-powers-at-zero">[prop:double-sums-of-powers-at-zero]</a></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><code>ValidateMultifoldSumsOfPowersAtZero.txt</code></td>
+<td style="text-align: left;">Validates Thm. <a
+href="#thm:multifold-sums-of-powers-at-zero" data-reference-type="eqref"
+data-reference="thm:multifold-sums-of-powers-at-zero">[thm:multifold-sums-of-powers-at-zero]</a></td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><code>ValidateMultifoldSumsOfPowersAtZeroBinomialForm.txt</code></td>
+<td style="text-align: left;">Validates Thm. <a
+href="#prop:multifold-sums-of-powers-at-zero-binomial-form"
+data-reference-type="eqref"
+data-reference="prop:multifold-sums-of-powers-at-zero-binomial-form">[prop:multifold-sums-of-powers-at-zero-binomial-form]</a></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><span><strong>Metadata</strong></span></p>
 <ul>
 <li><p><strong>Initial release date:</strong> December 24,
 2025.</p></li>
-<li><p><strong>Current release date:</strong> 2026-02-05.</p></li>
+<li><p><strong>Current release date:</strong> 2026-11-05.</p></li>
 <li><p><strong>Version:</strong> <code>Local-0.1.0</code></p></li>
 <li><p><strong>MSC2010:</strong> 05A19, 05A10, 41A15, 11B68, 11B73,
 11B83</p></li>
@@ -526,4 +646,3 @@ Double Limit.”</span> <em>GitHub</em>.
 </div>
 </body>
 </html>
-

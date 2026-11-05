@@ -2,7 +2,7 @@ function Build-Latex
 {
     param (
         [string]$OutputDirectory = "..\out",
-        [Boolean]$ShouldCompileBibtex = $true
+        [Boolean]$ShouldCompileBibtex = $True
     )
 
     try

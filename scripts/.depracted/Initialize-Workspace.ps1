@@ -250,12 +250,12 @@ Replace-TextInFile `
 
 Write-Host "Removing renovate configs ..."
 
-$RenoveteConfig = "$GitRootDirectoryAbsPath/renovate.json"
-$RenoveteLicense = "$GitRootDirectoryAbsPath/renovate.json.license"
+$RenovateConfig = "$GitRootDirectoryAbsPath/renovate.json"
+$RenovateLicense = "$GitRootDirectoryAbsPath/renovate.json.license"
 
-$renovate = @($RenoveteConfig, $RenoveteLicense)
+$renovate = @($RenovateConfig, $RenovateLicense)
 
-foreach ($file in $renovate) 
+foreach ($file in $renovate)
 {
     if (Test-Path $file) {
         Write-Host "Removing: $file ..."
@@ -277,7 +277,7 @@ $DeployTemplate = "$GitRootDirectoryAbsPath/.github/workflows/build-and-deploy-p
 
 $actions = @($BuildTemplate, $DeployTemplate)
 
-foreach ($file in $actions) 
+foreach ($file in $actions)
 {
     if (Test-Path $file) {
         Write-Host "Removing: $file ..."

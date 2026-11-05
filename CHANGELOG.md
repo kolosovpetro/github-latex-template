@@ -5,13 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.1] - In progress
+## [2.0.0] - 05 November 2026
+
+### Added
+
+- Add Python scripts for workspace initialization, LaTeX builds, and Pandoc HTML generation
+- Add Ubuntu installation scripts and VS Code configuration
+- Add Mathematica Docker execution and reusable GitHub Actions workflows
+- Add mathematical writing guidance and prompt collection
 
 ### Changed
 
-- Remove idea files
-- Add prompts
+- Pin Pandoc to version 3.13 and update HTML generation, metadata, and light styling
+- Update reusable GitHub Actions for Python-based Pandoc builds and Mathematica CI
+- Update project documentation and Mathematica container instructions
 
+### Removed
+
+- Remove IDE run configurations
+- Move superseded PowerShell and shell scripts out of the active `src` workflow
 
 ## [1.6.0] - 12 July 2026
 

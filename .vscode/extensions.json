@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "openai.chatgpt",
+        "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries",
+        "editorconfig.editorconfig",
+        "james-yu.latex-workshop"
+    ]
+}

@@ -1,4 +1,4 @@
-name: Mathematica
+name: 'Mathematica'
 
 on:
   push:
@@ -17,6 +17,7 @@ on:
 jobs:
   mathematica:
     uses: kolosovpetro/github-latex-template/.github/workflows/mathematica-template.yml@MATH-90
+    #secrets: inherit
     with:
       mathematica-directory: ./mathematica
       wolfram-image: wolframresearch/wolframengine:15.0

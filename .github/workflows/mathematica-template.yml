@@ -1,5 +1,4 @@
-name: Mathematica Template
-
+name: 'Mathematica Template'
 on:
   workflow_call:
     inputs:

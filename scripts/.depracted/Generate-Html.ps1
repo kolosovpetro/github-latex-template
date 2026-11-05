@@ -10,6 +10,7 @@ $LatexFileName = (Get-ChildItem -Filter "*.tex" | Select-Object -First 1).BaseNa
 Write-Host "Latex file: $LatexFileName"  -ForegroundColor Magenta
 
 pandoc "$LatexFileName.tex" --mathjax --standalone --citeproc `
+    --metadata=lang:en `
     --bibliography="$LatexFileName.bib" `
     --csl=chicago-author-date.csl -o index.html
 
@@ -25,11 +26,11 @@ if ($UpdateMetadata) {
     Write-Host "Fixing encoding ..."
 }
 
-$EncodingScriptPath = "$PSScriptRoot/../scripts/Test-Encoding.ps1"
+# $EncodingScriptPath = "$PSScriptRoot/../scripts/Test-Encoding.ps1"
 
-& $EncodingScriptPath -Autofix
+# & $EncodingScriptPath -Autofix
 
-Write-Host "Fix encoding is complete." -ForegroundColor Green
+# Write-Host "Fix encoding is complete." -ForegroundColor Green
 
 Write-Host "Exit Code: $LASTEXITCODE" -ForegroundColor Green
 Write-Host "Changing Powershell Directory to $InitialDirectory ... " -ForegroundColor Green

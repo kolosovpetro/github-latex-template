@@ -53,6 +53,8 @@ jobs:
       - name: '⬇️ Install pandoc ⬇️'
         if: ${{ inputs.enable_pandoc }}
         uses: pandoc/actions/setup@v1
+        with:
+          version: '3.13'
 
       - name: '🔄 Run pandoc 🔄'
         if: ${{ inputs.enable_pandoc }}
@@ -90,7 +92,7 @@ jobs:
           echo "\texttt{$newVersion}" > "src/metadata/version.tex"
           echo "Contents of the file: src/metadata/version.tex"
           cat "src/metadata/version.tex"
-          
+
       - name: '🛠 Build PDF 🛠'
         uses: xu-cheng/latex-action@v4
         with:
@@ -99,8 +101,8 @@ jobs:
 
       - name: '🛠 Build Pandoc 🛠'
         if: ${{ inputs.enable_pandoc }}
-        run: ./src/Generate-Html.ps1
-        shell: pwsh
+        run: python3 src/Generate-Html.py
+        shell: bash
 
       - name: '⬆️ Upload build assets ⬆️'
         uses: actions/upload-artifact@v7
