@@ -14,11 +14,6 @@ on:
         type: string
         default: wolframresearch/wolframengine:15.0
 
-      wolfram-scripts:
-        description: List of Wolfram scripts to execute
-        required: true
-        type: string
-
     secrets:
       WOLFRAM_LICENSE_FILE:
         required: true
@@ -51,14 +46,4 @@ jobs:
       - name: 🧮 Run WolframScript in Docker 🧮
         shell: bash
         working-directory: ${{ inputs.mathematica-directory }}
-        env:
-          WOLFRAM_SCRIPTS: ${{ inputs.wolfram-scripts }}
-        run: |
-          chmod +x ./Run-Wolfram-Container.sh
-
-          while IFS= read -r script; do
-            [[ -z "$script" ]] && continue
-
-            echo "Running: $script"
-            ./Run-Wolfram-Container.sh "$script"
-          done <<< "$WOLFRAM_SCRIPTS"
+        run: python3 Run-All-Tests.py
