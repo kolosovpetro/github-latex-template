@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - In Progress
+
+### Added
+
+- Add a Python runner that executes every file in `mathematica/Tests` and reports failures
+- Include both polynomial example-generation scripts in the Mathematica test run
+
+### Changed
+
+- Move Mathematica test scripts into the `mathematica/Tests` directory
+- Update the Mathematica reusable GitHub Actions workflow to run the Python test runner
+- Remove the manually maintained Wolfram script list from the Mathematica workflow
+
 ## [2.0.0] - 05 November 2026
 
 ### Added
