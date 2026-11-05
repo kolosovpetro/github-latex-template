@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -Eeuo pipefail
-umask 077
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(git -C "$script_dir" rev-parse --show-toplevel 2>/dev/null)" || {
@@ -31,8 +30,6 @@ if ! docker container inspect "$container_id" >/dev/null 2>&1; then
 fi
 
 mkdir -p -- "$license_dir"
-chmod 700 "$license_dir"
 docker cp "$container_id:$container_license_path" "$license_file"
-chmod 600 "$license_file"
 
 printf 'Wolfram license file copied to: %s\n' "$license_file"

@@ -13,8 +13,8 @@
 - Inside interactive container: `wolframscript`
   - Enter login
   - Enter password
-- Copy license file from the repository root: `./mathematica/copy-wolfram-license.sh`
-- Mount license file and test wolframscript: `.\Test-Wolfram-Container.ps1`
+- Copy license file from the repository root: `./copy-wolfram-license.sh`
+- Mount license file and test wolframscript: `./Validate-Wolfram-Container.sh`
 
 # Run equation tests (Docker: Bash)
 
