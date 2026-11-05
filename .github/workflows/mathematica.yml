@@ -1,4 +1,4 @@
-name: Mathematica
+name: 'Mathematica'
 
 on:
   push:
