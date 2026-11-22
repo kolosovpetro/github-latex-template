@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
-## [2.1.0] - In Progress
+## [2.1.0] - Nov 22, 2026
 
 ### Added
 
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update the Mathematica reusable GitHub Actions workflow to run the Python test runner
 - Remove the manually maintained Wolfram script list from the Mathematica workflow
 
-## [2.0.0] - 05 November 2026
+## [2.0.0] - Nov 05, 2026
 
 ### Added
 
@@ -38,7 +38,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Remove IDE run configurations
 - Move superseded PowerShell and shell scripts out of the active `src` workflow
 
-## [1.6.0] - 12 July 2026
+## [1.6.0] - Jul 12, 2026
 
 ### Changed
 
@@ -55,7 +55,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Sync VScode config
 - GitHub Actions reusable template for Mathematica
 
-## [1.5.0] - 06 Jan 2026
+## [1.5.0] - Jan 06, 2026
 
 ### Changed
 
@@ -67,7 +67,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update init script
 - Implement HTML deploy to GitHub pages
 
-## [1.4.0] - 06 Jan 2026
+## [1.4.0] - Jan 06, 2026
 
 ### Changed
 
@@ -91,18 +91,18 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update file versioning
 - Add free foot note
 - Update article structure
-- Clean-up in preambule
+- Clean-up in preamble
 - Rework metadata
 - Add pandoc script
 - Configure pandoc with GitHub Actions
 
-## [1.3.3] - 19-Dec-2025
+## [1.3.3] - Dec 19, 2025
 
 ### Changed
 
 - Metadata moved to separate folder
 
-## [1.3.2] - 19-Dec-2025
+## [1.3.2] - Dec 19, 2025
 
 ### Changed
 
@@ -133,7 +133,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Add encoding exclusions: `.m` and `.nb`
 - Move version files to root folder
 
-## [1.3.1] - 2025-01-15
+## [1.3.1] - Jan 15, 2025
 
 ### Changed
 
@@ -144,7 +144,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Update README
 - Update bibliography
 
-## [1.3.0] - 2024-10-06
+## [1.3.0] - Oct 06, 2024
 
 ### Changed
 
@@ -153,20 +153,20 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Implement powershell script that renames main latex and bibtex files to match repo root directory name
 - Update README with new build instructions
 
-## [1.2.0] - 2024-09-25
+## [1.2.0] - Sep 25, 2024
 
 ### Changed
 
 - Implement latex build template (GitHub Actions)
 - Implement latex deploy template (GitHub Actions)
 
-## [1.1.9] - 2024-07-03
+## [1.1.9] - Jul 03, 2024
 
 ### Changed
 
 - Hotfix update GitHub Actions GitVersion
 
-## [1.1.8] - 2024-07-03
+## [1.1.8] - Jul 03, 2024
 
 ### Changed
 
@@ -177,8 +177,47 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Bump GitHub Actions version
 - Hotfix update GitHub Actions GitVersion
 
-## [1.1.7] - 2024-01-31
+## [1.1.7] - Jan 31, 2024
 
 ### Changed
 
 - Initial release before change log introduced.
+
+## [1.1.6] - Nov 16, 2023
+
+### Changed
+
+- Added version as part of CI in azure pipelines
+
+## [1.1.5] - Nov 16, 2023
+
+### Changed
+
+- Added azure pipelines CI
+
+## [0.1.6] - Not released
+
+## [0.1.5] - Not released
+
+## [0.1.4] - Jul 19, 2023
+
+### Changed
+
+- Version format inside latex document changed
+
+## [0.1.3] - Not released
+
+## [0.1.2] - Jul 16, 2023
+
+### Changed
+
+- GitVersion and SemVer is part of CI/CD and also part of PDF document. Version is being updated automatically during CI/CD process
+
+## [0.1.1] - Jul 16, 2023
+
+### Changed
+
+- CI/CD updated
+- Example in README updated
+- Picture example added
+- Line skip increased
